@@ -164,6 +164,17 @@
                 },
                 {
                     "name": "",
+                    "id": "6d9464f5-1a24-4cc8-88cb-ef4f2deac7e0",
+                    "path": "<Gamepad>/rightStick/x",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Yaw",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "138ab3bf-449e-4f92-9366-eb1241596cc5",
                     "path": "<Keyboard>/space",
                     "interactions": "",
