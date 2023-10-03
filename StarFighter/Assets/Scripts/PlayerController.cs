@@ -18,6 +18,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float torqueForce = 1;
 
     [Space] [SerializeField] private Controller controlType;
+    [Space] [SerializeField] private GameObject VFXThrottle;
 
     private float _pitchValue;
     private float _rollValue;
@@ -51,9 +52,14 @@ public class PlayerController : MonoBehaviour
                 _inputs.Movement1.Pitch.canceled += _ => _pitchValue = 0; 
                 _inputs.Movement1.Roll.canceled += _ => _rollValue = 0; 
                 _inputs.Movement1.Yaw.canceled += _ => _yawValue = 0;
-        
+
+                _inputs.Movement1.Propulse.started += _ => VFXThrottle.SetActive(true);
                 _inputs.Movement1.Propulse.performed += value => _torqueValue = value.ReadValue<float>();
-                _inputs.Movement1.Propulse.canceled += _ => _torqueValue = 0;
+                _inputs.Movement1.Propulse.canceled += _ =>
+                {
+                    _torqueValue = 0;
+                    VFXThrottle.SetActive(false);
+                };
                 break;
             default:
                 throw new ArgumentOutOfRangeException();

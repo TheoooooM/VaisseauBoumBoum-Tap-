@@ -186,7 +186,7 @@ public partial class @StarshipController: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""6d9464f5-1a24-4cc8-88cb-ef4f2deac7e0"",
+                    ""id"": ""8d47a65a-5c89-4ae2-a839-f0c2576d7c5a"",
                     ""path"": ""<Gamepad>/rightStick/x"",
                     ""interactions"": """",
                     ""processors"": """",
