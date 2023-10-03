@@ -2,6 +2,11 @@ using System;
 using UnityEngine;
 using UnityEngine.UIElements;
 
+enum Controller
+{
+    Casual, DualStick
+}
+
 public class PlayerController : MonoBehaviour
 {
     private Rigidbody _rb;
@@ -12,7 +17,7 @@ public class PlayerController : MonoBehaviour
     [Space]
     [SerializeField] private float torqueForce = 1;
 
-    [Space] [SerializeField] private GameObject reactorTrails;
+    [Space] [SerializeField] private Controller controlType;
 
     private float _pitchValue;
     private float _rollValue;
@@ -25,15 +30,43 @@ public class PlayerController : MonoBehaviour
     {
         _inputs = new StarshipController();
 
-        _inputs.Movement.Pitch.performed += value => _pitchValue = value.ReadValue<float>(); 
-        _inputs.Movement.Roll.performed += value => _rollValue = value.ReadValue<float>(); 
-        _inputs.Movement.Yaw.performed += value => _yawValue = value.ReadValue<float>(); 
-        _inputs.Movement.Pitch.canceled += _ => _pitchValue = 0; 
-        _inputs.Movement.Roll.canceled += _ => _rollValue = 0; 
-        _inputs.Movement.Yaw.canceled += _ => _yawValue = 0;
+        switch (controlType)
+        {
+            case Controller.Casual:
+                _inputs.Movement.Pitch.performed += value => _pitchValue = value.ReadValue<float>(); 
+                _inputs.Movement.Roll.performed += value => _rollValue = value.ReadValue<float>(); 
+                _inputs.Movement.Yaw.performed += value => _yawValue = value.ReadValue<float>(); 
+                _inputs.Movement.Pitch.canceled += _ => _pitchValue = 0; 
+                _inputs.Movement.Roll.canceled += _ => _rollValue = 0; 
+                _inputs.Movement.Yaw.canceled += _ => _yawValue = 0;
         
-        _inputs.Movement.Propulse.performed += value => _torqueValue = value.ReadValue<float>();
-        _inputs.Movement.Propulse.canceled += _ => _torqueValue = 0;
+                _inputs.Movement.Propulse.performed += value => _torqueValue = value.ReadValue<float>();
+                _inputs.Movement.Propulse.canceled += _ => _torqueValue = 0;
+                
+                break;
+            case Controller.DualStick:
+                _inputs.Movement1.Pitch.performed += value => _pitchValue = value.ReadValue<float>(); 
+                _inputs.Movement1.Roll.performed += value => _rollValue = value.ReadValue<float>(); 
+                _inputs.Movement1.Yaw.performed += value => _yawValue = value.ReadValue<float>(); 
+                _inputs.Movement1.Pitch.canceled += _ => _pitchValue = 0; 
+                _inputs.Movement1.Roll.canceled += _ => _rollValue = 0; 
+                _inputs.Movement1.Yaw.canceled += _ => _yawValue = 0;
+        
+                _inputs.Movement1.Propulse.performed += value => _torqueValue = value.ReadValue<float>();
+                _inputs.Movement1.Propulse.canceled += _ => _torqueValue = 0;
+                break;
+            default:
+                throw new ArgumentOutOfRangeException();
+        }
+        /*_inputs.Movement1.Pitch.performed += value => _pitchValue = value.ReadValue<float>(); 
+        _inputs.Movement1.Roll.performed += value => _rollValue = value.ReadValue<float>(); 
+        _inputs.Movement1.Yaw.performed += value => _yawValue = value.ReadValue<float>(); 
+        _inputs.Movement1.Pitch.canceled += _ => _pitchValue = 0; 
+        _inputs.Movement1.Roll.canceled += _ => _rollValue = 0; 
+        _inputs.Movement1.Yaw.canceled += _ => _yawValue = 0;
+        
+        _inputs.Movement1.Propulse.performed += value => _torqueValue = value.ReadValue<float>();
+        _inputs.Movement1.Propulse.canceled += _ => _torqueValue = 0;*/
         
         _inputs.Enable();
     }
