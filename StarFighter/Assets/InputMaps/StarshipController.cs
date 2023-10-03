@@ -71,6 +71,15 @@ public partial class @StarshipController: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""Shoot"",
+                    ""type"": ""Button"",
+                    ""id"": ""cef49f3e-a19f-4b45-b9ad-cc3832653faf"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -271,6 +280,17 @@ public partial class @StarshipController: IInputActionCollection2, IDisposable
                     ""action"": ""Pitch"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""344e5689-3378-4c6d-a4a8-d4da8926cd32"",
+                    ""path"": ""<Gamepad>/buttonWest"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Shoot"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         },
@@ -313,6 +333,15 @@ public partial class @StarshipController: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""Shoot"",
+                    ""type"": ""Button"",
+                    ""id"": ""3362c972-0f8a-46e9-bf95-c88f0f8affc7"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -489,6 +518,17 @@ public partial class @StarshipController: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""Pitch"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""e4e87e93-57a6-49b9-87e4-f0761dfbdf45"",
+                    ""path"": ""<Gamepad>/buttonWest"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Shoot"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -724,12 +764,14 @@ public partial class @StarshipController: IInputActionCollection2, IDisposable
         m_Movement_YawDown = m_Movement.FindAction("Yaw Down", throwIfNotFound: true);
         m_Movement_Yaw = m_Movement.FindAction("Yaw", throwIfNotFound: true);
         m_Movement_Propulse = m_Movement.FindAction("Propulse", throwIfNotFound: true);
+        m_Movement_Shoot = m_Movement.FindAction("Shoot", throwIfNotFound: true);
         // Movement1
         m_Movement1 = asset.FindActionMap("Movement1", throwIfNotFound: true);
         m_Movement1_Pitch = m_Movement1.FindAction("Pitch", throwIfNotFound: true);
         m_Movement1_Roll = m_Movement1.FindAction("Roll", throwIfNotFound: true);
         m_Movement1_Yaw = m_Movement1.FindAction("Yaw", throwIfNotFound: true);
         m_Movement1_Propulse = m_Movement1.FindAction("Propulse", throwIfNotFound: true);
+        m_Movement1_Shoot = m_Movement1.FindAction("Shoot", throwIfNotFound: true);
         // Movement2
         m_Movement2 = asset.FindActionMap("Movement2", throwIfNotFound: true);
         m_Movement2_Pitch = m_Movement2.FindAction("Pitch", throwIfNotFound: true);
@@ -802,6 +844,7 @@ public partial class @StarshipController: IInputActionCollection2, IDisposable
     private readonly InputAction m_Movement_YawDown;
     private readonly InputAction m_Movement_Yaw;
     private readonly InputAction m_Movement_Propulse;
+    private readonly InputAction m_Movement_Shoot;
     public struct MovementActions
     {
         private @StarshipController m_Wrapper;
@@ -811,6 +854,7 @@ public partial class @StarshipController: IInputActionCollection2, IDisposable
         public InputAction @YawDown => m_Wrapper.m_Movement_YawDown;
         public InputAction @Yaw => m_Wrapper.m_Movement_Yaw;
         public InputAction @Propulse => m_Wrapper.m_Movement_Propulse;
+        public InputAction @Shoot => m_Wrapper.m_Movement_Shoot;
         public InputActionMap Get() { return m_Wrapper.m_Movement; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -835,6 +879,9 @@ public partial class @StarshipController: IInputActionCollection2, IDisposable
             @Propulse.started += instance.OnPropulse;
             @Propulse.performed += instance.OnPropulse;
             @Propulse.canceled += instance.OnPropulse;
+            @Shoot.started += instance.OnShoot;
+            @Shoot.performed += instance.OnShoot;
+            @Shoot.canceled += instance.OnShoot;
         }
 
         private void UnregisterCallbacks(IMovementActions instance)
@@ -854,6 +901,9 @@ public partial class @StarshipController: IInputActionCollection2, IDisposable
             @Propulse.started -= instance.OnPropulse;
             @Propulse.performed -= instance.OnPropulse;
             @Propulse.canceled -= instance.OnPropulse;
+            @Shoot.started -= instance.OnShoot;
+            @Shoot.performed -= instance.OnShoot;
+            @Shoot.canceled -= instance.OnShoot;
         }
 
         public void RemoveCallbacks(IMovementActions instance)
@@ -879,6 +929,7 @@ public partial class @StarshipController: IInputActionCollection2, IDisposable
     private readonly InputAction m_Movement1_Roll;
     private readonly InputAction m_Movement1_Yaw;
     private readonly InputAction m_Movement1_Propulse;
+    private readonly InputAction m_Movement1_Shoot;
     public struct Movement1Actions
     {
         private @StarshipController m_Wrapper;
@@ -887,6 +938,7 @@ public partial class @StarshipController: IInputActionCollection2, IDisposable
         public InputAction @Roll => m_Wrapper.m_Movement1_Roll;
         public InputAction @Yaw => m_Wrapper.m_Movement1_Yaw;
         public InputAction @Propulse => m_Wrapper.m_Movement1_Propulse;
+        public InputAction @Shoot => m_Wrapper.m_Movement1_Shoot;
         public InputActionMap Get() { return m_Wrapper.m_Movement1; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -908,6 +960,9 @@ public partial class @StarshipController: IInputActionCollection2, IDisposable
             @Propulse.started += instance.OnPropulse;
             @Propulse.performed += instance.OnPropulse;
             @Propulse.canceled += instance.OnPropulse;
+            @Shoot.started += instance.OnShoot;
+            @Shoot.performed += instance.OnShoot;
+            @Shoot.canceled += instance.OnShoot;
         }
 
         private void UnregisterCallbacks(IMovement1Actions instance)
@@ -924,6 +979,9 @@ public partial class @StarshipController: IInputActionCollection2, IDisposable
             @Propulse.started -= instance.OnPropulse;
             @Propulse.performed -= instance.OnPropulse;
             @Propulse.canceled -= instance.OnPropulse;
+            @Shoot.started -= instance.OnShoot;
+            @Shoot.performed -= instance.OnShoot;
+            @Shoot.canceled -= instance.OnShoot;
         }
 
         public void RemoveCallbacks(IMovement1Actions instance)
@@ -1018,6 +1076,7 @@ public partial class @StarshipController: IInputActionCollection2, IDisposable
         void OnYawDown(InputAction.CallbackContext context);
         void OnYaw(InputAction.CallbackContext context);
         void OnPropulse(InputAction.CallbackContext context);
+        void OnShoot(InputAction.CallbackContext context);
     }
     public interface IMovement1Actions
     {
@@ -1025,6 +1084,7 @@ public partial class @StarshipController: IInputActionCollection2, IDisposable
         void OnRoll(InputAction.CallbackContext context);
         void OnYaw(InputAction.CallbackContext context);
         void OnPropulse(InputAction.CallbackContext context);
+        void OnShoot(InputAction.CallbackContext context);
     }
     public interface IMovement2Actions
     {
