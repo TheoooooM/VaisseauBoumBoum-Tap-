@@ -11,8 +11,10 @@ enum Controller
 
 public class PlayerController : MonoBehaviour
 {
-    private Rigidbody _rb;
+    public static PlayerController instance;
     
+    
+    private Rigidbody _rb;
 
 
     [SerializeField] private Animator _animator;
@@ -57,6 +59,9 @@ public class PlayerController : MonoBehaviour
     {
         _inputs = new StarshipController();
 
+        if (instance != null) DestroyImmediate(gameObject);
+        else instance = this;
+        
         switch (controlType)
         {
             case Controller.Casual:
