@@ -822,6 +822,15 @@ public partial class @StarshipController: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""Spin"",
+                    ""type"": ""Button"",
+                    ""id"": ""354a6736-ef10-40b2-9b39-7c89317c31b5"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -1033,6 +1042,17 @@ public partial class @StarshipController: IInputActionCollection2, IDisposable
                     ""action"": ""Shoot"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""26837baa-56a7-4e05-a344-8024b0aad430"",
+                    ""path"": ""<Gamepad>/buttonNorth"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Spin"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -1068,6 +1088,7 @@ public partial class @StarshipController: IInputActionCollection2, IDisposable
         m_ChorusMapping_Propulse = m_ChorusMapping.FindAction("Propulse", throwIfNotFound: true);
         m_ChorusMapping_Yaw = m_ChorusMapping.FindAction("Yaw", throwIfNotFound: true);
         m_ChorusMapping_Roll = m_ChorusMapping.FindAction("Roll", throwIfNotFound: true);
+        m_ChorusMapping_Spin = m_ChorusMapping.FindAction("Spin", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -1376,6 +1397,7 @@ public partial class @StarshipController: IInputActionCollection2, IDisposable
     private readonly InputAction m_ChorusMapping_Propulse;
     private readonly InputAction m_ChorusMapping_Yaw;
     private readonly InputAction m_ChorusMapping_Roll;
+    private readonly InputAction m_ChorusMapping_Spin;
     public struct ChorusMappingActions
     {
         private @StarshipController m_Wrapper;
@@ -1385,6 +1407,7 @@ public partial class @StarshipController: IInputActionCollection2, IDisposable
         public InputAction @Propulse => m_Wrapper.m_ChorusMapping_Propulse;
         public InputAction @Yaw => m_Wrapper.m_ChorusMapping_Yaw;
         public InputAction @Roll => m_Wrapper.m_ChorusMapping_Roll;
+        public InputAction @Spin => m_Wrapper.m_ChorusMapping_Spin;
         public InputActionMap Get() { return m_Wrapper.m_ChorusMapping; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -1409,6 +1432,9 @@ public partial class @StarshipController: IInputActionCollection2, IDisposable
             @Roll.started += instance.OnRoll;
             @Roll.performed += instance.OnRoll;
             @Roll.canceled += instance.OnRoll;
+            @Spin.started += instance.OnSpin;
+            @Spin.performed += instance.OnSpin;
+            @Spin.canceled += instance.OnSpin;
         }
 
         private void UnregisterCallbacks(IChorusMappingActions instance)
@@ -1428,6 +1454,9 @@ public partial class @StarshipController: IInputActionCollection2, IDisposable
             @Roll.started -= instance.OnRoll;
             @Roll.performed -= instance.OnRoll;
             @Roll.canceled -= instance.OnRoll;
+            @Spin.started -= instance.OnSpin;
+            @Spin.performed -= instance.OnSpin;
+            @Spin.canceled -= instance.OnSpin;
         }
 
         public void RemoveCallbacks(IChorusMappingActions instance)
@@ -1477,5 +1506,6 @@ public partial class @StarshipController: IInputActionCollection2, IDisposable
         void OnPropulse(InputAction.CallbackContext context);
         void OnYaw(InputAction.CallbackContext context);
         void OnRoll(InputAction.CallbackContext context);
+        void OnSpin(InputAction.CallbackContext context);
     }
 }

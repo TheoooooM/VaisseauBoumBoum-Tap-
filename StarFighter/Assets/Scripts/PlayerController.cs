@@ -121,6 +121,9 @@ public class PlayerController : MonoBehaviour
                 };
                 _inputs.ChorusMapping.Shoot.performed += shoot => isShooting = true;
                 _inputs.ChorusMapping.Shoot.canceled += shoot => isShooting = false;
+                
+                _inputs.ChorusMapping.Spin.started += _ => trySpin = !spinning;
+                _inputs.ChorusMapping.Spin.canceled += _ => trySpin = false;
                 break;
             default: throw new ArgumentOutOfRangeException();
         }
@@ -207,7 +210,10 @@ public class PlayerController : MonoBehaviour
                 if (_yawValue > spinMarge) StartCoroutine(Spin(true));
                 if (_yawValue < -spinMarge) StartCoroutine(Spin(false));
                 break;
-            case Controller.ChorusLike: break;
+            case Controller.ChorusLike:
+                if (_yawValue > spinMarge) StartCoroutine(Spin(true));
+                if (_yawValue < -spinMarge) StartCoroutine(Spin(false));
+                break;
             default: throw new ArgumentOutOfRangeException();
         }
         
