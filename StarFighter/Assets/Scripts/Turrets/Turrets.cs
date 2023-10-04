@@ -46,10 +46,17 @@ public class Turrets : MonoBehaviour
 
     public virtual void AimAtTarget()
     {
+        AimAtTargetFullHead();
     }
-
+    
     public virtual void Shot()
-    {}
+    {
+        for (int i = 0; i < spawners.Length; i++)
+        {
+            Instantiate(bulletPrefab, spawners[i].transform.position, spawners[i].transform.rotation,
+                bulletParent.transform);
+        }
+    }
 
 
     public void UpdateHeadBased()
@@ -93,14 +100,19 @@ public class Turrets : MonoBehaviour
     
     public void AimAtTargetFullHead()
     {
-        Quaternion rotation;
-        Vector3 look;
-        
-        look = target.transform.position - head.transform.position;
+        AimAtTargetByHead(head);
+    }
+    
+    
+    Quaternion rotation;
+    Vector3 look;
+    public void AimAtTargetByHead(GameObject headSelected)
+    {
+        look = target.transform.position - headSelected.transform.position;
         if (look != Vector3.zero)
         {
             rotation = Quaternion.LookRotation(look);
-            head.transform.rotation = Quaternion.Slerp(head.transform.rotation, rotation, turnSpeedY * Time.deltaTime);
+            head.transform.rotation = Quaternion.Slerp(headSelected.transform.rotation, rotation, turnSpeedY * Time.deltaTime);
         }
     }
 }

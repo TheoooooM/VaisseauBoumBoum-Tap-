@@ -1,10 +1,12 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BurstTurretSimple : Turrets
+public class Burst4ShotTurret : Turrets
 {
+    public GameObject subHeadLeft;
+    public GameObject subHeadRight;
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -20,9 +22,11 @@ public class BurstTurretSimple : Turrets
     {
         UpdateHeadBased();
     }
-
+    
     public override void AimAtTarget()
     {
         AimAtTargetFullHead();
+        AimAtTargetByHead(subHeadLeft);
+        AimAtTargetByHead(subHeadRight);
     }
 }
