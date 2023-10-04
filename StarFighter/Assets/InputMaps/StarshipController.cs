@@ -342,6 +342,15 @@ public partial class @StarshipController: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Spin"",
+                    ""type"": ""Button"",
+                    ""id"": ""ef073137-5da7-47ac-bdea-52c6cad94efb"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -529,6 +538,17 @@ public partial class @StarshipController: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""Shoot"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""0c61183f-3973-41fc-8cc9-6446395dab65"",
+                    ""path"": ""<XInputController>/buttonNorth"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Spin"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -1034,6 +1054,7 @@ public partial class @StarshipController: IInputActionCollection2, IDisposable
         m_DualStick_Yaw = m_DualStick.FindAction("Yaw", throwIfNotFound: true);
         m_DualStick_Propulse = m_DualStick.FindAction("Propulse", throwIfNotFound: true);
         m_DualStick_Shoot = m_DualStick.FindAction("Shoot", throwIfNotFound: true);
+        m_DualStick_Spin = m_DualStick.FindAction("Spin", throwIfNotFound: true);
         // Movement2
         m_Movement2 = asset.FindActionMap("Movement2", throwIfNotFound: true);
         m_Movement2_Pitch = m_Movement2.FindAction("Pitch", throwIfNotFound: true);
@@ -1199,6 +1220,7 @@ public partial class @StarshipController: IInputActionCollection2, IDisposable
     private readonly InputAction m_DualStick_Yaw;
     private readonly InputAction m_DualStick_Propulse;
     private readonly InputAction m_DualStick_Shoot;
+    private readonly InputAction m_DualStick_Spin;
     public struct DualStickActions
     {
         private @StarshipController m_Wrapper;
@@ -1208,6 +1230,7 @@ public partial class @StarshipController: IInputActionCollection2, IDisposable
         public InputAction @Yaw => m_Wrapper.m_DualStick_Yaw;
         public InputAction @Propulse => m_Wrapper.m_DualStick_Propulse;
         public InputAction @Shoot => m_Wrapper.m_DualStick_Shoot;
+        public InputAction @Spin => m_Wrapper.m_DualStick_Spin;
         public InputActionMap Get() { return m_Wrapper.m_DualStick; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -1232,6 +1255,9 @@ public partial class @StarshipController: IInputActionCollection2, IDisposable
             @Shoot.started += instance.OnShoot;
             @Shoot.performed += instance.OnShoot;
             @Shoot.canceled += instance.OnShoot;
+            @Spin.started += instance.OnSpin;
+            @Spin.performed += instance.OnSpin;
+            @Spin.canceled += instance.OnSpin;
         }
 
         private void UnregisterCallbacks(IDualStickActions instance)
@@ -1251,6 +1277,9 @@ public partial class @StarshipController: IInputActionCollection2, IDisposable
             @Shoot.started -= instance.OnShoot;
             @Shoot.performed -= instance.OnShoot;
             @Shoot.canceled -= instance.OnShoot;
+            @Spin.started -= instance.OnSpin;
+            @Spin.performed -= instance.OnSpin;
+            @Spin.canceled -= instance.OnSpin;
         }
 
         public void RemoveCallbacks(IDualStickActions instance)
@@ -1432,6 +1461,7 @@ public partial class @StarshipController: IInputActionCollection2, IDisposable
         void OnYaw(InputAction.CallbackContext context);
         void OnPropulse(InputAction.CallbackContext context);
         void OnShoot(InputAction.CallbackContext context);
+        void OnSpin(InputAction.CallbackContext context);
     }
     public interface IMovement2Actions
     {

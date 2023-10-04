@@ -1,5 +1,7 @@
 using System;
+using System.Collections;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.UIElements;
 
 enum Controller
@@ -10,15 +12,23 @@ enum Controller
 public class PlayerController : MonoBehaviour
 {
     private Rigidbody _rb;
-    
+
+
+    [SerializeField] private Animator _animator;
+    [Space]
     [SerializeField] private float pitchForce = 1; //X axis
     [SerializeField] private float rollForce = 1;  //Z axis 
     [SerializeField] private float yawForce = 1; //Y axis
     [Space]
     [SerializeField] private float torqueForce = 1;
-
-    [Space] [SerializeField] private Controller controlType;
-    [Space] [SerializeField] private GameObject VFXThrottle;
+    [Space]
+    [SerializeField] private float spinDuration = 1;
+    [SerializeField] private float spinForce = 1;
+    [SerializeField] private float spinMarge = .2f;
+    [Space] 
+    [SerializeField] private Controller controlType;
+    [Space] 
+    [SerializeField] private GameObject VFXThrottle;
     
 
     private float _pitchValue;
@@ -26,6 +36,9 @@ public class PlayerController : MonoBehaviour
     private float _yawValue;
     private float _torqueValue;
     private bool isShooting;
+    private bool trySpin;
+    private bool spinning;
+    
     
     private StarshipController _inputs;
 
@@ -79,8 +92,9 @@ public class PlayerController : MonoBehaviour
                 };
                 _inputs.DualStick.Shoot.performed += shoot => isShooting = true;
                 _inputs.DualStick.Shoot.canceled += shoot => isShooting = false;
+                _inputs.DualStick.Spin.started += _ => trySpin = !spinning;
+                _inputs.DualStick.Spin.canceled += _ => trySpin = false;
                 break;
-            
             case Controller.ChorusLike:
                 _inputs.ChorusMapping.Pitch.performed += value =>
                 {
@@ -102,8 +116,7 @@ public class PlayerController : MonoBehaviour
                 _inputs.ChorusMapping.Shoot.performed += shoot => isShooting = true;
                 _inputs.ChorusMapping.Shoot.canceled += shoot => isShooting = false;
                 break;
-            default:
-                throw new ArgumentOutOfRangeException();
+            default: throw new ArgumentOutOfRangeException();
         }
         /*_inputs.DualStick.Pitch.performed += value => _pitchValue = value.ReadValue<float>(); 
         _inputs.DualStick.Roll.performed += value => _rollValue = value.ReadValue<float>(); 
@@ -133,6 +146,7 @@ public class PlayerController : MonoBehaviour
     private void Update()
     {
        Shoot();
+       if(trySpin)TrySpin();
     }
     private void FixedUpdate()
     {
@@ -164,7 +178,7 @@ public class PlayerController : MonoBehaviour
 
     void Move()
     {
-        Rotate();
+        if(!spinning)Rotate();
         if (_torqueValue != 0)
         {
             _rb.AddForce(transform.forward*_torqueValue*torqueForce);
@@ -176,5 +190,35 @@ public class PlayerController : MonoBehaviour
         if (_pitchValue != 0) transform.Rotate(Vector3.right, pitchForce*_pitchValue);
         if (_rollValue != 0) transform.Rotate(Vector3.forward, rollForce*_rollValue);
         if (_yawValue != 0) transform.Rotate(Vector3.up, yawForce*_yawValue);
+    }
+
+    void TrySpin()
+    {
+        switch (controlType)
+        {
+            case Controller.Casual: break;
+            case Controller.DualStick:
+                if (_yawValue > spinMarge) StartCoroutine(Spin(true));
+                if (_yawValue < -spinMarge) StartCoroutine(Spin(false));
+                break;
+            case Controller.ChorusLike: break;
+            default: throw new ArgumentOutOfRangeException();
+        }
+        
+    }
+    
+    IEnumerator Spin(bool spinRight)
+    {
+        trySpin = false;
+        spinning = true;
+        _animator.SetTrigger(spinRight?"SpinRight":"SpinLeft");
+        var startTime = Time.time;
+        while (Time.time< startTime + spinDuration)
+        {
+            var force = transform.right * ((spinRight ? 1 : -1) * spinForce);
+            _rb.AddForce(force);
+            yield return new WaitForEndOfFrame();
+        }
+        spinning = false;
     }
 }
