@@ -1,4 +1,5 @@
 using System;
+using Enemies;
 using Unity.Mathematics;
 using UnityEngine;
 
@@ -15,18 +16,20 @@ public class BulletBehaviour : MonoBehaviour
     protected virtual void OnTriggerEnter(Collider other)
     {
         eb = other.GetComponent<EnemyBehavior>();
+        var hitable = other.GetComponent<IHitable>();
 
-        Debug.Log(other.name);
-        Debug.Log(other.transform.parent.transform.parent.name);
+        /*Debug.Log(other.name);
+        Debug.Log(other.transform.parent.transform.parent.name);*/
 
-        if (other.tag == "CapitalShip")
-            eb = other.transform.parent.transform.parent.gameObject.GetComponent<EnemyBehavior>();
+        //if (other.tag == "CapitalShip") eb = other.transform.parent.parent.gameObject.GetComponent<EnemyBehavior>();
         
         if (eb != null && !eb.IsPlayer() )
         {
             Debug.Log("Take damage");
             eb.Hit(damage);
         }
+        if(hitable != null)hitable.Hit(damage);
+        
         
         PoolOfObject.instance.SpawnFromPool(PoolOfObject.Type.Explosion, transform.position, quaternion.identity);
         gameObject.SetActive(false);

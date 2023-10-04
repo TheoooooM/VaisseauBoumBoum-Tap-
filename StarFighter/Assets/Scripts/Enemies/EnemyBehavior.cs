@@ -32,15 +32,6 @@ public class EnemyBehavior : MonoBehaviour
         isShield = shield > 0;
     }
 
-    private void Update()
-    {
-        // if(Input.GetKeyDown(KeyCode.H))Hit();
-        //
-        //
-        // lifeText.text = $"Life: {life}";
-        // shieldText.text = $"Shield: {shield}";
-    }
-
     public virtual void Hit(int damage = 1, bool overflow = false)
     {
         if (isShield)
