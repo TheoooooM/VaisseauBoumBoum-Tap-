@@ -8,8 +8,19 @@ public class BulletBehaviour : MonoBehaviour
     [SerializeField] private ParticleSystem explosion;
     [SerializeField] private float lifespan;
     private float spawnTime;
+    private int damage = 10;
+    
+
+    private EnemyBehavior eb;
     private void OnTriggerEnter(Collider other)
     {
+        eb = other.GetComponent<EnemyBehavior>();
+        if (eb != null)
+        {
+            Debug.Log("Enemy hit");
+            eb.Hit(damage);
+        }
+        
         PoolOfObject.instance.SpawnFromPool(PoolOfObject.Type.Explosion, transform.position, quaternion.identity);
         gameObject.SetActive(false);
     }
@@ -25,5 +36,11 @@ public class BulletBehaviour : MonoBehaviour
         {
             gameObject.SetActive(false);
         }
+    }
+
+    public void SetLifeSpan(float life)
+    {
+        lifespan = life;
+        spawnTime = Time.time;
     }
 }

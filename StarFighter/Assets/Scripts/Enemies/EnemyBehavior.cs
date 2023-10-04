@@ -32,11 +32,11 @@ public abstract class EnemyBehavior : MonoBehaviour
 
     private void Update()
     {
-        if(Input.GetKeyDown(KeyCode.H))Hit();
-
-
-        lifeText.text = $"Life: {life}";
-        shieldText.text = $"Shield: {shield}";
+        // if(Input.GetKeyDown(KeyCode.H))Hit();
+        //
+        //
+        // lifeText.text = $"Life: {life}";
+        // shieldText.text = $"Shield: {shield}";
     }
 
     public virtual void Hit(int damage = 1)
