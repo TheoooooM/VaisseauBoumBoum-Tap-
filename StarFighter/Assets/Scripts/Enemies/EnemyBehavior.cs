@@ -12,9 +12,9 @@ public class EnemyBehavior : MonoBehaviour
     [SerializeField] private float OnLifeCooldown = 4f;
     [SerializeField] private float OnShieldCooldown = 1f;
     [SerializeField] private float regenCooldown = .2f;
-    [Header("Debug")]
+    /*[Header("Debug")]
     [SerializeField]TextMeshProUGUI lifeText;
-    [SerializeField]TextMeshProUGUI shieldText;
+    [SerializeField]TextMeshProUGUI shieldText;*/
 
     protected int life;
     private int shield;

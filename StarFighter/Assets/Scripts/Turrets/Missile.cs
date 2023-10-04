@@ -83,10 +83,9 @@ public class Missile : MonoBehaviour
         }
     }
 
-    public void SetTarget(GameObject t, float sp)
+    public void SetTarget(GameObject t)
     {
         target = t;
-        speed = sp;
         started = true;
     }
 }

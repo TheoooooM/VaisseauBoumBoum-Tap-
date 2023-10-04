@@ -1,37 +1,44 @@
 using System;
 using Unity.Mathematics;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace Enemies
 {
     public class PortalMonolith : MonoBehaviour
     {
         private MonolithEnemy _monolith;
-
-        private MeshRenderer _renderer;
+        [SerializeField] private MeshRenderer portalRenderer;
+        [SerializeField] private Animator animator;
+        
         private Color _baseColor;
         
         private void Start()
         {
-            _baseColor = _renderer.material.color;
+            _baseColor = portalRenderer.material.color;
         }
 
         public void InitLaunch()
         {
-            _renderer.material.color = Color.red;
+            portalRenderer.material.color = Color.red;
         }
 
         public void Launch()
         {
-            GameObject missil = PoolOfObject.instance.SpawnFromPool(PoolOfObject.Type.Missile, transform.position, quaternion.identity);
-            missil.transform.LookAt(transform.position + transform.forward, transform.up);
-            _renderer.material.color = _baseColor;
+            GameObject missilGO = PoolOfObject.instance.SpawnFromPool(PoolOfObject.Type.Missile, transform.position, quaternion.identity);
+            //missilGO.transform.LookAt(transform.position + transform.forward, transform.up);
+            var missile = missilGO.GetComponent<Missile>();
+            missile.SetTarget(PlayerController.instance.gameObject);
+            
+            portalRenderer.material.color = _baseColor;
+            
         }
 
         void GetDestroy()
         {
             _monolith.DestroyPortal(this);
-            gameObject.SetActive(false);
+            animator.SetTrigger("Desactive");
+            portalRenderer.gameObject.SetActive(false);
         }
 
         private void OnTriggerEnter(Collider other)

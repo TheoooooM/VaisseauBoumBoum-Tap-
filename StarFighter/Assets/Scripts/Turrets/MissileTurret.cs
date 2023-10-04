@@ -69,7 +69,7 @@ public class MissileTurret : Turrets
 
             missile = newBullet.GetComponent<Missile>();
             if (missile != null)
-                missile.SetTarget(target, shotSpeed);
+                missile.SetTarget(target);
         }
     }
 }
