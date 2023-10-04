@@ -24,7 +24,7 @@ public partial class @StarshipController: IInputActionCollection2, IDisposable
     ""name"": ""StarshipController"",
     ""maps"": [
         {
-            ""name"": ""Movement"",
+            ""name"": ""Casual"",
             ""id"": ""34997f81-1637-4bc8-a67c-5d214ba7dfef"",
             ""actions"": [
                 {
@@ -295,7 +295,7 @@ public partial class @StarshipController: IInputActionCollection2, IDisposable
             ]
         },
         {
-            ""name"": ""Movement1"",
+            ""name"": ""DualStick"",
             ""id"": ""0e6777a2-839f-4e02-9a7c-bc75a9f76b89"",
             ""actions"": [
                 {
@@ -524,7 +524,7 @@ public partial class @StarshipController: IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""e4e87e93-57a6-49b9-87e4-f0761dfbdf45"",
-                    ""path"": ""<Gamepad>/buttonWest"",
+                    ""path"": ""<Gamepad>/rightShoulder"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -753,31 +753,300 @@ public partial class @StarshipController: IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": false
                 }
             ]
+        },
+        {
+            ""name"": ""Chorus Mapping"",
+            ""id"": ""535c9f4b-eb5c-460a-8e2f-0d4b0a6687c1"",
+            ""actions"": [
+                {
+                    ""name"": ""Pitch"",
+                    ""type"": ""Value"",
+                    ""id"": ""98a9c370-7df6-4b11-97b8-b5cb3cdd0a16"",
+                    ""expectedControlType"": ""Axis"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""Shoot"",
+                    ""type"": ""Button"",
+                    ""id"": ""4baa2a6a-f5db-4397-a208-24d078086630"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Propulse"",
+                    ""type"": ""Value"",
+                    ""id"": ""e2ae8f2b-67c2-4a21-b9e7-537645b8c20f"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""Yaw"",
+                    ""type"": ""Value"",
+                    ""id"": ""1d099ee5-c967-43bd-8acc-a87fea1d89a9"",
+                    ""expectedControlType"": ""Axis"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""Roll"",
+                    ""type"": ""Value"",
+                    ""id"": ""fbaf509c-a801-4865-8530-cf08291d7026"",
+                    ""expectedControlType"": ""Axis"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": ""ZS"",
+                    ""id"": ""79939653-bc2b-47c0-bbf8-426aa298fbc9"",
+                    ""path"": ""1DAxis"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Pitch"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""negative"",
+                    ""id"": ""eb29b9ea-dd99-4972-aebc-b064835f3e39"",
+                    ""path"": ""<Keyboard>/s"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Pitch"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""positive"",
+                    ""id"": ""f3c082cd-7f44-401c-ba43-5e248b2098cb"",
+                    ""path"": ""<Keyboard>/w"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Pitch"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""fba4fa4c-cc1e-417c-9ddc-f38f35ea83eb"",
+                    ""path"": ""<Gamepad>/rightStick/y"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Pitch"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""QD"",
+                    ""id"": ""f03a29cd-c082-4521-acaa-c51b5e9ac6db"",
+                    ""path"": ""1DAxis"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Roll"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""negative"",
+                    ""id"": ""4f6a18c4-7555-48d0-9267-e7db5c060801"",
+                    ""path"": ""<Keyboard>/d"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Roll"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""positive"",
+                    ""id"": ""7f225d13-e31f-4d50-9527-bdbe81e96a5f"",
+                    ""path"": ""<Keyboard>/a"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Roll"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""db0f31e8-49b0-432f-9c85-025226f932a7"",
+                    ""path"": ""<Gamepad>/rightStick/x"",
+                    ""interactions"": """",
+                    ""processors"": ""Invert"",
+                    ""groups"": """",
+                    ""action"": ""Roll"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""AE"",
+                    ""id"": ""4b6ea6a7-5e18-4fc1-892f-8732c6911ac8"",
+                    ""path"": ""1DAxis"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Yaw"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""negative"",
+                    ""id"": ""3c9a3936-29d7-4fcb-bf66-55562f591f39"",
+                    ""path"": ""<Keyboard>/q"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Yaw"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""positive"",
+                    ""id"": ""c25cd72c-f2bc-4fbb-8f42-6daa935519e8"",
+                    ""path"": ""<Keyboard>/e"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Yaw"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""Bumper"",
+                    ""id"": ""337952fa-ac1f-487e-8d0a-5d103d277677"",
+                    ""path"": ""1DAxis"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Yaw"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""negative"",
+                    ""id"": ""bf548af7-0670-4d78-8526-8e2f47025e84"",
+                    ""path"": ""<Gamepad>/leftStick/left"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Yaw"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""positive"",
+                    ""id"": ""805b27cf-a85c-4b55-8fc4-f2b214cca9df"",
+                    ""path"": ""<Gamepad>/leftStick/right"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Yaw"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""46dd0c33-8be2-4b38-9d20-a27926573012"",
+                    ""path"": ""<Gamepad>/leftStick/x"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Yaw"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""1D Axis"",
+                    ""id"": ""ce7dba9f-1327-4ec1-a1ea-b17ccf27f55a"",
+                    ""path"": ""1DAxis"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Propulse"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""negative"",
+                    ""id"": ""01dae11f-8d70-4535-aebc-83fced4b1889"",
+                    ""path"": ""<Gamepad>/leftStick/down"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Propulse"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""positive"",
+                    ""id"": ""7ab2f51b-79e7-455d-b63a-118d34981917"",
+                    ""path"": ""<Gamepad>/leftStick/up"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Propulse"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""36af855d-0801-4120-b8ac-9268fac164f6"",
+                    ""path"": ""<Gamepad>/rightTrigger"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Shoot"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
         }
     ],
     ""controlSchemes"": []
 }");
-        // Movement
-        m_Movement = asset.FindActionMap("Movement", throwIfNotFound: true);
-        m_Movement_Pitch = m_Movement.FindAction("Pitch", throwIfNotFound: true);
-        m_Movement_Roll = m_Movement.FindAction("Roll", throwIfNotFound: true);
-        m_Movement_YawDown = m_Movement.FindAction("Yaw Down", throwIfNotFound: true);
-        m_Movement_Yaw = m_Movement.FindAction("Yaw", throwIfNotFound: true);
-        m_Movement_Propulse = m_Movement.FindAction("Propulse", throwIfNotFound: true);
-        m_Movement_Shoot = m_Movement.FindAction("Shoot", throwIfNotFound: true);
-        // Movement1
-        m_Movement1 = asset.FindActionMap("Movement1", throwIfNotFound: true);
-        m_Movement1_Pitch = m_Movement1.FindAction("Pitch", throwIfNotFound: true);
-        m_Movement1_Roll = m_Movement1.FindAction("Roll", throwIfNotFound: true);
-        m_Movement1_Yaw = m_Movement1.FindAction("Yaw", throwIfNotFound: true);
-        m_Movement1_Propulse = m_Movement1.FindAction("Propulse", throwIfNotFound: true);
-        m_Movement1_Shoot = m_Movement1.FindAction("Shoot", throwIfNotFound: true);
+        // Casual
+        m_Casual = asset.FindActionMap("Casual", throwIfNotFound: true);
+        m_Casual_Pitch = m_Casual.FindAction("Pitch", throwIfNotFound: true);
+        m_Casual_Roll = m_Casual.FindAction("Roll", throwIfNotFound: true);
+        m_Casual_YawDown = m_Casual.FindAction("Yaw Down", throwIfNotFound: true);
+        m_Casual_Yaw = m_Casual.FindAction("Yaw", throwIfNotFound: true);
+        m_Casual_Propulse = m_Casual.FindAction("Propulse", throwIfNotFound: true);
+        m_Casual_Shoot = m_Casual.FindAction("Shoot", throwIfNotFound: true);
+        // DualStick
+        m_DualStick = asset.FindActionMap("DualStick", throwIfNotFound: true);
+        m_DualStick_Pitch = m_DualStick.FindAction("Pitch", throwIfNotFound: true);
+        m_DualStick_Roll = m_DualStick.FindAction("Roll", throwIfNotFound: true);
+        m_DualStick_Yaw = m_DualStick.FindAction("Yaw", throwIfNotFound: true);
+        m_DualStick_Propulse = m_DualStick.FindAction("Propulse", throwIfNotFound: true);
+        m_DualStick_Shoot = m_DualStick.FindAction("Shoot", throwIfNotFound: true);
         // Movement2
         m_Movement2 = asset.FindActionMap("Movement2", throwIfNotFound: true);
         m_Movement2_Pitch = m_Movement2.FindAction("Pitch", throwIfNotFound: true);
         m_Movement2_Roll = m_Movement2.FindAction("Roll", throwIfNotFound: true);
         m_Movement2_Yaw = m_Movement2.FindAction("Yaw", throwIfNotFound: true);
         m_Movement2_Propulse = m_Movement2.FindAction("Propulse", throwIfNotFound: true);
+        // Chorus Mapping
+        m_ChorusMapping = asset.FindActionMap("Chorus Mapping", throwIfNotFound: true);
+        m_ChorusMapping_Pitch = m_ChorusMapping.FindAction("Pitch", throwIfNotFound: true);
+        m_ChorusMapping_Shoot = m_ChorusMapping.FindAction("Shoot", throwIfNotFound: true);
+        m_ChorusMapping_Propulse = m_ChorusMapping.FindAction("Propulse", throwIfNotFound: true);
+        m_ChorusMapping_Yaw = m_ChorusMapping.FindAction("Yaw", throwIfNotFound: true);
+        m_ChorusMapping_Roll = m_ChorusMapping.FindAction("Roll", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -836,34 +1105,34 @@ public partial class @StarshipController: IInputActionCollection2, IDisposable
         return asset.FindBinding(bindingMask, out action);
     }
 
-    // Movement
-    private readonly InputActionMap m_Movement;
-    private List<IMovementActions> m_MovementActionsCallbackInterfaces = new List<IMovementActions>();
-    private readonly InputAction m_Movement_Pitch;
-    private readonly InputAction m_Movement_Roll;
-    private readonly InputAction m_Movement_YawDown;
-    private readonly InputAction m_Movement_Yaw;
-    private readonly InputAction m_Movement_Propulse;
-    private readonly InputAction m_Movement_Shoot;
-    public struct MovementActions
+    // Casual
+    private readonly InputActionMap m_Casual;
+    private List<ICasualActions> m_CasualActionsCallbackInterfaces = new List<ICasualActions>();
+    private readonly InputAction m_Casual_Pitch;
+    private readonly InputAction m_Casual_Roll;
+    private readonly InputAction m_Casual_YawDown;
+    private readonly InputAction m_Casual_Yaw;
+    private readonly InputAction m_Casual_Propulse;
+    private readonly InputAction m_Casual_Shoot;
+    public struct CasualActions
     {
         private @StarshipController m_Wrapper;
-        public MovementActions(@StarshipController wrapper) { m_Wrapper = wrapper; }
-        public InputAction @Pitch => m_Wrapper.m_Movement_Pitch;
-        public InputAction @Roll => m_Wrapper.m_Movement_Roll;
-        public InputAction @YawDown => m_Wrapper.m_Movement_YawDown;
-        public InputAction @Yaw => m_Wrapper.m_Movement_Yaw;
-        public InputAction @Propulse => m_Wrapper.m_Movement_Propulse;
-        public InputAction @Shoot => m_Wrapper.m_Movement_Shoot;
-        public InputActionMap Get() { return m_Wrapper.m_Movement; }
+        public CasualActions(@StarshipController wrapper) { m_Wrapper = wrapper; }
+        public InputAction @Pitch => m_Wrapper.m_Casual_Pitch;
+        public InputAction @Roll => m_Wrapper.m_Casual_Roll;
+        public InputAction @YawDown => m_Wrapper.m_Casual_YawDown;
+        public InputAction @Yaw => m_Wrapper.m_Casual_Yaw;
+        public InputAction @Propulse => m_Wrapper.m_Casual_Propulse;
+        public InputAction @Shoot => m_Wrapper.m_Casual_Shoot;
+        public InputActionMap Get() { return m_Wrapper.m_Casual; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
         public bool enabled => Get().enabled;
-        public static implicit operator InputActionMap(MovementActions set) { return set.Get(); }
-        public void AddCallbacks(IMovementActions instance)
+        public static implicit operator InputActionMap(CasualActions set) { return set.Get(); }
+        public void AddCallbacks(ICasualActions instance)
         {
-            if (instance == null || m_Wrapper.m_MovementActionsCallbackInterfaces.Contains(instance)) return;
-            m_Wrapper.m_MovementActionsCallbackInterfaces.Add(instance);
+            if (instance == null || m_Wrapper.m_CasualActionsCallbackInterfaces.Contains(instance)) return;
+            m_Wrapper.m_CasualActionsCallbackInterfaces.Add(instance);
             @Pitch.started += instance.OnPitch;
             @Pitch.performed += instance.OnPitch;
             @Pitch.canceled += instance.OnPitch;
@@ -884,7 +1153,7 @@ public partial class @StarshipController: IInputActionCollection2, IDisposable
             @Shoot.canceled += instance.OnShoot;
         }
 
-        private void UnregisterCallbacks(IMovementActions instance)
+        private void UnregisterCallbacks(ICasualActions instance)
         {
             @Pitch.started -= instance.OnPitch;
             @Pitch.performed -= instance.OnPitch;
@@ -906,48 +1175,48 @@ public partial class @StarshipController: IInputActionCollection2, IDisposable
             @Shoot.canceled -= instance.OnShoot;
         }
 
-        public void RemoveCallbacks(IMovementActions instance)
+        public void RemoveCallbacks(ICasualActions instance)
         {
-            if (m_Wrapper.m_MovementActionsCallbackInterfaces.Remove(instance))
+            if (m_Wrapper.m_CasualActionsCallbackInterfaces.Remove(instance))
                 UnregisterCallbacks(instance);
         }
 
-        public void SetCallbacks(IMovementActions instance)
+        public void SetCallbacks(ICasualActions instance)
         {
-            foreach (var item in m_Wrapper.m_MovementActionsCallbackInterfaces)
+            foreach (var item in m_Wrapper.m_CasualActionsCallbackInterfaces)
                 UnregisterCallbacks(item);
-            m_Wrapper.m_MovementActionsCallbackInterfaces.Clear();
+            m_Wrapper.m_CasualActionsCallbackInterfaces.Clear();
             AddCallbacks(instance);
         }
     }
-    public MovementActions @Movement => new MovementActions(this);
+    public CasualActions @Casual => new CasualActions(this);
 
-    // Movement1
-    private readonly InputActionMap m_Movement1;
-    private List<IMovement1Actions> m_Movement1ActionsCallbackInterfaces = new List<IMovement1Actions>();
-    private readonly InputAction m_Movement1_Pitch;
-    private readonly InputAction m_Movement1_Roll;
-    private readonly InputAction m_Movement1_Yaw;
-    private readonly InputAction m_Movement1_Propulse;
-    private readonly InputAction m_Movement1_Shoot;
-    public struct Movement1Actions
+    // DualStick
+    private readonly InputActionMap m_DualStick;
+    private List<IDualStickActions> m_DualStickActionsCallbackInterfaces = new List<IDualStickActions>();
+    private readonly InputAction m_DualStick_Pitch;
+    private readonly InputAction m_DualStick_Roll;
+    private readonly InputAction m_DualStick_Yaw;
+    private readonly InputAction m_DualStick_Propulse;
+    private readonly InputAction m_DualStick_Shoot;
+    public struct DualStickActions
     {
         private @StarshipController m_Wrapper;
-        public Movement1Actions(@StarshipController wrapper) { m_Wrapper = wrapper; }
-        public InputAction @Pitch => m_Wrapper.m_Movement1_Pitch;
-        public InputAction @Roll => m_Wrapper.m_Movement1_Roll;
-        public InputAction @Yaw => m_Wrapper.m_Movement1_Yaw;
-        public InputAction @Propulse => m_Wrapper.m_Movement1_Propulse;
-        public InputAction @Shoot => m_Wrapper.m_Movement1_Shoot;
-        public InputActionMap Get() { return m_Wrapper.m_Movement1; }
+        public DualStickActions(@StarshipController wrapper) { m_Wrapper = wrapper; }
+        public InputAction @Pitch => m_Wrapper.m_DualStick_Pitch;
+        public InputAction @Roll => m_Wrapper.m_DualStick_Roll;
+        public InputAction @Yaw => m_Wrapper.m_DualStick_Yaw;
+        public InputAction @Propulse => m_Wrapper.m_DualStick_Propulse;
+        public InputAction @Shoot => m_Wrapper.m_DualStick_Shoot;
+        public InputActionMap Get() { return m_Wrapper.m_DualStick; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
         public bool enabled => Get().enabled;
-        public static implicit operator InputActionMap(Movement1Actions set) { return set.Get(); }
-        public void AddCallbacks(IMovement1Actions instance)
+        public static implicit operator InputActionMap(DualStickActions set) { return set.Get(); }
+        public void AddCallbacks(IDualStickActions instance)
         {
-            if (instance == null || m_Wrapper.m_Movement1ActionsCallbackInterfaces.Contains(instance)) return;
-            m_Wrapper.m_Movement1ActionsCallbackInterfaces.Add(instance);
+            if (instance == null || m_Wrapper.m_DualStickActionsCallbackInterfaces.Contains(instance)) return;
+            m_Wrapper.m_DualStickActionsCallbackInterfaces.Add(instance);
             @Pitch.started += instance.OnPitch;
             @Pitch.performed += instance.OnPitch;
             @Pitch.canceled += instance.OnPitch;
@@ -965,7 +1234,7 @@ public partial class @StarshipController: IInputActionCollection2, IDisposable
             @Shoot.canceled += instance.OnShoot;
         }
 
-        private void UnregisterCallbacks(IMovement1Actions instance)
+        private void UnregisterCallbacks(IDualStickActions instance)
         {
             @Pitch.started -= instance.OnPitch;
             @Pitch.performed -= instance.OnPitch;
@@ -984,21 +1253,21 @@ public partial class @StarshipController: IInputActionCollection2, IDisposable
             @Shoot.canceled -= instance.OnShoot;
         }
 
-        public void RemoveCallbacks(IMovement1Actions instance)
+        public void RemoveCallbacks(IDualStickActions instance)
         {
-            if (m_Wrapper.m_Movement1ActionsCallbackInterfaces.Remove(instance))
+            if (m_Wrapper.m_DualStickActionsCallbackInterfaces.Remove(instance))
                 UnregisterCallbacks(instance);
         }
 
-        public void SetCallbacks(IMovement1Actions instance)
+        public void SetCallbacks(IDualStickActions instance)
         {
-            foreach (var item in m_Wrapper.m_Movement1ActionsCallbackInterfaces)
+            foreach (var item in m_Wrapper.m_DualStickActionsCallbackInterfaces)
                 UnregisterCallbacks(item);
-            m_Wrapper.m_Movement1ActionsCallbackInterfaces.Clear();
+            m_Wrapper.m_DualStickActionsCallbackInterfaces.Clear();
             AddCallbacks(instance);
         }
     }
-    public Movement1Actions @Movement1 => new Movement1Actions(this);
+    public DualStickActions @DualStick => new DualStickActions(this);
 
     // Movement2
     private readonly InputActionMap m_Movement2;
@@ -1069,7 +1338,85 @@ public partial class @StarshipController: IInputActionCollection2, IDisposable
         }
     }
     public Movement2Actions @Movement2 => new Movement2Actions(this);
-    public interface IMovementActions
+
+    // Chorus Mapping
+    private readonly InputActionMap m_ChorusMapping;
+    private List<IChorusMappingActions> m_ChorusMappingActionsCallbackInterfaces = new List<IChorusMappingActions>();
+    private readonly InputAction m_ChorusMapping_Pitch;
+    private readonly InputAction m_ChorusMapping_Shoot;
+    private readonly InputAction m_ChorusMapping_Propulse;
+    private readonly InputAction m_ChorusMapping_Yaw;
+    private readonly InputAction m_ChorusMapping_Roll;
+    public struct ChorusMappingActions
+    {
+        private @StarshipController m_Wrapper;
+        public ChorusMappingActions(@StarshipController wrapper) { m_Wrapper = wrapper; }
+        public InputAction @Pitch => m_Wrapper.m_ChorusMapping_Pitch;
+        public InputAction @Shoot => m_Wrapper.m_ChorusMapping_Shoot;
+        public InputAction @Propulse => m_Wrapper.m_ChorusMapping_Propulse;
+        public InputAction @Yaw => m_Wrapper.m_ChorusMapping_Yaw;
+        public InputAction @Roll => m_Wrapper.m_ChorusMapping_Roll;
+        public InputActionMap Get() { return m_Wrapper.m_ChorusMapping; }
+        public void Enable() { Get().Enable(); }
+        public void Disable() { Get().Disable(); }
+        public bool enabled => Get().enabled;
+        public static implicit operator InputActionMap(ChorusMappingActions set) { return set.Get(); }
+        public void AddCallbacks(IChorusMappingActions instance)
+        {
+            if (instance == null || m_Wrapper.m_ChorusMappingActionsCallbackInterfaces.Contains(instance)) return;
+            m_Wrapper.m_ChorusMappingActionsCallbackInterfaces.Add(instance);
+            @Pitch.started += instance.OnPitch;
+            @Pitch.performed += instance.OnPitch;
+            @Pitch.canceled += instance.OnPitch;
+            @Shoot.started += instance.OnShoot;
+            @Shoot.performed += instance.OnShoot;
+            @Shoot.canceled += instance.OnShoot;
+            @Propulse.started += instance.OnPropulse;
+            @Propulse.performed += instance.OnPropulse;
+            @Propulse.canceled += instance.OnPropulse;
+            @Yaw.started += instance.OnYaw;
+            @Yaw.performed += instance.OnYaw;
+            @Yaw.canceled += instance.OnYaw;
+            @Roll.started += instance.OnRoll;
+            @Roll.performed += instance.OnRoll;
+            @Roll.canceled += instance.OnRoll;
+        }
+
+        private void UnregisterCallbacks(IChorusMappingActions instance)
+        {
+            @Pitch.started -= instance.OnPitch;
+            @Pitch.performed -= instance.OnPitch;
+            @Pitch.canceled -= instance.OnPitch;
+            @Shoot.started -= instance.OnShoot;
+            @Shoot.performed -= instance.OnShoot;
+            @Shoot.canceled -= instance.OnShoot;
+            @Propulse.started -= instance.OnPropulse;
+            @Propulse.performed -= instance.OnPropulse;
+            @Propulse.canceled -= instance.OnPropulse;
+            @Yaw.started -= instance.OnYaw;
+            @Yaw.performed -= instance.OnYaw;
+            @Yaw.canceled -= instance.OnYaw;
+            @Roll.started -= instance.OnRoll;
+            @Roll.performed -= instance.OnRoll;
+            @Roll.canceled -= instance.OnRoll;
+        }
+
+        public void RemoveCallbacks(IChorusMappingActions instance)
+        {
+            if (m_Wrapper.m_ChorusMappingActionsCallbackInterfaces.Remove(instance))
+                UnregisterCallbacks(instance);
+        }
+
+        public void SetCallbacks(IChorusMappingActions instance)
+        {
+            foreach (var item in m_Wrapper.m_ChorusMappingActionsCallbackInterfaces)
+                UnregisterCallbacks(item);
+            m_Wrapper.m_ChorusMappingActionsCallbackInterfaces.Clear();
+            AddCallbacks(instance);
+        }
+    }
+    public ChorusMappingActions @ChorusMapping => new ChorusMappingActions(this);
+    public interface ICasualActions
     {
         void OnPitch(InputAction.CallbackContext context);
         void OnRoll(InputAction.CallbackContext context);
@@ -1078,7 +1425,7 @@ public partial class @StarshipController: IInputActionCollection2, IDisposable
         void OnPropulse(InputAction.CallbackContext context);
         void OnShoot(InputAction.CallbackContext context);
     }
-    public interface IMovement1Actions
+    public interface IDualStickActions
     {
         void OnPitch(InputAction.CallbackContext context);
         void OnRoll(InputAction.CallbackContext context);
@@ -1092,5 +1439,13 @@ public partial class @StarshipController: IInputActionCollection2, IDisposable
         void OnRoll(InputAction.CallbackContext context);
         void OnYaw(InputAction.CallbackContext context);
         void OnPropulse(InputAction.CallbackContext context);
+    }
+    public interface IChorusMappingActions
+    {
+        void OnPitch(InputAction.CallbackContext context);
+        void OnShoot(InputAction.CallbackContext context);
+        void OnPropulse(InputAction.CallbackContext context);
+        void OnYaw(InputAction.CallbackContext context);
+        void OnRoll(InputAction.CallbackContext context);
     }
 }

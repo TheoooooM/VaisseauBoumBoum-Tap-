@@ -11,7 +11,7 @@ public class BulletBehaviour : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         PoolOfObject.instance.SpawnFromPool(PoolOfObject.Type.Explosion, transform.position, quaternion.identity);
-        Destroy(gameObject);
+        gameObject.SetActive(false);
     }
 
     private void Start()
@@ -21,6 +21,6 @@ public class BulletBehaviour : MonoBehaviour
 
     private void Update()
     {
-        if(Time.time >= spawnTime + lifespan) Destroy(gameObject);
+        if(Time.time >= spawnTime + lifespan) gameObject.SetActive(false);
     }
 }
