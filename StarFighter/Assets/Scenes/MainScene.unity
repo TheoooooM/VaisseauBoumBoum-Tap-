@@ -6119,6 +6119,92 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 4
     vectorLabel1_3: W
+<<<<<<< Updated upstream
+=======
+--- !u!1 &748217335
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 748217336}
+  m_Layer: 6
+  m_Name: ShootingPoint (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &748217336
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 748217335}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 957853927}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &808247548
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 808247550}
+  - component: {fileID: 808247549}
+  m_Layer: 0
+  m_Name: PoolOfObject
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &808247549
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 808247548}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9ac2169cc037c2b49b5a62c687d6677c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pools:
+  - objectType: 0
+    count: 150
+    prefab: {fileID: 935345015950421252, guid: 60de3c885d8c9164ea8d7476c6c5be4a, type: 3}
+  - objectType: 1
+    count: 50
+    prefab: {fileID: 7319795893797399414, guid: 84eb649081871074db7f1db8bd0aa65d,
+      type: 3}
+--- !u!4 &808247550
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 808247548}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+>>>>>>> Stashed changes
 --- !u!1 &817365216
 GameObject:
   m_ObjectHideFlags: 0
@@ -17273,7 +17359,20 @@ MonoBehaviour:
   rollForce: 2
   yawForce: 2
   torqueForce: 50
+<<<<<<< Updated upstream
   reactorTrails: {fileID: 0}
+=======
+  controlType: 1
+  VFXThrottle: {fileID: 1809558197}
+  shootingRate: 10
+  bulletSpeed: 350
+  bullet: {fileID: 187775511344242700, guid: 60de3c885d8c9164ea8d7476c6c5be4a, type: 3}
+  shootingPoint: {fileID: 957853927}
+  hitPointDebug: {fileID: 1915593523}
+  layerMask:
+    serializedVersion: 2
+    m_Bits: 1
+>>>>>>> Stashed changes
 --- !u!4 &1754497933 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2797839587892227313, guid: 30d31cdbf7762514e935908a35b3317e,
@@ -17644,6 +17743,7 @@ SceneRoots:
   - {fileID: 659482778}
   - {fileID: 459485397}
   - {fileID: 2533596947327367235}
+<<<<<<< Updated upstream
   - {fileID: 149224801}
   - {fileID: 76814766}
   - {fileID: 1203728074}
@@ -17652,3 +17752,10 @@ SceneRoots:
   - {fileID: 2139982049}
   - {fileID: 442741682}
   - {fileID: 386393849}
+=======
+  - {fileID: 1283536758}
+  - {fileID: 480801074}
+  - {fileID: 208141943}
+  - {fileID: 1915593527}
+  - {fileID: 808247550}
+>>>>>>> Stashed changes

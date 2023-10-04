@@ -53,6 +53,32 @@ public class PlayerController : MonoBehaviour
         Move();
     }
 
+<<<<<<< Updated upstream
+=======
+    private void Shoot()
+    {
+        RaycastHit hit;
+        var position = camera.transform.position;
+        var bulletDirection = Vector3.zero;
+        if (Physics.Raycast(position, camera.transform.forward, out hit, 10000f, layerMask))
+        {
+            bulletDirection = (hit.point - shootingPoint.position).normalized;
+        }
+        else
+        {
+            bulletDirection = camera.transform.forward;
+        }
+        //hitPointDebug.transform.position = hit.point;
+        if (isShooting && Time.time >= lastShootTime + 1 / shootingRate)
+        {
+            lastShootTime = Time.time;
+            var newBullet = PoolOfObject.instance.SpawnFromPool(PoolOfObject.Type.Bullet, shootingPoint.position, transform.rotation);
+            newBullet.GetComponent<Rigidbody>().velocity = bulletDirection * bulletSpeed;
+        }
+
+    }
+
+>>>>>>> Stashed changes
     void Move()
     {
         Rotate();
@@ -68,6 +94,9 @@ public class PlayerController : MonoBehaviour
         if (_rollValue != 0) transform.Rotate(Vector3.forward, rollForce*_rollValue);
         if (_yawValue != 0) transform.Rotate(Vector3.up, yawForce*_yawValue);
     }
+<<<<<<< Updated upstream
     
     
+=======
+>>>>>>> Stashed changes
 }
