@@ -145,6 +145,7 @@ public class PlayerController : MonoBehaviour
 
     private void OnDrawGizmos()
     {
+        if (!camera) return;
         var position = camera.transform.position;
         Gizmos.DrawRay(position, camera.transform.forward);
     }
