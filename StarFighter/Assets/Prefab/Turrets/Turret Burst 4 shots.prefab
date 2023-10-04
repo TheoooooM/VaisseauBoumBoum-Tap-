@@ -1523,6 +1523,8 @@ GameObject:
   m_Component:
   - component: {fileID: 591967635426192880}
   - component: {fileID: 931935520233945883}
+  - component: {fileID: 2319191995581051469}
+  - component: {fileID: 1825240285956936188}
   m_Layer: 0
   m_Name: Turret Burst 4 shots
   m_TagString: Untagged
@@ -1561,24 +1563,64 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 0}
-  bulletParent: {fileID: 0}
-  bulletPrefab: {fileID: 7186324757549965222, guid: 6851be1c3d81b194ea189028376e1647,
-    type: 3}
   spawners:
   - {fileID: 7957342267284904378}
   - {fileID: 893207058036438445}
   - {fileID: 8633203289319497906}
   - {fileID: 6843339578260464470}
+  head: {fileID: 7789473879814378694}
+  layerMask:
+    serializedVersion: 2
+    m_Bits: 0
   agroRange: 15
-  turnSpeedX: 2
-  turnSpeedY: 2
+  turnSpeed: 2
   turretCD: 5
   turretCDRemaining: 0
   shotCD: 0.2
   shotCDRemaining: 0
   shotAmount: 5
+  shotSpeed: 1
   isShooting: 0
   shotFired: 0
-  head: {fileID: 7789473879814378694}
   subHeadLeft: {fileID: 3006171024889341348}
   subHeadRight: {fileID: 3526587100974242332}
+--- !u!65 &2319191995581051469
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8812511121837107098}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 5, y: 2.5, z: 5}
+  m_Center: {x: 0, y: 0.5, z: 0}
+--- !u!114 &1825240285956936188
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8812511121837107098}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ac3740d13f0961041831adab0d5eaf67, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxLife: 70
+  maxShield: 20
+  OnLifeCooldown: 4
+  OnShieldCooldown: 1
+  regenCooldown: 0.2
+  lifeText: {fileID: 0}
+  shieldText: {fileID: 0}

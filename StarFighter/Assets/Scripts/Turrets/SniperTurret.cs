@@ -22,6 +22,12 @@ public class SniperTurret : Turrets
         shotCDRemaining = shotCD;
     }
 
+
+    private PlayerController pc;
+    Vector3 rayTargetPosition;
+    bool hitPlayer;
+    Ray ray;
+    RaycastHit rch;
     // Update is called once per frame
     void Update()
     {
@@ -40,22 +46,21 @@ public class SniperTurret : Turrets
 
         if (turretCDRemaining <= 0 || true)
         {
-            Vector3 rayTargetPosition = spawners[0].transform.position + spawners[0].transform.up * -rangeRay;
-            bool hitPlayer = false;
+            rayTargetPosition = spawners[0].transform.position + spawners[0].transform.up * -rangeRay;
+            hitPlayer = false;
             
             //First whe check if we can hit the player (or anything)
-            Ray ray = new Ray(spawners[0].transform.position + spawners[0].transform.up * -1, spawners[0].transform.up * -2);
-            RaycastHit rch;
+            ray = new Ray(spawners[0].transform.position + spawners[0].transform.up * -1, spawners[0].transform.up * -2);
 
             if (Physics.Raycast(ray, out rch, rangeRay)) {
                 Vector3 targetHit = rch.point;
                 GameObject go = rch.collider.gameObject;
 
-                UnitWithHealth uwh = go.GetComponent<UnitWithHealth>();
-                hitPlayer = uwh != null;
-                if (uwh != null) {
+                pc = go.GetComponent<PlayerController>();
+                hitPlayer = pc != null;
+                if (pc != null) {
                     rayTargetPosition = spawners[0].transform.position + -spawners[0].transform.up * Vector3.Distance(target.transform.position, spawners[0].transform.position);
-                    //uwh.takeDamage(dmg);
+                    //pc.takeDamage(dmg);
                  }
                 else
                 {

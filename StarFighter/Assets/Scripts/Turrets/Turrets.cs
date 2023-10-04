@@ -5,27 +5,29 @@ using UnityEngine;
 public class Turrets : MonoBehaviour
 {
     public GameObject target;
-    public GameObject bulletParent;
-    public GameObject bulletPrefab;
     public GameObject[] spawners;
-    public float agroRange = 5;
+    public GameObject head;
+    public LayerMask layerMask;
 
-    public float turnSpeedX = 2;
-    public float turnSpeedY = 2;
+    
+    public float agroRange = 5;
+    public float turnSpeed = 2;
     
     public float turretCD = 5;
     public float turretCDRemaining = 0;
     
     public float shotCD = 0.2f;
     public float shotCDRemaining = 0;
-
     
     public int shotAmount = 1;
-
+    public float shotSpeed = 1f;
+    
     public bool isShooting = false;
     public int shotFired = 0;
-
-    public GameObject head;
+    
+    //public GameObject bulletParent;
+    //public GameObject bulletPrefab;
+    
     
     
     // Start is called before the first frame update
@@ -48,13 +50,27 @@ public class Turrets : MonoBehaviour
     {
         AimAtTargetFullHead();
     }
-    
-    public virtual void Shot()
+
+    protected RaycastHit hit;
+    protected Vector3 position;
+    protected Vector3 bulletDirection;
+    protected GameObject newBullet;
+    public virtual void Shoot()
     {
         for (int i = 0; i < spawners.Length; i++)
         {
-            Instantiate(bulletPrefab, spawners[i].transform.position, spawners[i].transform.rotation,
-                bulletParent.transform);
+                position = spawners[i].transform.position;
+                bulletDirection = Vector3.zero;
+                if (Physics.Raycast(position, -spawners[i].transform.up, out hit, 10000f, layerMask))
+                {
+                    bulletDirection = (hit.point - spawners[i].transform.position).normalized;
+                }
+                else
+                {
+                    bulletDirection = -spawners[i].transform.up;
+                }
+                newBullet = PoolOfObject.instance.SpawnFromPool(PoolOfObject.Type.BulletTurret, spawners[i].transform.position + spawners[i].transform.up * -1, transform.rotation);
+                newBullet.GetComponent<Rigidbody>().velocity = bulletDirection * shotSpeed;
         }
     }
 
@@ -85,7 +101,7 @@ public class Turrets : MonoBehaviour
             
             if (shotCDRemaining <= 0)
             {
-                Shot();
+                Shoot();
                 shotCDRemaining = shotCD;
                 shotFired++;
             }
@@ -112,7 +128,7 @@ public class Turrets : MonoBehaviour
         if (look != Vector3.zero)
         {
             rotation = Quaternion.LookRotation(look);
-            head.transform.rotation = Quaternion.Slerp(headSelected.transform.rotation, rotation, turnSpeedY * Time.deltaTime);
+            head.transform.rotation = Quaternion.Slerp(headSelected.transform.rotation, rotation, turnSpeed * Time.deltaTime);
         }
     }
 }

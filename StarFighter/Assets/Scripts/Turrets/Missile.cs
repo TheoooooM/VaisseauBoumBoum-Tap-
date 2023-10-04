@@ -70,23 +70,23 @@ public class Missile : MonoBehaviour
     void Explode() {
         Destroy(gameObject);
         Collider[] colliders = Physics.OverlapSphere(transform.position, explosionRadius);
-        UnitWithHealth uwh;
+        PlayerController pc;
 
         foreach(Collider c in colliders) {
-            uwh = c.GetComponent<UnitWithHealth>();
-            if (uwh != null) {
+            pc = c.GetComponent<PlayerController>();
+            if (pc != null) {
                 float distance = Vector3.Distance(transform.position, c.transform.position);
                 float dmgM = 1f - (distance / explosionRadius);
 
-                //uwh.takeDamage(damage * dmgM);
+                //PlayerController.takeDamage(damage * dmgM);
             }
         }
     }
 
-    public void SetTarget(GameObject t)
+    public void SetTarget(GameObject t, float sp)
     {
         target = t;
-        Debug.Log("Missile started");
+        speed = sp;
         started = true;
     }
 }
