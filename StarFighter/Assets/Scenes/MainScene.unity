@@ -18494,36 +18494,6 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 2533596947327367235}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1754497932
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1754497931}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bcec4fb670214274caab919646d9447d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _animator: {fileID: 0}
-  pitchForce: 2
-  rollForce: 2
-  yawForce: 2
-  torqueForce: 50
-  spinDuration: 1
-  spinForce: 1
-  spinMarge: 0.2
-  controlType: 2
-  VFXThrottle: {fileID: 1809558197}
-  shootingRate: 10
-  bulletSpeed: 500
-  bullet: {fileID: 187775511344242700, guid: 60de3c885d8c9164ea8d7476c6c5be4a, type: 3}
-  shootingPoint: {fileID: 957853927}
-  hitPointDebug: {fileID: 1915593523}
-  layerMask:
-    serializedVersion: 2
-    m_Bits: 1
 --- !u!4 &1754497933 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2797839587892227313, guid: 30d31cdbf7762514e935908a35b3317e,
@@ -23879,6 +23849,74 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2046392656}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1001 &2102166622
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: -8679921383154817045, guid: 7d20bcf0f82b1da4a8804c67208e8341,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -31.5
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 7d20bcf0f82b1da4a8804c67208e8341,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 85.3
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 7d20bcf0f82b1da4a8804c67208e8341,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -266.77856
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 7d20bcf0f82b1da4a8804c67208e8341,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 7d20bcf0f82b1da4a8804c67208e8341,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 7d20bcf0f82b1da4a8804c67208e8341,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 7d20bcf0f82b1da4a8804c67208e8341,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 7d20bcf0f82b1da4a8804c67208e8341,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: -90
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 7d20bcf0f82b1da4a8804c67208e8341,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 7d20bcf0f82b1da4a8804c67208e8341,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 7d20bcf0f82b1da4a8804c67208e8341,
+        type: 3}
+      propertyPath: m_Name
+      value: CruiserWithHoles
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 7d20bcf0f82b1da4a8804c67208e8341, type: 3}
 --- !u!1 &2125807187
 GameObject:
   m_ObjectHideFlags: 0
@@ -24268,6 +24306,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4117128625084939432, guid: 30d31cdbf7762514e935908a35b3317e,
+        type: 3}
+      propertyPath: controlType
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 4515779545610515516, guid: 30d31cdbf7762514e935908a35b3317e,
         type: 3}
       propertyPath: m_Layer
@@ -24348,10 +24391,6 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 6822618386346328554, guid: 30d31cdbf7762514e935908a35b3317e,
         type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1754497932}
-    - targetCorrespondingSourceObject: {fileID: 6822618386346328554, guid: 30d31cdbf7762514e935908a35b3317e,
-        type: 3}
-      insertIndex: -1
       addedObject: {fileID: 1754497934}
     - targetCorrespondingSourceObject: {fileID: 6822618386346328554, guid: 30d31cdbf7762514e935908a35b3317e,
         type: 3}
@@ -24373,3 +24412,4 @@ SceneRoots:
   - {fileID: 85761516}
   - {fileID: 342254360}
   - {fileID: 268006754}
+  - {fileID: 2102166622}
