@@ -115,14 +115,21 @@ public class PlayerController : MonoBehaviour
     {
         RaycastHit hit;
         var position = camera.transform.position;
-        Physics.Raycast(position, camera.transform.forward, out hit, 10000f, layerMask);
-        var bulletDirection = (hit.point - shootingPoint.position).normalized;
-        hitPointDebug.transform.position = hit.point;
+        var bulletDirection = Vector3.zero;
+        if (Physics.Raycast(position, camera.transform.forward, out hit, 10000f, layerMask))
+        {
+            bulletDirection = (hit.point - shootingPoint.position).normalized;
+        }
+        else
+        {
+            bulletDirection = camera.transform.forward;
+        }
+        //hitPointDebug.transform.position = hit.point;
         if (isShooting && Time.time >= lastShootTime + 1 / shootingRate)
         {
             lastShootTime = Time.time;
-            var newBullet = Instantiate(bullet, shootingPoint.position, transform.rotation, null);
-            newBullet.velocity = bulletDirection * bulletSpeed;
+            var newBullet = PoolOfObject.instance.SpawnFromPool(PoolOfObject.Type.Bullet, shootingPoint.position, transform.rotation);
+            newBullet.GetComponent<Rigidbody>().velocity = bulletDirection * bulletSpeed;
         }
 
     }
@@ -141,12 +148,5 @@ public class PlayerController : MonoBehaviour
         if (_pitchValue != 0) transform.Rotate(Vector3.right, pitchForce*_pitchValue);
         if (_rollValue != 0) transform.Rotate(Vector3.forward, rollForce*_rollValue);
         if (_yawValue != 0) transform.Rotate(Vector3.up, yawForce*_yawValue);
-    }
-
-    private void OnDrawGizmos()
-    {
-        if (!camera) return;
-        var position = camera.transform.position;
-        Gizmos.DrawRay(position, camera.transform.forward);
     }
 }
