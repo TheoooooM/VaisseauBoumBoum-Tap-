@@ -41,7 +41,7 @@ public class Missile : MonoBehaviour
 
     Quaternion rotation;
     Vector3 look;
-    void Update()
+    void FixedUpdate()
     {
         if (!started)
             return;
@@ -54,14 +54,14 @@ public class Missile : MonoBehaviour
                 rotation = Quaternion.LookRotation(look);
                 transform.rotation = Quaternion.Slerp(transform.rotation, rotation, rotationSpeed * Time.deltaTime);
             }
-            transform.Translate(speed * Time.deltaTime * transform.forward);
+            transform.Translate(speed * Time.deltaTime * Vector3.forward);
             timeFollowRemaining -= Time.deltaTime;
         }
         else
         {
             if (lifeRemaining > 0)
             {
-                transform.Translate(speed * Time.deltaTime * transform.forward);
+                transform.Translate(speed * Time.deltaTime * Vector3.forward);
                 lifeRemaining -= Time.deltaTime;
             }
             else
