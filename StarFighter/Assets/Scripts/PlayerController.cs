@@ -4,7 +4,7 @@ using UnityEngine.UIElements;
 
 enum Controller
 {
-    Casual, DualStick
+    Casual, DualStick, ChorusLike
 }
 
 public class PlayerController : MonoBehaviour
@@ -46,56 +46,84 @@ public class PlayerController : MonoBehaviour
         switch (controlType)
         {
             case Controller.Casual:
-                _inputs.Movement.Pitch.performed += value => _pitchValue = value.ReadValue<float>(); 
-                _inputs.Movement.Roll.performed += value => _rollValue = value.ReadValue<float>(); 
-                _inputs.Movement.Yaw.performed += value => _yawValue = value.ReadValue<float>(); 
-                _inputs.Movement.Pitch.canceled += _ => _pitchValue = 0; 
-                _inputs.Movement.Roll.canceled += _ => _rollValue = 0; 
-                _inputs.Movement.Yaw.canceled += _ => _yawValue = 0;
+                _inputs.Casual.Pitch.performed += value => _pitchValue = value.ReadValue<float>(); 
+                _inputs.Casual.Roll.performed += value => _rollValue = value.ReadValue<float>(); 
+                _inputs.Casual.Yaw.performed += value => _yawValue = value.ReadValue<float>(); 
+                _inputs.Casual.Pitch.canceled += _ => _pitchValue = 0; 
+                _inputs.Casual.Roll.canceled += _ => _rollValue = 0; 
+                _inputs.Casual.Yaw.canceled += _ => _yawValue = 0;
         
-                _inputs.Movement.Propulse.performed += value => _torqueValue = value.ReadValue<float>();
-                _inputs.Movement.Propulse.canceled += _ => _torqueValue = 0;
-                _inputs.Movement.Shoot.performed += shoot => isShooting = true;
-                _inputs.Movement.Shoot.canceled += shoot => isShooting = false;
+                _inputs.Casual.Propulse.performed += value => _torqueValue = value.ReadValue<float>();
+                _inputs.Casual.Propulse.canceled += _ => _torqueValue = 0;
+                _inputs.Casual.Shoot.performed += shoot => isShooting = true;
+                _inputs.Casual.Shoot.canceled += shoot => isShooting = false;
                 
                 break;
             case Controller.DualStick:
-                _inputs.Movement1.Pitch.performed += value =>
+                _inputs.DualStick.Pitch.performed += value =>
                 {
                     _pitchValue = value.ReadValue<float>();
                 }; 
-                _inputs.Movement1.Roll.performed += value => _rollValue = value.ReadValue<float>(); 
-                _inputs.Movement1.Yaw.performed += value => _yawValue = value.ReadValue<float>(); 
-                _inputs.Movement1.Pitch.canceled += _ => _pitchValue = 0; 
-                _inputs.Movement1.Roll.canceled += _ => _rollValue = 0; 
-                _inputs.Movement1.Yaw.canceled += _ => _yawValue = 0;
+                _inputs.DualStick.Roll.performed += value => _rollValue = value.ReadValue<float>(); 
+                _inputs.DualStick.Yaw.performed += value => _yawValue = value.ReadValue<float>(); 
+                _inputs.DualStick.Pitch.canceled += _ => _pitchValue = 0; 
+                _inputs.DualStick.Roll.canceled += _ => _rollValue = 0; 
+                _inputs.DualStick.Yaw.canceled += _ => _yawValue = 0;
 
-                _inputs.Movement1.Propulse.started += _ => VFXThrottle.SetActive(true);
-                _inputs.Movement1.Propulse.performed += value => _torqueValue = value.ReadValue<float>();
-                _inputs.Movement1.Propulse.canceled += _ =>
+                _inputs.DualStick.Propulse.started += _ => VFXThrottle.SetActive(true);
+                _inputs.DualStick.Propulse.performed += value => _torqueValue = value.ReadValue<float>();
+                _inputs.DualStick.Propulse.canceled += _ =>
                 {
                     _torqueValue = 0;
                     VFXThrottle.SetActive(false);
                 };
-                _inputs.Movement1.Shoot.performed += shoot => isShooting = true;
-                _inputs.Movement1.Shoot.canceled += shoot => isShooting = false;
+                _inputs.DualStick.Shoot.performed += shoot => isShooting = true;
+                _inputs.DualStick.Shoot.canceled += shoot => isShooting = false;
+                break;
+            
+            case Controller.ChorusLike:
+                _inputs.ChorusMapping.Pitch.performed += value =>
+                {
+                    _pitchValue = Deadzoner(value.ReadValue<float>());
+                };
+                _inputs.ChorusMapping.Roll.performed += value => _rollValue = Deadzoner(value.ReadValue<float>()); 
+                _inputs.ChorusMapping.Yaw.performed += value => _yawValue = Deadzoner(value.ReadValue<float>()); 
+                _inputs.ChorusMapping.Pitch.canceled += _ => _pitchValue = 0; 
+                _inputs.ChorusMapping.Roll.canceled += _ => _rollValue = 0; 
+                _inputs.ChorusMapping.Yaw.canceled += _ => _yawValue = 0;
+
+                _inputs.ChorusMapping.Propulse.started += _ => VFXThrottle.SetActive(true);
+                _inputs.ChorusMapping.Propulse.performed += value => _torqueValue = Deadzoner(value.ReadValue<float>());
+                _inputs.ChorusMapping.Propulse.canceled += _ =>
+                {
+                    _torqueValue = 0;
+                    VFXThrottle.SetActive(false);
+                };
+                _inputs.ChorusMapping.Shoot.performed += shoot => isShooting = true;
+                _inputs.ChorusMapping.Shoot.canceled += shoot => isShooting = false;
                 break;
             default:
                 throw new ArgumentOutOfRangeException();
         }
-        /*_inputs.Movement1.Pitch.performed += value => _pitchValue = value.ReadValue<float>(); 
-        _inputs.Movement1.Roll.performed += value => _rollValue = value.ReadValue<float>(); 
-        _inputs.Movement1.Yaw.performed += value => _yawValue = value.ReadValue<float>(); 
-        _inputs.Movement1.Pitch.canceled += _ => _pitchValue = 0; 
-        _inputs.Movement1.Roll.canceled += _ => _rollValue = 0; 
-        _inputs.Movement1.Yaw.canceled += _ => _yawValue = 0;
+        /*_inputs.DualStick.Pitch.performed += value => _pitchValue = value.ReadValue<float>(); 
+        _inputs.DualStick.Roll.performed += value => _rollValue = value.ReadValue<float>(); 
+        _inputs.DualStick.Yaw.performed += value => _yawValue = value.ReadValue<float>(); 
+        _inputs.DualStick.Pitch.canceled += _ => _pitchValue = 0; 
+        _inputs.DualStick.Roll.canceled += _ => _rollValue = 0; 
+        _inputs.DualStick.Yaw.canceled += _ => _yawValue = 0;
         
-        _inputs.Movement1.Propulse.performed += value => _torqueValue = value.ReadValue<float>();
-        _inputs.Movement1.Propulse.canceled += _ => _torqueValue = 0;*/
+        _inputs.DualStick.Propulse.performed += value => _torqueValue = value.ReadValue<float>();
+        _inputs.DualStick.Propulse.canceled += _ => _torqueValue = 0;*/
         
         _inputs.Enable();
     }
 
+    private float Deadzoner(float value)
+    {
+        value = Mathf.Clamp(value, -Mathf.Sqrt(2)/2, Mathf.Sqrt(2)/2);
+        value *= 1.41421356f;
+        return value;
+    }
     private void Start()
     {
         _rb = GetComponent<Rigidbody>();
