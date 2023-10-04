@@ -3,7 +3,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.Serialization;
 
-public abstract class EnemyBehavior : MonoBehaviour
+public class EnemyBehavior : MonoBehaviour
 {
     [SerializeField] int maxLife = 100;
     [SerializeField] int maxShield = 30;

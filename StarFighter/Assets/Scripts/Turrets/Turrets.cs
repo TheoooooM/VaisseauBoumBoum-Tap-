@@ -8,6 +8,7 @@ public class Turrets : MonoBehaviour
     public GameObject[] spawners;
     public GameObject head;
     public LayerMask layerMask;
+    public int damage = 10;
 
     
     public float agroRange = 5;

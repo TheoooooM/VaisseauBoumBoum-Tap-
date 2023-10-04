@@ -23,7 +23,7 @@ namespace Enemies
 
         public void Launch()
         {
-            GameObject missil = PoolOfObject.instance.SpawnFromPool(PoolOfObject.Type.Missil, transform.position, quaternion.identity);
+            GameObject missil = PoolOfObject.instance.SpawnFromPool(PoolOfObject.Type.Missile, transform.position, quaternion.identity);
             missil.transform.LookAt(transform.position + transform.forward, transform.up);
             _renderer.material.color = _baseColor;
         }

@@ -58,11 +58,6 @@ public class PoolOfObject : MonoBehaviour
         var newObject = pool.objects[pool.index];
         newObject.transform.position = position;
         newObject.transform.rotation = rotation;
-
-        if (type == Type.Bullet)
-        {
-            newObject.GetComponent<BulletBehaviour>().SetLifeSpan(5f);
-        }
         
         newObject.SetActive(true);
         pool.index++;

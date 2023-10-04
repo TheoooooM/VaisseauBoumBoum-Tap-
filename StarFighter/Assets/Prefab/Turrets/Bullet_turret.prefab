@@ -295,8 +295,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2cd7a81412a0b044baa779b1cb6a1f94, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  explosion: {fileID: 3568959637970191164, guid: 84eb649081871074db7f1db8bd0aa65d,
-    type: 3}
+  explosion: {fileID: 0}
   lifespan: 5
 --- !u!65 &3022863117035890882
 BoxCollider:

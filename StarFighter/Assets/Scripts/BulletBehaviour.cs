@@ -37,10 +37,4 @@ public class BulletBehaviour : MonoBehaviour
             gameObject.SetActive(false);
         }
     }
-
-    public void SetLifeSpan(float life)
-    {
-        lifespan = life;
-        spawnTime = Time.time;
-    }
 }

@@ -420,7 +420,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac3740d13f0961041831adab0d5eaf67, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxLife: 40
+  maxLife: 30
   maxShield: 10
   OnLifeCooldown: 4
   OnShieldCooldown: 1
