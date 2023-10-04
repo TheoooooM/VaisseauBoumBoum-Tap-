@@ -39,7 +39,7 @@ public class PoolOfObject : MonoBehaviour
 
     public enum Type
     {
-        Bullet, Explosion
+        Bullet, Explosion, Missil
     }
     
     [Serializable]

@@ -265,6 +265,10 @@ MonoBehaviour:
     count: 50
     prefab: {fileID: 7319795893797399414, guid: 84eb649081871074db7f1db8bd0aa65d,
       type: 3}
+  - objectType: 2
+    count: 15
+    prefab: {fileID: 2095074025076202490, guid: b0a3870a4b144db4c88fa3ff86c120bf,
+      type: 3}
 --- !u!4 &85761516
 Transform:
   m_ObjectHideFlags: 0
@@ -3556,6 +3560,9 @@ MonoBehaviour:
   regenCooldown: 0.2
   lifeText: {fileID: 1994956185}
   shieldText: {fileID: 921576644}
+  life: 0
+  shield: 0
+  isShield: 0
 --- !u!65 &1937715922
 BoxCollider:
   m_ObjectHideFlags: 0

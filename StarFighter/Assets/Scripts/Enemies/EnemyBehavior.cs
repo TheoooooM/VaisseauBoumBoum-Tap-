@@ -1,11 +1,9 @@
-using System;
 using System.Collections;
-using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Serialization;
 
-public class EnemyBehavior : MonoBehaviour
+public abstract class EnemyBehavior : MonoBehaviour
 {
     [SerializeField] int maxLife = 100;
     [SerializeField] int maxShield = 30;
@@ -18,14 +16,14 @@ public class EnemyBehavior : MonoBehaviour
     [SerializeField]TextMeshProUGUI lifeText;
     [SerializeField]TextMeshProUGUI shieldText;
 
-    private int life;
+    protected int life;
     private int shield;
 
     private bool isShield;
 
     private Coroutine ShieldRegenCoroutine;
 
-    private void Start()
+    protected virtual void Start()
     {
         life = maxLife;
         shield = maxShield;
@@ -41,7 +39,7 @@ public class EnemyBehavior : MonoBehaviour
         shieldText.text = $"Shield: {shield}";
     }
 
-    public void Hit(int damage = 1)
+    public virtual void Hit(int damage = 1)
     {
         if (isShield)
         {
@@ -53,10 +51,7 @@ public class EnemyBehavior : MonoBehaviour
             life -= damage;
             if(life <= 0) Destroy();
         }
-
         ResetShieldRegen();
-        
-        
     }
 
     void ResetShieldRegen()
