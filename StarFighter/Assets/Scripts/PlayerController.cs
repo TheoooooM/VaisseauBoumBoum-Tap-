@@ -12,6 +12,7 @@ enum Controller
 public class PlayerController : MonoBehaviour
 {
     private Rigidbody _rb;
+    
 
 
     [SerializeField] private Animator _animator;
