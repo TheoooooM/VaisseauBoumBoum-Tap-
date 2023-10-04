@@ -20,7 +20,7 @@ namespace Enemies
             life = portals.Count;
         }
 
-        public override void Hit(int damage = 1) { }
+        public override void Hit(int damage = 1, bool overflow = false) { }
 
         public void DestroyPortal(PortalMonolith portal)
         {

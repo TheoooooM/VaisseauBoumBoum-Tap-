@@ -4,19 +4,27 @@ using UnityEngine;
 
 public class Missile : MonoBehaviour
 {
-    public float speed;
-    public float rotationSpeed;
+    [Header("Mouvement")]
+    [SerializeField] private float speed;
+    [SerializeField] private float rotationSpeed;
     
-    public float timeFollow;
-    public float timeFollowRemaining;
-    public float life;
-    public float lifeRemaining;
+    
+    [Header("Follow duration")]
+    [SerializeField] private float timeFollow;
+    [SerializeField] private float timeFollowRemaining;
+    
+    
+    [Header("Life duration")]
+    [SerializeField] private float life;
+    [SerializeField] private float lifeRemaining;
 
-    public float damage;
-    public float explosionRadius;
+    
+    [Header("Damage")]
+    [SerializeField] private float damage;
+    [SerializeField] private float explosionRadius;
 
-    public GameObject target;
-
+    [Header("[Debug] See target")]
+    [SerializeField] private GameObject target;
     [SerializeField] private bool started = false;
     
     // Start is called before the first frame update
@@ -27,13 +35,13 @@ public class Missile : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
-    {
-    }
+    // void Update()
+    // {
+    // }
 
     Quaternion rotation;
     Vector3 look;
-    void FixedUpdate()
+    void Update()
     {
         if (!started)
             return;
@@ -67,6 +75,7 @@ public class Missile : MonoBehaviour
         Explode();
     }
 
+    private float distance;
     void Explode() {
         Destroy(gameObject);
         Collider[] colliders = Physics.OverlapSphere(transform.position, explosionRadius);
@@ -75,18 +84,15 @@ public class Missile : MonoBehaviour
         foreach(Collider c in colliders) {
             pc = c.GetComponent<PlayerController>();
             if (pc != null) {
-                float distance = Vector3.Distance(transform.position, c.transform.position);
-                float dmgM = 1f - (distance / explosionRadius);
-
-                //PlayerController.takeDamage(damage * dmgM);
+                distance = Vector3.Distance(transform.position, c.transform.position);
+                c.GetComponent<PlayerBehavior>().Hit((int)((1f - (distance / explosionRadius)) * damage), true);
             }
         }
     }
 
-    public void SetTarget(GameObject t, float sp)
+    public void SetTarget(GameObject t)
     {
         target = t;
-        speed = sp;
         started = true;
     }
 }

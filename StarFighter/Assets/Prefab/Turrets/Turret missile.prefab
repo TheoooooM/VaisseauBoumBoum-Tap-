@@ -906,14 +906,15 @@ MonoBehaviour:
   layerMask:
     serializedVersion: 2
     m_Bits: 0
-  agroRange: 15
-  turnSpeed: 2
+  damage: 10
+  agroRange: 60
+  turnSpeed: 20
   turretCD: 5
   turretCDRemaining: 0
   shotCD: 0.2
   shotCDRemaining: 0
   shotAmount: 1
-  shotSpeed: 1
+  shotSpeed: 15
   isShooting: 0
   shotFired: 0
 --- !u!65 &7317648074956759771
@@ -935,7 +936,7 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 4, y: 3, z: 4}
+  m_Size: {x: 2, y: 2, z: 2}
   m_Center: {x: 0, y: 0.5, z: 0}
 --- !u!114 &-3590059315735270370
 MonoBehaviour:

@@ -4,30 +4,33 @@ using UnityEngine;
 
 public class Turrets : MonoBehaviour
 {
-    public GameObject target;
-    public GameObject[] spawners;
-    public GameObject head;
-    public LayerMask layerMask;
-    public int damage = 10;
-
+    [Header("Components & targets")]
+    [SerializeField] protected GameObject target;
+    [SerializeField] protected GameObject[] spawners;
+    [SerializeField] protected GameObject head;
+    [SerializeField] protected LayerMask layerMask;
     
-    public float agroRange = 5;
-    public float turnSpeed = 2;
     
-    public float turretCD = 5;
-    public float turretCDRemaining = 0;
+    [Header("Combat variables")]
+    [SerializeField] protected float agroRange = 5;
+    [SerializeField] protected float turnSpeed = 2;
+    [SerializeField] protected int damage = 10;
+    [SerializeField] protected int shotAmount = 1;
+    [SerializeField] protected float shotSpeed = 1f;
     
-    public float shotCD = 0.2f;
-    public float shotCDRemaining = 0;
     
-    public int shotAmount = 1;
-    public float shotSpeed = 1f;
+    [Header("CD between burst")]
+    [SerializeField] protected float turretCD = 5;
+    [SerializeField] protected float turretCDRemaining = 0;
     
-    public bool isShooting = false;
-    public int shotFired = 0;
     
-    //public GameObject bulletParent;
-    //public GameObject bulletPrefab;
+    [Header("CD between each shot of one burst")]
+    [SerializeField] protected float shotCD = 0.2f;
+    
+    
+    protected float shotCDRemaining = 0;
+    protected bool isShooting = false;
+    protected int shotFired = 0;
     
     
     
@@ -70,8 +73,9 @@ public class Turrets : MonoBehaviour
                 {
                     bulletDirection = -spawners[i].transform.up;
                 }
-                newBullet = PoolOfObject.instance.SpawnFromPool(PoolOfObject.Type.BulletTurret, spawners[i].transform.position + spawners[i].transform.up * -1, transform.rotation);
+                newBullet = PoolOfObject.instance.SpawnFromPool(PoolOfObject.Type.BulletTurret, spawners[i].transform.position + spawners[i].transform.up * -3, transform.rotation);
                 newBullet.GetComponent<Rigidbody>().velocity = bulletDirection * shotSpeed;
+                newBullet.GetComponent<TurretBulletBehaviour>().SetDamage(damage);
         }
     }
 
@@ -131,5 +135,10 @@ public class Turrets : MonoBehaviour
             rotation = Quaternion.LookRotation(look);
             head.transform.rotation = Quaternion.Slerp(headSelected.transform.rotation, rotation, turnSpeed * Time.deltaTime);
         }
+    }
+
+    public void SetTarget(GameObject go)
+    {
+        target = go;
     }
 }

@@ -5,6 +5,7 @@ using UnityEngine.Serialization;
 
 public class EnemyBehavior : MonoBehaviour
 {
+    [Header("Max")] 
     [SerializeField] int maxLife = 100;
     [SerializeField] int maxShield = 30;
     [FormerlySerializedAs("OnLifeShieldCooldown")]
@@ -16,8 +17,9 @@ public class EnemyBehavior : MonoBehaviour
     [SerializeField]TextMeshProUGUI lifeText;
     [SerializeField]TextMeshProUGUI shieldText;
 
-    protected int life;
-    private int shield;
+    [Header("Current Health/Shield")] //TODO remove SerializeField
+    [SerializeField] protected int life;
+    [SerializeField] protected int shield;
 
     private bool isShield;
 
@@ -39,10 +41,16 @@ public class EnemyBehavior : MonoBehaviour
         // shieldText.text = $"Shield: {shield}";
     }
 
-    public virtual void Hit(int damage = 1)
+    public virtual void Hit(int damage = 1, bool overflow = false)
     {
         if (isShield)
         {
+            if (overflow)
+            {
+                int overflowDamage = damage - shield;
+                if (overflowDamage > 0) life -= overflowDamage;
+                if(life <= 0) Destroy();
+            }
             shield -= damage;
             if (shield <= 0) BreakShield();
         }
@@ -65,10 +73,16 @@ public class EnemyBehavior : MonoBehaviour
         isShield = false;
     }
 
-    void Destroy()
+    protected virtual void Destroy()
     {
         Destroy(gameObject);
     }
+
+    public virtual bool IsPlayer()
+    {
+        return false;
+    }
+        
 
     IEnumerator ShieldCoolDown()
     {

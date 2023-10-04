@@ -231,7 +231,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2010427241357507059}
   - component: {fileID: 4035414322743498961}
-  - component: {fileID: 337599210932218806}
+  - component: {fileID: -3998632246882594302}
   - component: {fileID: 3022863117035890882}
   m_Layer: 0
   m_Name: Bullet_turret
@@ -283,7 +283,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &337599210932218806
+--- !u!114 &-3998632246882594302
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -292,11 +292,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 5583715297724301045}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2cd7a81412a0b044baa779b1cb6a1f94, type: 3}
+  m_Script: {fileID: 11500000, guid: dc2ab71899e358c46929e609bb9d56a6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   explosion: {fileID: 0}
-  lifespan: 5
+  lifespan: 50
 --- !u!65 &3022863117035890882
 BoxCollider:
   m_ObjectHideFlags: 0

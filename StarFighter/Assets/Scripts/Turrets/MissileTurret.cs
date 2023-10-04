@@ -62,14 +62,11 @@ public class MissileTurret : Turrets
                 bulletDirection = -spawners[i].transform.up;
             }
             newBullet = PoolOfObject.instance.SpawnFromPool(PoolOfObject.Type.Missile, spawners[i].transform.position + spawners[i].transform.up * -1, spawners[i].transform.rotation);
-            //newBullet.GetComponent<Rigidbody>().velocity = bulletDirection * shotSpeed;
-            
-            //g.transform.rotation.z += Quaternion.Euler();
             newBullet.transform.Rotate(new Vector3(+90, 0, 0));
 
             missile = newBullet.GetComponent<Missile>();
             if (missile != null)
-                missile.SetTarget(target, shotSpeed);
+                missile.SetTarget(target);
         }
     }
 }
