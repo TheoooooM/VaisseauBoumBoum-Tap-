@@ -198,7 +198,7 @@ public class PlayerController : MonoBehaviour
             {
                 //if the angle between the crosshair and the target's center is small
                 crossHair.enabled = true;
-                crossHair.transform.position = Camera.main.WorldToScreenPoint(targetObject.position - transform.position);
+                crossHair.transform.position = Camera.main.WorldToScreenPoint(targetObject.position);
                 bulletDirection = (hit.point - shootingPoint.position).normalized;
             }
             else
