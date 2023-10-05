@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using TMPro;
 using UnityEngine;
@@ -56,7 +57,7 @@ public class EnemyBehavior : MonoBehaviour
             
         }
         ResetShieldRegen();
-        if(enemyLifeBar)enemyLifeBar.UpdateStats(life,shield,maxLife);
+        UpdateStats();
     }
 
     void ResetShieldRegen()
@@ -79,7 +80,13 @@ public class EnemyBehavior : MonoBehaviour
     {
         return false;
     }
-        
+
+    protected virtual void UpdateStats()
+    {
+        if (enemyLifeBar) enemyLifeBar.UpdateStats(life, shield, maxLife);
+    }
+
+
 
     IEnumerator ShieldCoolDown()
     {
@@ -87,6 +94,7 @@ public class EnemyBehavior : MonoBehaviour
         else yield return new WaitForSeconds(OnShieldCooldown);
         isShield = true;
         shield++;
+        UpdateStats();
         ShieldRegenCoroutine = StartCoroutine(ShieldRegen());
     }
 
@@ -94,6 +102,7 @@ public class EnemyBehavior : MonoBehaviour
     {
         yield return new WaitForSeconds(regenCooldown);
         shield++;
+        UpdateStats();
         if (shield < maxShield) ShieldRegenCoroutine = StartCoroutine(ShieldRegen()); 
     }
 }
