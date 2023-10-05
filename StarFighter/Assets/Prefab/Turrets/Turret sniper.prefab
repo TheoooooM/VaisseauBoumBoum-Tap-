@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 768952516130268711}
   - component: {fileID: 6876884012945702425}
   - component: {fileID: 2501940304213859860}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Turret sniper
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -52,12 +52,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 0}
   spawners:
-  - {fileID: 8200828192520795138}
+  - {fileID: 7876248682414961213}
   head: {fileID: 7071919192438312932}
   layerMask:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 256
   offsetAim: 0
+  animator: {fileID: 0}
   agroRange: 200
   turnSpeed: 80
   damage: 30
@@ -121,7 +122,7 @@ GameObject:
   - component: {fileID: 3016500106858206193}
   - component: {fileID: 5678977762057813016}
   - component: {fileID: 1269077533617222661}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Cube.002
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -206,7 +207,7 @@ GameObject:
   - component: {fileID: 592335401785062618}
   - component: {fileID: 3014750711947276206}
   - component: {fileID: 8981597798329376630}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Cylinder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -313,7 +314,7 @@ GameObject:
   - component: {fileID: 3398854500589668749}
   - component: {fileID: 6381747659083225140}
   - component: {fileID: 240705962510656769}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Torus
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -396,7 +397,7 @@ GameObject:
   - component: {fileID: 6891073398931475045}
   - component: {fileID: 5352960771654527048}
   - component: {fileID: 914765971852505561}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Cube.001
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -480,7 +481,7 @@ GameObject:
   - component: {fileID: 7912236701214235004}
   - component: {fileID: 5645648985735763559}
   - component: {fileID: 5053277358176667777}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Torus.004
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -563,7 +564,7 @@ GameObject:
   - component: {fileID: 536913682967840057}
   - component: {fileID: 6156060139301810618}
   - component: {fileID: 1306134621892439223}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Circle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -647,7 +648,7 @@ GameObject:
   - component: {fileID: 3436748583049394496}
   - component: {fileID: 3302575484859333837}
   - component: {fileID: 1245915172077599440}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Torus.001
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -730,7 +731,7 @@ GameObject:
   - component: {fileID: 2314933257784421156}
   - component: {fileID: 58063390509464280}
   - component: {fileID: 7376301372589430763}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Torus.003
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -811,7 +812,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1782412650492740324}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Head
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -854,7 +855,7 @@ GameObject:
   - component: {fileID: 8698055567245958265}
   - component: {fileID: 6880919303009280806}
   - component: {fileID: 7639259175092403859}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Base
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -959,7 +960,7 @@ GameObject:
   - component: {fileID: 8767630989400269603}
   - component: {fileID: 2914742925411184825}
   - component: {fileID: 8505698603785276361}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Head
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -980,7 +981,6 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 7179364484777201736}
-  - {fileID: 3511824958864463706}
   m_Father: {fileID: 3702594774931916717}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &8767630989400269603
@@ -1063,7 +1063,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6954465381252690979}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: LaserTurret
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1078,7 +1078,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7766714595739250329}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -1086,7 +1086,7 @@ Transform:
   - {fileID: 6891073398931475045}
   - {fileID: 1782412650492740324}
   m_Father: {fileID: 3702594774931916717}
-  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &7876248682414961213
 GameObject:
   m_ObjectHideFlags: 0
@@ -1096,7 +1096,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5891746792961983573}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1112,10 +1112,11 @@ Transform:
   m_GameObject: {fileID: 7876248682414961213}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.855, z: -1.347}
+  m_LocalPosition: {x: 0, y: 0.885, z: -1.347}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 3511824958864463706}
   m_Father: {fileID: 1782412650492740324}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &8200828192520795138
@@ -1127,7 +1128,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6564268671475593833}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Spawner
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1160,7 +1161,7 @@ GameObject:
   - component: {fileID: 7980485446294808312}
   - component: {fileID: 4874179759648471362}
   - component: {fileID: 6054224397689190486}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Torus.005
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1243,7 +1244,7 @@ GameObject:
   - component: {fileID: 1575005859247218165}
   - component: {fileID: 1545928149024408505}
   - component: {fileID: 5451274891429373185}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Torus.002
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1327,7 +1328,7 @@ GameObject:
   - component: {fileID: 5525539379586165596}
   - component: {fileID: 2291355301515742372}
   - component: {fileID: 638608136977490043}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Y Angle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1434,7 +1435,7 @@ GameObject:
   - component: {fileID: 6826348921637532858}
   - component: {fileID: 8028463360410993427}
   - component: {fileID: 9190191487656924056}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Aim ray
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1449,12 +1450,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9139574046258732405}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.5, y: -0.5, z: 0.5, w: 0.5}
-  m_LocalPosition: {x: 0, y: 0, z: 5.95}
-  m_LocalScale: {x: 0.1, y: 4, z: 0.1}
+  m_LocalRotation: {x: -0.5, y: -0.5, z: -0.5, w: -0.5}
+  m_LocalPosition: {x: 0, y: 0, z: 0.15700006}
+  m_LocalScale: {x: 0.020000001, y: 0.8, z: 0.020000001}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 6443711435153800774}
+  m_Father: {fileID: 5891746792961983573}
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
 --- !u!33 &6826348921637532858
 MeshFilter:

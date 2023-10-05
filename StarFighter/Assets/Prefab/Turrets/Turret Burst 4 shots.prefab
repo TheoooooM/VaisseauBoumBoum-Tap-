@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 9093701709652655500}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: SpawnerLD
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -44,7 +44,7 @@ GameObject:
   - component: {fileID: 4480263456667481072}
   - component: {fileID: 3145950246566092090}
   - component: {fileID: 1863154609190320710}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Cylinder (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -152,7 +152,7 @@ GameObject:
   - component: {fileID: 2623429359120891638}
   - component: {fileID: 4323930440674796950}
   - component: {fileID: 8916526561112031397}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Left sub turret
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -259,7 +259,7 @@ GameObject:
   - component: {fileID: 3704091417815675982}
   - component: {fileID: 1923626626298942242}
   - component: {fileID: 215129022300816673}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Right sub turret
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -366,7 +366,7 @@ GameObject:
   - component: {fileID: 6622624059691352480}
   - component: {fileID: 8173319215919450189}
   - component: {fileID: 5619023468718511820}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Cylinder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -474,7 +474,7 @@ GameObject:
   - component: {fileID: 6109551857361488798}
   - component: {fileID: 2072069054760556317}
   - component: {fileID: 2894413581429337009}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Base
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -579,7 +579,7 @@ GameObject:
   - component: {fileID: 2759977783479721884}
   - component: {fileID: 5275077798038168149}
   - component: {fileID: 5175856552994233029}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Cylinder (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -687,7 +687,7 @@ GameObject:
   - component: {fileID: 2251196476490531481}
   - component: {fileID: 7202770859232598555}
   - component: {fileID: 5624434393128915605}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -792,7 +792,7 @@ GameObject:
   - component: {fileID: 2367559371957420490}
   - component: {fileID: 5825242739937294429}
   - component: {fileID: 7986718906836299654}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -897,7 +897,7 @@ GameObject:
   - component: {fileID: 1539500823369887900}
   - component: {fileID: 8498220939894922159}
   - component: {fileID: 2820568935253909032}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1002,7 +1002,7 @@ GameObject:
   - component: {fileID: 78308896363946269}
   - component: {fileID: 6728144104522702313}
   - component: {fileID: 4844866170017915695}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Y Angle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1109,7 +1109,7 @@ GameObject:
   - component: {fileID: 4668667280626497937}
   - component: {fileID: 8884347579879953984}
   - component: {fileID: 7205930742014722420}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Cylinder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1214,7 +1214,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6491910336237785339}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: SpawnerRD
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1249,7 +1249,7 @@ GameObject:
   - component: {fileID: 6260703716184447116}
   - component: {fileID: 7800050070785116841}
   - component: {fileID: 5091876537261370074}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1354,7 +1354,7 @@ GameObject:
   - component: {fileID: 3336612082042541353}
   - component: {fileID: 7519185447612144678}
   - component: {fileID: 6601482749261364882}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Head
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1458,7 +1458,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4434119164609138759}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: SpawnerLU
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1490,7 +1490,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4521216327830937062}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: SpawnerRU
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1525,7 +1525,7 @@ GameObject:
   - component: {fileID: 931935520233945883}
   - component: {fileID: 2319191995581051469}
   - component: {fileID: 1825240285956936188}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Turret Burst 4 shots
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1572,17 +1572,16 @@ MonoBehaviour:
   layerMask:
     serializedVersion: 2
     m_Bits: 0
-  damage: 10
+  offsetAim: 0
+  animator: {fileID: 0}
   agroRange: 15
   turnSpeed: 2
+  damage: 10
+  shotAmount: 5
+  shotSpeed: 1
   turretCD: 5
   turretCDRemaining: 0
   shotCD: 0.2
-  shotCDRemaining: 0
-  shotAmount: 5
-  shotSpeed: 1
-  isShooting: 0
-  shotFired: 0
   subHeadLeft: {fileID: 3006171024889341348}
   subHeadRight: {fileID: 3526587100974242332}
 --- !u!65 &2319191995581051469
@@ -1623,5 +1622,5 @@ MonoBehaviour:
   OnLifeCooldown: 4
   OnShieldCooldown: 1
   regenCooldown: 0.2
-  lifeText: {fileID: 0}
-  shieldText: {fileID: 0}
+  life: 0
+  shield: 0

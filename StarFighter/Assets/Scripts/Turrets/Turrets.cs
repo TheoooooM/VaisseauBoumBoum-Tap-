@@ -69,14 +69,6 @@ public class Turrets : MonoBehaviour, IHitable
         {
                 position = spawners[i].transform.position;
                 bulletDirection = Vector3.zero;
-                // if (Physics.Raycast(position, -spawners[i].transform.up, out hit, 10000f, layerMask))
-                // {
-                //     bulletDirection = (hit.point - spawners[i].transform.position).normalized;
-                // }
-                // else
-                // {
-                //     bulletDirection = -spawners[i].transform.up;
-                // }
                 bulletDirection = spawners[i].transform.forward;
                 newBullet = PoolOfObject.instance.SpawnFromPool(PoolOfObject.Type.BulletTurret, spawners[i].transform.position, transform.rotation);
                 newBullet.GetComponent<Rigidbody>().velocity = bulletDirection * shotSpeed;
@@ -126,12 +118,12 @@ public class Turrets : MonoBehaviour, IHitable
     
     public virtual void AimAtTargetFullHead()
     {
-        AimAtTargetByHead(head);
+        AimAtTargetByHead(spawners[0]);
     }
     
     
-    Quaternion rotation;
-    Vector3 look;
+    protected Quaternion rotation;
+    protected Vector3 look;
     public void AimAtTargetByHead(GameObject headSelected)
     {
         AimAtTargetByHeadOffset(headSelected, offsetAim);
@@ -145,6 +137,7 @@ public class Turrets : MonoBehaviour, IHitable
             rotation = Quaternion.LookRotation(look);
             head.transform.rotation = Quaternion.Slerp(headSelected.transform.rotation, rotation, turnSpeed * Time.deltaTime);
         }
+        Debug.DrawRay(head.transform.position, head.transform.forward * Vector3.Distance(head.transform.position, target.transform.position), Color.blue);
     }
 
     public void SetTarget(GameObject go)

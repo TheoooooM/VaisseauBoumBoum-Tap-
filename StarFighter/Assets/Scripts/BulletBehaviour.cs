@@ -11,7 +11,7 @@ public class BulletBehaviour : MonoBehaviour
     private float spawnTime;
     protected int damage = 10;
 
-    
+
     private EnemyBehavior eb;
     protected virtual void OnTriggerEnter(Collider other)
     {
@@ -38,6 +38,11 @@ public class BulletBehaviour : MonoBehaviour
     private void OnEnable()
     {
         spawnTime = Time.time;
+        
+        for (int i = 0; i < transform.childCount; i++)
+        {
+            transform.GetChild(i).GetComponent<TrailRenderer>().Clear();
+        }
     }
 
     private void Update()

@@ -10,7 +10,7 @@ public class MissileTurret : Turrets
     // Start is called before the first frame update
     void Start()
     {
-        
+        target = PlayerController.instance.gameObject;
     }
 
     // Update is called once per frame
@@ -52,17 +52,8 @@ public class MissileTurret : Turrets
         for (int i = 0; i < spawners.Length; i++)
         {
             position = spawners[i].transform.position;
-            bulletDirection = Vector3.zero;
-            if (Physics.Raycast(position, -spawners[i].transform.up, out hit, 10000f, layerMask))
-            {
-                bulletDirection = (hit.point - spawners[i].transform.position).normalized;
-            }
-            else
-            {
-                bulletDirection = -spawners[i].transform.up;
-            }
-            newBullet = PoolOfObject.instance.SpawnFromPool(PoolOfObject.Type.Missile, spawners[i].transform.position + spawners[i].transform.up * -1, spawners[i].transform.rotation);
-            newBullet.transform.Rotate(new Vector3(+90, 0, 0));
+            bulletDirection = spawners[i].transform.forward;
+            newBullet = PoolOfObject.instance.SpawnFromPool(PoolOfObject.Type.Missile, spawners[i].transform.position + spawners[i].transform.forward, spawners[i].transform.rotation);
 
             missile = newBullet.GetComponent<Missile>();
             if (missile != null)

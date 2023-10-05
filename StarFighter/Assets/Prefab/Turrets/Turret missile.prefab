@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 1517774490168875395}
   - component: {fileID: 7414310024106797912}
   - component: {fileID: 4412031595045293881}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -114,7 +114,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7634377746390210050}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Head
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -151,7 +151,7 @@ GameObject:
   - component: {fileID: 4677326823727513917}
   - component: {fileID: 1730560894035526040}
   - component: {fileID: 6833207518873414214}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Cube (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -255,7 +255,7 @@ GameObject:
   - component: {fileID: 4850113025998443823}
   - component: {fileID: 557546432672360483}
   - component: {fileID: 6301523611103733556}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Plane.001
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -341,7 +341,7 @@ GameObject:
   - component: {fileID: 291247288808175939}
   - component: {fileID: 7190631718153399175}
   - component: {fileID: 7373877909800043915}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Y Angle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -448,7 +448,7 @@ GameObject:
   - component: {fileID: 6021622818131034287}
   - component: {fileID: 8642552685475710529}
   - component: {fileID: 5294807627468758467}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Base
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -552,7 +552,7 @@ GameObject:
   - component: {fileID: 7198428605536707036}
   - component: {fileID: 8506876824853365745}
   - component: {fileID: 3528025901387274848}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Base
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -634,7 +634,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4901220226522628181}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -667,7 +667,7 @@ GameObject:
   - component: {fileID: 2243147412983127109}
   - component: {fileID: 1792484058526557766}
   - component: {fileID: 5283314176696982187}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Plane
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -752,7 +752,7 @@ GameObject:
   - component: {fileID: 633246131184527086}
   - component: {fileID: 3839971004659181943}
   - component: {fileID: 7313347548890673934}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Head
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -858,7 +858,7 @@ GameObject:
   - component: {fileID: 7309397796019133188}
   - component: {fileID: 8847246517554297500}
   - component: {fileID: 6603089950250890584}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Cylinder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -967,7 +967,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6684695867840241562}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: MissileTurret
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1003,7 +1003,7 @@ GameObject:
   - component: {fileID: 2300292317005137676}
   - component: {fileID: 4027082359053534557}
   - component: {fileID: 5263623030917432776}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Cube (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1108,7 +1108,7 @@ GameObject:
   - component: {fileID: 1153938892954945291}
   - component: {fileID: 7317648074956759771}
   - component: {fileID: -3590059315735270370}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Turret missile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1154,6 +1154,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 0
   offsetAim: 0
+  animator: {fileID: 0}
   agroRange: 600
   turnSpeed: 20
   damage: 10
@@ -1214,7 +1215,7 @@ GameObject:
   - component: {fileID: 4022998935000707852}
   - component: {fileID: 470980479197315118}
   - component: {fileID: 1005849624915413446}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Cube (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1319,7 +1320,7 @@ GameObject:
   - component: {fileID: 980465404740970751}
   - component: {fileID: 8881167569285020426}
   - component: {fileID: 6502944197785460771}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Right sub turret
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1422,7 +1423,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1824400125999167864}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Spawner
   m_TagString: Untagged
   m_Icon: {fileID: 0}

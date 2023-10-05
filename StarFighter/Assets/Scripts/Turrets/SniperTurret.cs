@@ -19,11 +19,12 @@ public class SniperTurret : Turrets
         aimTimeRemaining = aimTime;
         isShooting = false;
         shotFired = 0;
-
+        target = PlayerController.instance.gameObject;
         shotCDRemaining = shotCD;
     }
 
-    
+
+    private GameObject aimGo, lazerOriginGo;
     
     private PlayerBehavior pb;
     Vector3 rayTargetPosition;
@@ -41,28 +42,35 @@ public class SniperTurret : Turrets
             aimRay.SetActive(false);
             return;
         }
-        
+
+        //Instantiate(, target.transform.position, quaternion.identity);
         
         AimAtTarget();
         turretCDRemaining -= Time.deltaTime;
+        
+        lazerOriginGo = spawners[0];
 
         if (turretCDRemaining <= 0)
         {
             aimRay.SetActive(true);
-            rayTargetPosition = spawners[0].transform.position + spawners[0].transform.up * -rangeRay*2;
+            
+            
+            rayTargetPosition = lazerOriginGo.transform.position + -lazerOriginGo.transform.forward * rangeRay;
             hitPlayer = false;
             
             //First whe check if we can hit the player (or anything)
-            ray = new Ray(spawners[0].transform.position + spawners[0].transform.up * -4, spawners[0].transform.up * -6);
-
-            if (Physics.Raycast(ray, out rch, rangeRay)) {
+            ray = new Ray(lazerOriginGo.transform.position, lazerOriginGo.transform.forward * -1);
+            //Debug.DrawRay(head.transform.position, head.transform.forward * -rangeRay, Color.red);
+            //Debug.DrawRay(spawners[0].transform.position, spawners[0].transform.forward * -rangeRay, Color.green);
+            
+            if (Physics.Raycast(ray, out rch, rangeRay, ~layerMask)) {
                 Vector3 targetHit = rch.point;
                 GameObject go = rch.collider.gameObject;
-            
+
                 pb = go.GetComponent<PlayerBehavior>();
                 hitPlayer = pb != null;
                 if (pb != null) {
-                    rayTargetPosition = spawners[0].transform.position + -spawners[0].transform.up * Vector3.Distance(go.transform.position, spawners[0].transform.position);
+                    rayTargetPosition = lazerOriginGo.transform.position + -lazerOriginGo.transform.forward * Vector3.Distance(go.transform.position, lazerOriginGo.transform.position);
                     aimTimeRemaining -= Time.deltaTime;
                  }
                 else
@@ -82,18 +90,24 @@ public class SniperTurret : Turrets
                 }
             }
             
-            
-            
-            aimRay.transform.position = (rayTargetPosition + spawners[0].transform.position) / 2;
+            aimRay.transform.position = (rayTargetPosition + lazerOriginGo.transform.position) / 2;
 
             Vector3 scale = aimRay.transform.localScale;
-            scale.y = (1 / transform.localScale.y) * (1 / head.transform.localScale.y) * Vector3.Distance(hitPlayer ? target.transform.position : rayTargetPosition, spawners[0].transform.position) / 2;
+            scale.y = Vector3.Distance(hitPlayer ? target.transform.position : rayTargetPosition, lazerOriginGo.transform.position) / 2;
             aimRay.transform.localScale = scale;
         }
     }
     
     public override void AimAtTarget()
     {
-        AimAtTargetFullHead();
+        aimGo = spawners[0];
+        
+        //AimAtTargetFullHead();
+        look = aimGo.transform.position - (target.transform.position + target.transform.forward);
+        if (look != Vector3.zero)
+        {
+            rotation = Quaternion.LookRotation(look);
+            aimGo.transform.rotation = Quaternion.Slerp(aimGo.transform.rotation, rotation, turnSpeed * Time.deltaTime);
+        }
     }
 }

@@ -579,7 +579,8 @@ MonoBehaviour:
   layerMask:
     serializedVersion: 2
     m_Bits: 0
-  offsetAim: -8
+  offsetAim: 0
+  animator: {fileID: 0}
   agroRange: 1000
   turnSpeed: 300
   damage: 10
