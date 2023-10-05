@@ -6,8 +6,8 @@ using UnityEngine.Serialization;
 public class EnemyBehavior : MonoBehaviour
 {
     [Header("Max")] 
-    [SerializeField] int maxLife = 100;
-    [SerializeField] int maxShield = 30;
+    [SerializeField] protected int maxLife = 100;
+    [SerializeField] protected int maxShield = 30;
     [FormerlySerializedAs("OnLifeShieldCooldown")]
     [Header("Shield Regenation")] 
     [SerializeField] private float OnLifeCooldown = 4f;
