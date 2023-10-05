@@ -13,10 +13,9 @@ public class EnemyBehavior : MonoBehaviour
     [SerializeField] private float OnLifeCooldown = 4f;
     [SerializeField] private float OnShieldCooldown = 1f;
     [SerializeField] private float regenCooldown = .2f;
-    /*[Header("Debug")]
-    [SerializeField]TextMeshProUGUI lifeText;
-    [SerializeField]TextMeshProUGUI shieldText;*/
-
+    [Space] 
+    [SerializeField] private EnemyLifeBar enemyLifeBar;
+    [Space]
     [Header("Current Health/Shield")] //TODO remove SerializeField
     [SerializeField] protected int life;
     [SerializeField] protected int shield;
@@ -51,6 +50,7 @@ public class EnemyBehavior : MonoBehaviour
             if(life <= 0) Destroy();
         }
         ResetShieldRegen();
+        if(enemyLifeBar)enemyLifeBar.UpdateStats(life,shield,maxLife);
     }
 
     void ResetShieldRegen()
