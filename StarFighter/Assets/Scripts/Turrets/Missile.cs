@@ -71,7 +71,13 @@ public class Missile : MonoBehaviour
         }
     }
 
-    void OnTriggerEnter() {
+    private void OnCollisionEnter()
+    {
+        Explode();
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
         Explode();
     }
 
@@ -79,7 +85,8 @@ public class Missile : MonoBehaviour
     void Explode() {
         Collider[] colliders = Physics.OverlapSphere(transform.position, explosionRadius);
         PlayerController pc;
-
+        PoolOfObject.instance.SpawnFromPool(PoolOfObject.Type.EnemyExplosion, transform.position, transform.rotation);
+        
         foreach(Collider c in colliders) {
             pc = c.GetComponent<PlayerController>();
             if (pc != null) {

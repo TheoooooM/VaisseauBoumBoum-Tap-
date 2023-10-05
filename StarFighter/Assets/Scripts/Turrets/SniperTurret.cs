@@ -86,6 +86,8 @@ public class SniperTurret : Turrets
 
                 if (hitPlayer && aimTimeRemaining < 0)
                 {
+                    PoolOfObject.instance.SpawnFromPool(PoolOfObject.Type.EnemyExplosion, targetHit,
+                        Quaternion.identity);
                     pb.Hit(damage);
                     aimRay.SetActive(false);
                     turretCDRemaining = turretCD;
