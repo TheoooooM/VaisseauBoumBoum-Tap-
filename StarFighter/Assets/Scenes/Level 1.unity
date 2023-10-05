@@ -488,6 +488,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 628452265298391380, guid: 896739e33a193344ea24b53ed0915c7b,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 639398908706126102, guid: 896739e33a193344ea24b53ed0915c7b,
         type: 3}
       propertyPath: shotSpeed
@@ -553,6 +558,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: Capital Ship
       objectReference: {fileID: 0}
+    - target: {fileID: 2383640485309698135, guid: 896739e33a193344ea24b53ed0915c7b,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2554388722691802633, guid: 896739e33a193344ea24b53ed0915c7b,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3389536715736866164, guid: 896739e33a193344ea24b53ed0915c7b,
         type: 3}
       propertyPath: goo
@@ -583,6 +598,11 @@ PrefabInstance:
       propertyPath: aimTimeRemaining
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 4262745773382430942, guid: 896739e33a193344ea24b53ed0915c7b,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4613101506843556024, guid: 896739e33a193344ea24b53ed0915c7b,
         type: 3}
       propertyPath: shotSpeed
@@ -592,6 +612,16 @@ PrefabInstance:
         type: 3}
       propertyPath: turnSpeed
       value: 300
+      objectReference: {fileID: 0}
+    - target: {fileID: 4639315143819243770, guid: 896739e33a193344ea24b53ed0915c7b,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5356070969005441114, guid: 896739e33a193344ea24b53ed0915c7b,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5940386397154187167, guid: 896739e33a193344ea24b53ed0915c7b,
         type: 3}
@@ -652,6 +682,11 @@ PrefabInstance:
         type: 3}
       propertyPath: turnSpeed
       value: 300
+      objectReference: {fileID: 0}
+    - target: {fileID: 8319799311978447364, guid: 896739e33a193344ea24b53ed0915c7b,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1814,7 +1849,7 @@ PrefabInstance:
     - target: {fileID: 4117128625084939432, guid: 30d31cdbf7762514e935908a35b3317e,
         type: 3}
       propertyPath: controlType
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 4117128625084939432, guid: 30d31cdbf7762514e935908a35b3317e,
         type: 3}

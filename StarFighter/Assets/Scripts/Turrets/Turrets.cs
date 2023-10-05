@@ -9,6 +9,7 @@ public class Turrets : MonoBehaviour
     [SerializeField] protected GameObject[] spawners;
     [SerializeField] protected GameObject head;
     [SerializeField] protected LayerMask layerMask;
+    [SerializeField] protected float offsetAim = 0;
     
     
     [Header("Combat variables")]
@@ -120,7 +121,7 @@ public class Turrets : MonoBehaviour
         }
     }
     
-    public void AimAtTargetFullHead()
+    public virtual void AimAtTargetFullHead()
     {
         AimAtTargetByHead(head);
     }
@@ -130,7 +131,12 @@ public class Turrets : MonoBehaviour
     Vector3 look;
     public void AimAtTargetByHead(GameObject headSelected)
     {
-        look = target.transform.position - headSelected.transform.position;
+        AimAtTargetByHeadOffset(headSelected, offsetAim);
+    }
+    
+    public void AimAtTargetByHeadOffset(GameObject headSelected, float offset)
+    {
+        look = (target.transform.position + target.transform.forward * offset) - headSelected.transform.position;
         if (look != Vector3.zero)
         {
             rotation = Quaternion.LookRotation(look);
