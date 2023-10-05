@@ -77,7 +77,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   explosion: {fileID: 3568959637970191164, guid: 84eb649081871074db7f1db8bd0aa65d,
     type: 3}
-  lifespan: 5
+  lifespan: 0.7
 --- !u!65 &8522166423303889516
 BoxCollider:
   m_ObjectHideFlags: 0
