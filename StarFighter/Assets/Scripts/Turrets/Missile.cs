@@ -77,7 +77,6 @@ public class Missile : MonoBehaviour
 
     private float distance;
     void Explode() {
-        Destroy(gameObject);
         Collider[] colliders = Physics.OverlapSphere(transform.position, explosionRadius);
         PlayerController pc;
 
@@ -88,6 +87,7 @@ public class Missile : MonoBehaviour
                 c.GetComponent<PlayerBehavior>().Hit((int)((1f - (distance / explosionRadius)) * damage), true);
             }
         }
+        gameObject.SetActive(false);
     }
 
     public void SetTarget(GameObject t)
