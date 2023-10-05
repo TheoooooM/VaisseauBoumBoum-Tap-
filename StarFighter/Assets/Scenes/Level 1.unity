@@ -1492,7 +1492,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lerpSpeed: 0.3
   minLerpSpeed: 0.2
-  target: {fileID: 904372346}
+  target: {fileID: 976763896}
 --- !u!1 &638684472
 GameObject:
   m_ObjectHideFlags: 0
@@ -2540,12 +2540,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 901875106}
   m_CullTransparentMesh: 1
---- !u!4 &904372346 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 4971406788531298972, guid: 30d31cdbf7762514e935908a35b3317e,
-    type: 3}
-  m_PrefabInstance: {fileID: 2533596947327367235}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &904458712
 GameObject:
   m_ObjectHideFlags: 0
@@ -2597,7 +2591,7 @@ MonoBehaviour:
   lifeBar: {fileID: 2103022042}
   shieldBar: {fileID: 947597511}
   pauseMenu: {fileID: 1393266337}
-  gameOverMenu: {fileID: 0}
+  gameOverMenu: {fileID: 974795284}
 --- !u!1 &925301207
 GameObject:
   m_ObjectHideFlags: 0
@@ -2853,6 +2847,12 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
+--- !u!4 &976763896 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 7730965408127635321, guid: 30d31cdbf7762514e935908a35b3317e,
+    type: 3}
+  m_PrefabInstance: {fileID: 2533596947327367235}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1044604724
 GameObject:
   m_ObjectHideFlags: 0
@@ -4956,7 +4956,7 @@ PrefabInstance:
     - target: {fileID: 5452050754024328513, guid: 30d31cdbf7762514e935908a35b3317e,
         type: 3}
       propertyPath: maxShield
-      value: 300000
+      value: 40
       objectReference: {fileID: 0}
     - target: {fileID: 6822618386346328554, guid: 30d31cdbf7762514e935908a35b3317e,
         type: 3}

@@ -183,6 +183,11 @@ public class PlayerController : MonoBehaviour
         Move();
     }
 
+    private void OnDisable()
+    {
+        _inputs.Disable();
+    }
+
     private void Shoot()
     {
         RaycastHit hit;

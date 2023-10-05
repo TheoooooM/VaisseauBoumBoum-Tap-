@@ -54,7 +54,6 @@ public class PoolOfObject : MonoBehaviour
 
     public GameObject SpawnFromPool(Type type, Vector3 position, Quaternion rotation)
     {
-        if(type == Type.Explosion) Debug.Log("macron explosion"); 
         var pool = poolOfObject[type];
         var newObject = pool.objects[pool.index];
         newObject.transform.position = position;
