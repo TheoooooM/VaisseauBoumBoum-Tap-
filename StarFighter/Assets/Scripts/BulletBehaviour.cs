@@ -46,7 +46,11 @@ public class BulletBehaviour : MonoBehaviour
     private void OnEnable()
     {
         spawnTime = Time.time;
-        transform.GetComponentInChildren<TrailRenderer>().Clear();
+        foreach (var trail in trails)
+        {
+            trail.Clear();
+            //transform.GetComponentInChildren<TrailRenderer>().Clear();
+        }
     }
 
     private void Update()
