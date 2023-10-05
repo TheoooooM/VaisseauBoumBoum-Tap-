@@ -534,6 +534,7 @@ GameObject:
   - component: {fileID: 4774856655253692019}
   - component: {fileID: 455334052242092767}
   - component: {fileID: 4929114311207666309}
+  - component: {fileID: 554713983245859857}
   m_Layer: 8
   m_Name: Turret Burst 1 shots
   m_TagString: Untagged
@@ -551,8 +552,8 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 3, y: 3, z: 3}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 1322479299256709194}
   - {fileID: 9174313558500659661}
@@ -580,6 +581,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 0
   offsetAim: -8
+  animator: {fileID: 0}
   agroRange: 1000
   turnSpeed: 300
   damage: 10
@@ -628,6 +630,27 @@ MonoBehaviour:
   regenCooldown: 0.2
   life: 0
   shield: 0
+--- !u!95 &554713983245859857
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4766107197385692721}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 6cce8d547595017408e1d9089c29ecca, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &4965184019527071327
 GameObject:
   m_ObjectHideFlags: 0

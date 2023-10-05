@@ -48,7 +48,13 @@ public class EnemyBehavior : MonoBehaviour
         else
         {
             life -= damage;
-            if(life <= 0) Destroy();
+            if (life <= 0)
+            {
+                PoolOfObject.instance.SpawnFromPool(PoolOfObject.Type.EnemyExplosion, transform.position,
+                    Quaternion.identity);
+                Destroy();
+            }
+            
         }
         ResetShieldRegen();
     }

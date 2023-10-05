@@ -273,6 +273,10 @@ MonoBehaviour:
     count: 1500
     prefab: {fileID: 5583715297724301045, guid: 27ce04ba554768b4082d69fb455127c1,
       type: 3}
+  - objectType: 4
+    count: 50
+    prefab: {fileID: 7319795893797399414, guid: 2ae62fe27fbc2c2418f65757acccba7e,
+      type: 3}
 --- !u!4 &85761516
 Transform:
   m_ObjectHideFlags: 0
@@ -18774,6 +18778,25 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.9504473, y: 0.37, z: 1.1712798}
   m_Center: {x: -0.009861425, y: 0, z: 0.08564013}
+--- !u!114 &1754497938
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1754497931}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 674bd02d7dcd6fa4a8c7e54ff5b93b07, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxLife: 10000
+  maxShield: 30
+  OnLifeCooldown: 4
+  OnShieldCooldown: 1
+  regenCooldown: 0.2
+  life: 0
+  shield: 0
 --- !u!1001 &1799177630
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -24645,6 +24668,11 @@ PrefabInstance:
       propertyPath: heightDistance
       value: 0.06
       objectReference: {fileID: 0}
+    - target: {fileID: 4117128625084939432, guid: 30d31cdbf7762514e935908a35b3317e,
+        type: 3}
+      propertyPath: layerMask.m_Bits
+      value: 257
+      objectReference: {fileID: 0}
     - target: {fileID: 4515779545610515516, guid: 30d31cdbf7762514e935908a35b3317e,
         type: 3}
       propertyPath: m_Layer
@@ -24730,6 +24758,10 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 1754497935}
+    - targetCorrespondingSourceObject: {fileID: 6822618386346328554, guid: 30d31cdbf7762514e935908a35b3317e,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1754497938}
   m_SourcePrefab: {fileID: 100100000, guid: 30d31cdbf7762514e935908a35b3317e, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
