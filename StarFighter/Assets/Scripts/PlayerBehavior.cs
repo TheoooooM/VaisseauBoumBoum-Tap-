@@ -17,6 +17,8 @@ public class PlayerBehavior : EnemyBehavior
         return true;
     }
 
+    protected override void UpdateStats()=> UIManager.Instance.UpdateStats(life,shield, maxLife);
+
     protected override void Destroy()
     {
         //TODO : Game over
