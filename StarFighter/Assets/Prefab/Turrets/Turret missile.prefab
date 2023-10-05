@@ -906,17 +906,14 @@ MonoBehaviour:
   layerMask:
     serializedVersion: 2
     m_Bits: 0
-  damage: 10
-  agroRange: 60
+  agroRange: 600
   turnSpeed: 20
+  damage: 10
+  shotAmount: 1
+  shotSpeed: 10
   turretCD: 5
   turretCDRemaining: 0
   shotCD: 0.2
-  shotCDRemaining: 0
-  shotAmount: 1
-  shotSpeed: 15
-  isShooting: 0
-  shotFired: 0
 --- !u!65 &7317648074956759771
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -955,8 +952,8 @@ MonoBehaviour:
   OnLifeCooldown: 4
   OnShieldCooldown: 1
   regenCooldown: 0.2
-  lifeText: {fileID: 0}
-  shieldText: {fileID: 0}
+  life: 0
+  shield: 0
 --- !u!1 &8050348094116917214
 GameObject:
   m_ObjectHideFlags: 0

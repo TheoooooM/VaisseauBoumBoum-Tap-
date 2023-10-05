@@ -501,15 +501,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d37e6cefd4f8e4844bba7fa92001a6de, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 10
+  speed: 40
   rotationSpeed: 500
   timeFollow: 10
   timeFollowRemaining: 0
-  life: 15
+  life: 30
   lifeRemaining: 0
   damage: 10
   explosionRadius: 5
   target: {fileID: 0}
+  started: 0
 --- !u!136 &4784071035540988790
 CapsuleCollider:
   m_ObjectHideFlags: 0

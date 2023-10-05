@@ -245,7 +245,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &54654628
 Transform:
   m_ObjectHideFlags: 0
@@ -275,9 +275,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   radius: 400
   minY: 0
-  maxY: 30
+  maxY: 3000
   widthPercent: 0.2
-  asteroidsAimed: 200
+  asteroidsAimed: 1000
   asteroidsPossible:
   - {fileID: 7339678668434687031, guid: 4cc80250ee8d9484ea060ec9a0bbb919, type: 3}
   - {fileID: 5109967396028275747, guid: 811a5f0fcdad01c4c821a741a35e177b, type: 3}
@@ -286,6 +286,8 @@ MonoBehaviour:
   - {fileID: 5192951802763068212, guid: 3da015204e1dbbc42aa23214d83edd8d, type: 3}
   - {fileID: 496582210618055882, guid: b871745bb27281c4f8226b77e249d7d3, type: 3}
   - {fileID: 7417120215640450743, guid: f5ea4e2bf249911408d023ac2919713c, type: 3}
+  sizeMin: 1
+  sizeMax: 5
 --- !u!1 &85761514
 GameObject:
   m_ObjectHideFlags: 0
@@ -324,11 +326,11 @@ MonoBehaviour:
     prefab: {fileID: 7319795893797399414, guid: 84eb649081871074db7f1db8bd0aa65d,
       type: 3}
   - objectType: 3
-    count: 15
+    count: 150
     prefab: {fileID: 5741290204836405921, guid: b964663f0b1951242a4cd35aed7aa076,
       type: 3}
   - objectType: 2
-    count: 15
+    count: 1500
     prefab: {fileID: 5583715297724301045, guid: 27ce04ba554768b4082d69fb455127c1,
       type: 3}
 --- !u!4 &85761516
@@ -486,6 +488,16 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 639398908706126102, guid: 896739e33a193344ea24b53ed0915c7b,
+        type: 3}
+      propertyPath: shotSpeed
+      value: 300
+      objectReference: {fileID: 0}
+    - target: {fileID: 639398908706126102, guid: 896739e33a193344ea24b53ed0915c7b,
+        type: 3}
+      propertyPath: turnSpeed
+      value: 300
+      objectReference: {fileID: 0}
     - target: {fileID: 1034958047693401834, guid: 896739e33a193344ea24b53ed0915c7b,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -541,6 +553,86 @@ PrefabInstance:
       propertyPath: m_Name
       value: Capital Ship
       objectReference: {fileID: 0}
+    - target: {fileID: 3389536715736866164, guid: 896739e33a193344ea24b53ed0915c7b,
+        type: 3}
+      propertyPath: goo
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 3389536715736866164, guid: 896739e33a193344ea24b53ed0915c7b,
+        type: 3}
+      propertyPath: aimTime
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3389536715736866164, guid: 896739e33a193344ea24b53ed0915c7b,
+        type: 3}
+      propertyPath: rangeRay
+      value: 200
+      objectReference: {fileID: 0}
+    - target: {fileID: 3389536715736866164, guid: 896739e33a193344ea24b53ed0915c7b,
+        type: 3}
+      propertyPath: agroRange
+      value: 200
+      objectReference: {fileID: 0}
+    - target: {fileID: 3389536715736866164, guid: 896739e33a193344ea24b53ed0915c7b,
+        type: 3}
+      propertyPath: turnSpeed
+      value: 80
+      objectReference: {fileID: 0}
+    - target: {fileID: 3389536715736866164, guid: 896739e33a193344ea24b53ed0915c7b,
+        type: 3}
+      propertyPath: aimTimeRemaining
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4613101506843556024, guid: 896739e33a193344ea24b53ed0915c7b,
+        type: 3}
+      propertyPath: shotSpeed
+      value: 300
+      objectReference: {fileID: 0}
+    - target: {fileID: 4613101506843556024, guid: 896739e33a193344ea24b53ed0915c7b,
+        type: 3}
+      propertyPath: turnSpeed
+      value: 300
+      objectReference: {fileID: 0}
+    - target: {fileID: 5940386397154187167, guid: 896739e33a193344ea24b53ed0915c7b,
+        type: 3}
+      propertyPath: aimTime
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5940386397154187167, guid: 896739e33a193344ea24b53ed0915c7b,
+        type: 3}
+      propertyPath: rangeRay
+      value: 200
+      objectReference: {fileID: 0}
+    - target: {fileID: 5940386397154187167, guid: 896739e33a193344ea24b53ed0915c7b,
+        type: 3}
+      propertyPath: agroRange
+      value: 200
+      objectReference: {fileID: 0}
+    - target: {fileID: 5940386397154187167, guid: 896739e33a193344ea24b53ed0915c7b,
+        type: 3}
+      propertyPath: turnSpeed
+      value: 80
+      objectReference: {fileID: 0}
+    - target: {fileID: 5940386397154187167, guid: 896739e33a193344ea24b53ed0915c7b,
+        type: 3}
+      propertyPath: aimTimeRemaining
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6660283160804989628, guid: 896739e33a193344ea24b53ed0915c7b,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7157425100598213703, guid: 896739e33a193344ea24b53ed0915c7b,
+        type: 3}
+      propertyPath: shotSpeed
+      value: 300
+      objectReference: {fileID: 0}
+    - target: {fileID: 7157425100598213703, guid: 896739e33a193344ea24b53ed0915c7b,
+        type: 3}
+      propertyPath: turnSpeed
+      value: 300
+      objectReference: {fileID: 0}
     - target: {fileID: 8095343212596434060, guid: 896739e33a193344ea24b53ed0915c7b,
         type: 3}
       propertyPath: speed
@@ -551,6 +643,16 @@ PrefabInstance:
       propertyPath: target
       value: 
       objectReference: {fileID: 1754497931}
+    - target: {fileID: 8291956559824996934, guid: 896739e33a193344ea24b53ed0915c7b,
+        type: 3}
+      propertyPath: shotSpeed
+      value: 300
+      objectReference: {fileID: 0}
+    - target: {fileID: 8291956559824996934, guid: 896739e33a193344ea24b53ed0915c7b,
+        type: 3}
+      propertyPath: turnSpeed
+      value: 300
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -970,6 +1072,16 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 639398908706126102, guid: 896739e33a193344ea24b53ed0915c7b,
+        type: 3}
+      propertyPath: shotSpeed
+      value: 300
+      objectReference: {fileID: 0}
+    - target: {fileID: 639398908706126102, guid: 896739e33a193344ea24b53ed0915c7b,
+        type: 3}
+      propertyPath: turnSpeed
+      value: 300
+      objectReference: {fileID: 0}
     - target: {fileID: 1034958047693401834, guid: 896739e33a193344ea24b53ed0915c7b,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1025,6 +1137,81 @@ PrefabInstance:
       propertyPath: m_Name
       value: Capital Ship (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 1310698809157534335, guid: 896739e33a193344ea24b53ed0915c7b,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3389536715736866164, guid: 896739e33a193344ea24b53ed0915c7b,
+        type: 3}
+      propertyPath: aimTime
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3389536715736866164, guid: 896739e33a193344ea24b53ed0915c7b,
+        type: 3}
+      propertyPath: rangeRay
+      value: 200
+      objectReference: {fileID: 0}
+    - target: {fileID: 3389536715736866164, guid: 896739e33a193344ea24b53ed0915c7b,
+        type: 3}
+      propertyPath: agroRange
+      value: 200
+      objectReference: {fileID: 0}
+    - target: {fileID: 3389536715736866164, guid: 896739e33a193344ea24b53ed0915c7b,
+        type: 3}
+      propertyPath: turnSpeed
+      value: 80
+      objectReference: {fileID: 0}
+    - target: {fileID: 3389536715736866164, guid: 896739e33a193344ea24b53ed0915c7b,
+        type: 3}
+      propertyPath: aimTimeRemaining
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4613101506843556024, guid: 896739e33a193344ea24b53ed0915c7b,
+        type: 3}
+      propertyPath: shotSpeed
+      value: 300
+      objectReference: {fileID: 0}
+    - target: {fileID: 4613101506843556024, guid: 896739e33a193344ea24b53ed0915c7b,
+        type: 3}
+      propertyPath: turnSpeed
+      value: 300
+      objectReference: {fileID: 0}
+    - target: {fileID: 5940386397154187167, guid: 896739e33a193344ea24b53ed0915c7b,
+        type: 3}
+      propertyPath: aimTime
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5940386397154187167, guid: 896739e33a193344ea24b53ed0915c7b,
+        type: 3}
+      propertyPath: rangeRay
+      value: 200
+      objectReference: {fileID: 0}
+    - target: {fileID: 5940386397154187167, guid: 896739e33a193344ea24b53ed0915c7b,
+        type: 3}
+      propertyPath: agroRange
+      value: 200
+      objectReference: {fileID: 0}
+    - target: {fileID: 5940386397154187167, guid: 896739e33a193344ea24b53ed0915c7b,
+        type: 3}
+      propertyPath: turnSpeed
+      value: 80
+      objectReference: {fileID: 0}
+    - target: {fileID: 5940386397154187167, guid: 896739e33a193344ea24b53ed0915c7b,
+        type: 3}
+      propertyPath: aimTimeRemaining
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7157425100598213703, guid: 896739e33a193344ea24b53ed0915c7b,
+        type: 3}
+      propertyPath: shotSpeed
+      value: 300
+      objectReference: {fileID: 0}
+    - target: {fileID: 7157425100598213703, guid: 896739e33a193344ea24b53ed0915c7b,
+        type: 3}
+      propertyPath: turnSpeed
+      value: 300
+      objectReference: {fileID: 0}
     - target: {fileID: 8095343212596434060, guid: 896739e33a193344ea24b53ed0915c7b,
         type: 3}
       propertyPath: speed
@@ -1035,6 +1222,16 @@ PrefabInstance:
       propertyPath: target
       value: 
       objectReference: {fileID: 1754497931}
+    - target: {fileID: 8291956559824996934, guid: 896739e33a193344ea24b53ed0915c7b,
+        type: 3}
+      propertyPath: shotSpeed
+      value: 300
+      objectReference: {fileID: 0}
+    - target: {fileID: 8291956559824996934, guid: 896739e33a193344ea24b53ed0915c7b,
+        type: 3}
+      propertyPath: turnSpeed
+      value: 300
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1096,6 +1293,16 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 639398908706126102, guid: 896739e33a193344ea24b53ed0915c7b,
+        type: 3}
+      propertyPath: shotSpeed
+      value: 300
+      objectReference: {fileID: 0}
+    - target: {fileID: 639398908706126102, guid: 896739e33a193344ea24b53ed0915c7b,
+        type: 3}
+      propertyPath: turnSpeed
+      value: 300
+      objectReference: {fileID: 0}
     - target: {fileID: 1034958047693401834, guid: 896739e33a193344ea24b53ed0915c7b,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1151,6 +1358,81 @@ PrefabInstance:
       propertyPath: m_Name
       value: Capital Ship (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 1310698809157534335, guid: 896739e33a193344ea24b53ed0915c7b,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3389536715736866164, guid: 896739e33a193344ea24b53ed0915c7b,
+        type: 3}
+      propertyPath: aimTime
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3389536715736866164, guid: 896739e33a193344ea24b53ed0915c7b,
+        type: 3}
+      propertyPath: rangeRay
+      value: 200
+      objectReference: {fileID: 0}
+    - target: {fileID: 3389536715736866164, guid: 896739e33a193344ea24b53ed0915c7b,
+        type: 3}
+      propertyPath: agroRange
+      value: 200
+      objectReference: {fileID: 0}
+    - target: {fileID: 3389536715736866164, guid: 896739e33a193344ea24b53ed0915c7b,
+        type: 3}
+      propertyPath: turnSpeed
+      value: 80
+      objectReference: {fileID: 0}
+    - target: {fileID: 3389536715736866164, guid: 896739e33a193344ea24b53ed0915c7b,
+        type: 3}
+      propertyPath: aimTimeRemaining
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4613101506843556024, guid: 896739e33a193344ea24b53ed0915c7b,
+        type: 3}
+      propertyPath: shotSpeed
+      value: 300
+      objectReference: {fileID: 0}
+    - target: {fileID: 4613101506843556024, guid: 896739e33a193344ea24b53ed0915c7b,
+        type: 3}
+      propertyPath: turnSpeed
+      value: 300
+      objectReference: {fileID: 0}
+    - target: {fileID: 5940386397154187167, guid: 896739e33a193344ea24b53ed0915c7b,
+        type: 3}
+      propertyPath: aimTime
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5940386397154187167, guid: 896739e33a193344ea24b53ed0915c7b,
+        type: 3}
+      propertyPath: rangeRay
+      value: 200
+      objectReference: {fileID: 0}
+    - target: {fileID: 5940386397154187167, guid: 896739e33a193344ea24b53ed0915c7b,
+        type: 3}
+      propertyPath: agroRange
+      value: 200
+      objectReference: {fileID: 0}
+    - target: {fileID: 5940386397154187167, guid: 896739e33a193344ea24b53ed0915c7b,
+        type: 3}
+      propertyPath: turnSpeed
+      value: 80
+      objectReference: {fileID: 0}
+    - target: {fileID: 5940386397154187167, guid: 896739e33a193344ea24b53ed0915c7b,
+        type: 3}
+      propertyPath: aimTimeRemaining
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7157425100598213703, guid: 896739e33a193344ea24b53ed0915c7b,
+        type: 3}
+      propertyPath: shotSpeed
+      value: 300
+      objectReference: {fileID: 0}
+    - target: {fileID: 7157425100598213703, guid: 896739e33a193344ea24b53ed0915c7b,
+        type: 3}
+      propertyPath: turnSpeed
+      value: 300
+      objectReference: {fileID: 0}
     - target: {fileID: 8095343212596434060, guid: 896739e33a193344ea24b53ed0915c7b,
         type: 3}
       propertyPath: speed
@@ -1161,6 +1443,16 @@ PrefabInstance:
       propertyPath: target
       value: 
       objectReference: {fileID: 1754497931}
+    - target: {fileID: 8291956559824996934, guid: 896739e33a193344ea24b53ed0915c7b,
+        type: 3}
+      propertyPath: shotSpeed
+      value: 300
+      objectReference: {fileID: 0}
+    - target: {fileID: 8291956559824996934, guid: 896739e33a193344ea24b53ed0915c7b,
+        type: 3}
+      propertyPath: turnSpeed
+      value: 300
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1408,7 +1700,7 @@ Rigidbody:
   m_ImplicitTensor: 1
   m_UseGravity: 0
   m_IsKinematic: 0
-  m_Interpolate: 1
+  m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 2
 --- !u!65 &1754497935
@@ -1432,6 +1724,25 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.9504473, y: 0.37, z: 1.1712798}
   m_Center: {x: -0.009861425, y: 0, z: 0.08564013}
+--- !u!114 &1754497939
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1754497931}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 674bd02d7dcd6fa4a8c7e54ff5b93b07, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxLife: 100
+  maxShield: 30
+  OnLifeCooldown: 4
+  OnShieldCooldown: 1
+  regenCooldown: 0.2
+  life: 0
+  shield: 0
 --- !u!1001 &2533596947327367235
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1580,6 +1891,10 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 164566482}
     m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 6822618386346328554, guid: 30d31cdbf7762514e935908a35b3317e,
+        type: 3}
+      insertIndex: 2
+      addedObject: {fileID: 1754497939}
     - targetCorrespondingSourceObject: {fileID: 6822618386346328554, guid: 30d31cdbf7762514e935908a35b3317e,
         type: 3}
       insertIndex: -1

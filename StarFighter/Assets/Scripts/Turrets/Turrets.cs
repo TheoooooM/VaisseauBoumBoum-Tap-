@@ -65,14 +65,15 @@ public class Turrets : MonoBehaviour
         {
                 position = spawners[i].transform.position;
                 bulletDirection = Vector3.zero;
-                if (Physics.Raycast(position, -spawners[i].transform.up, out hit, 10000f, layerMask))
-                {
-                    bulletDirection = (hit.point - spawners[i].transform.position).normalized;
-                }
-                else
-                {
-                    bulletDirection = -spawners[i].transform.up;
-                }
+                // if (Physics.Raycast(position, -spawners[i].transform.up, out hit, 10000f, layerMask))
+                // {
+                //     bulletDirection = (hit.point - spawners[i].transform.position).normalized;
+                // }
+                // else
+                // {
+                //     bulletDirection = -spawners[i].transform.up;
+                // }
+                bulletDirection = -spawners[i].transform.up;
                 newBullet = PoolOfObject.instance.SpawnFromPool(PoolOfObject.Type.BulletTurret, spawners[i].transform.position + spawners[i].transform.up * -3, transform.rotation);
                 newBullet.GetComponent<Rigidbody>().velocity = bulletDirection * shotSpeed;
                 newBullet.GetComponent<TurretBulletBehaviour>().SetDamage(damage);

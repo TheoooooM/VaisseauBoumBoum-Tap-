@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Mathematics;
 using UnityEngine;
 
 public class SniperTurret : Turrets
@@ -22,8 +23,9 @@ public class SniperTurret : Turrets
         shotCDRemaining = shotCD;
     }
 
-
-    private PlayerController pc;
+    
+    
+    private PlayerBehavior pb;
     Vector3 rayTargetPosition;
     bool hitPlayer;
     Ray ray;
@@ -39,32 +41,44 @@ public class SniperTurret : Turrets
             aimRay.SetActive(false);
             return;
         }
-        aimRay.SetActive(true);
+        
         
         AimAtTarget();
         turretCDRemaining -= Time.deltaTime;
 
-        if (turretCDRemaining <= 0 || true)
+        if (turretCDRemaining <= 0)
         {
-            rayTargetPosition = spawners[0].transform.position + spawners[0].transform.up * -rangeRay;
+            aimRay.SetActive(true);
+            rayTargetPosition = spawners[0].transform.position + spawners[0].transform.up * -rangeRay*2;
             hitPlayer = false;
             
             //First whe check if we can hit the player (or anything)
-            ray = new Ray(spawners[0].transform.position + spawners[0].transform.up * -1, spawners[0].transform.up * -2);
+            ray = new Ray(spawners[0].transform.position + spawners[0].transform.up * -4, spawners[0].transform.up * -6);
 
             if (Physics.Raycast(ray, out rch, rangeRay)) {
                 Vector3 targetHit = rch.point;
                 GameObject go = rch.collider.gameObject;
-
-                pc = go.GetComponent<PlayerController>();
-                hitPlayer = pc != null;
-                if (pc != null) {
-                    rayTargetPosition = spawners[0].transform.position + -spawners[0].transform.up * Vector3.Distance(target.transform.position, spawners[0].transform.position);
-                    //pc.takeDamage(dmg);
+            
+                pb = go.GetComponent<PlayerBehavior>();
+                hitPlayer = pb != null;
+                if (pb != null) {
+                    rayTargetPosition = spawners[0].transform.position + -spawners[0].transform.up * Vector3.Distance(go.transform.position, spawners[0].transform.position);
+                    aimTimeRemaining -= Time.deltaTime;
                  }
                 else
                 {
                     turretCDRemaining = turretCD;
+                    aimTimeRemaining = aimTime;
+                }
+                
+                if (go != null && !hitPlayer) aimRay.SetActive(false);
+
+                if (hitPlayer && aimTimeRemaining < 0)
+                {
+                    pb.Hit(damage);
+                    aimRay.SetActive(false);
+                    turretCDRemaining = turretCD;
+                    aimTimeRemaining = aimTime;
                 }
             }
             
@@ -73,18 +87,8 @@ public class SniperTurret : Turrets
             aimRay.transform.position = (rayTargetPosition + spawners[0].transform.position) / 2;
 
             Vector3 scale = aimRay.transform.localScale;
-            scale.y = (1 / head.transform.localScale.y) * Vector3.Distance(hitPlayer ? target.transform.position : rayTargetPosition, spawners[0].transform.position) / 2;
+            scale.y = (1 / transform.localScale.y) * (1 / head.transform.localScale.y) * Vector3.Distance(hitPlayer ? target.transform.position : rayTargetPosition, spawners[0].transform.position) / 2;
             aimRay.transform.localScale = scale;
-            
-            
-            if (!isShooting)
-            {
-                isShooting = true;
-                aimTimeRemaining = aimTime;
-            }
-            aimTimeRemaining -= Time.deltaTime;
-
-            //TODO turretCDRemaining
         }
     }
     
