@@ -25,6 +25,7 @@ public class TurretBulletBehaviour : BulletBehaviour
         {
             other.GetComponent<PlayerBehavior>().Hit(damage);
         }
+        Debug.Log(other.name);
         
         PoolOfObject.instance.SpawnFromPool(PoolOfObject.Type.Explosion, transform.position, quaternion.identity);
         gameObject.SetActive(false);

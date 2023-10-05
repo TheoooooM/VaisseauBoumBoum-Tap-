@@ -1,5 +1,6 @@
 using System;
 using System.Collections;
+using Enemies;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
@@ -175,7 +176,7 @@ public class PlayerController : MonoBehaviour
         RaycastHit hit;
         var position = camera.transform.position;
         var bulletDirection = Vector3.zero;
-        if (Physics.Raycast(position, camera.transform.forward, out hit, 350f, layerMask))
+        if (Physics.Raycast(position, camera.transform.forward, out hit, 350f, layerMask) && hit.collider.gameObject.GetComponent<IHitable>()!=null)
         {
             crossHair.color = Color.red;
             bulletDirection = (hit.point - shootingPoint.position).normalized;

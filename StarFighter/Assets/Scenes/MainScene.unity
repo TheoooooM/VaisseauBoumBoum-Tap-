@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.029721849, g: 0.017746871, b: 0.019853447, a: 1}
+  m_IndirectSpecularColor: {r: 0.029864224, g: 0.017756902, b: 0.019992072, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -270,7 +270,7 @@ MonoBehaviour:
     prefab: {fileID: 5741290204836405921, guid: b964663f0b1951242a4cd35aed7aa076,
       type: 3}
   - objectType: 2
-    count: 15
+    count: 1500
     prefab: {fileID: 5583715297724301045, guid: 27ce04ba554768b4082d69fb455127c1,
       type: 3}
 --- !u!4 &85761516
@@ -1577,6 +1577,79 @@ MonoBehaviour:
   lerpSpeed: 0.3
   minLerpSpeed: 0.2
   target: {fileID: 656993868}
+--- !u!1001 &645245114
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4766107197385692721, guid: 343fa78c7edf57645b5199e5dfe298ae,
+        type: 3}
+      propertyPath: m_Name
+      value: Turret Burst 1 shots
+      objectReference: {fileID: 0}
+    - target: {fileID: 4774856655253692019, guid: 343fa78c7edf57645b5199e5dfe298ae,
+        type: 3}
+      propertyPath: shotSpeed
+      value: 500
+      objectReference: {fileID: 0}
+    - target: {fileID: 6566040445324367370, guid: 343fa78c7edf57645b5199e5dfe298ae,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -13.757232
+      objectReference: {fileID: 0}
+    - target: {fileID: 6566040445324367370, guid: 343fa78c7edf57645b5199e5dfe298ae,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6566040445324367370, guid: 343fa78c7edf57645b5199e5dfe298ae,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.18302608
+      objectReference: {fileID: 0}
+    - target: {fileID: 6566040445324367370, guid: 343fa78c7edf57645b5199e5dfe298ae,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6566040445324367370, guid: 343fa78c7edf57645b5199e5dfe298ae,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6566040445324367370, guid: 343fa78c7edf57645b5199e5dfe298ae,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6566040445324367370, guid: 343fa78c7edf57645b5199e5dfe298ae,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6566040445324367370, guid: 343fa78c7edf57645b5199e5dfe298ae,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6566040445324367370, guid: 343fa78c7edf57645b5199e5dfe298ae,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6566040445324367370, guid: 343fa78c7edf57645b5199e5dfe298ae,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 343fa78c7edf57645b5199e5dfe298ae, type: 3}
 --- !u!1 &656993867
 GameObject:
   m_ObjectHideFlags: 0
@@ -18774,6 +18847,11 @@ PrefabInstance:
       propertyPath: target
       value: 
       objectReference: {fileID: 1754497931}
+    - target: {fileID: 8095343212596434060, guid: 896739e33a193344ea24b53ed0915c7b,
+        type: 3}
+      propertyPath: maxLife
+      value: 9999
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -24562,6 +24640,11 @@ PrefabInstance:
       propertyPath: controlType
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 4117128625084939432, guid: 30d31cdbf7762514e935908a35b3317e,
+        type: 3}
+      propertyPath: heightDistance
+      value: 0.06
+      objectReference: {fileID: 0}
     - target: {fileID: 4515779545610515516, guid: 30d31cdbf7762514e935908a35b3317e,
         type: 3}
       propertyPath: m_Layer
@@ -24665,3 +24748,4 @@ SceneRoots:
   - {fileID: 1851155885}
   - {fileID: 1799177630}
   - {fileID: 1545592379}
+  - {fileID: 645245114}

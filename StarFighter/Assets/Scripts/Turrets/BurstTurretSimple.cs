@@ -11,7 +11,7 @@ public class BurstTurretSimple : Turrets
         turretCDRemaining = turretCD;
         isShooting = false;
         shotFired = 0;
-
+        target = PlayerController.instance.gameObject;
         shotCDRemaining = shotCD;
     }
 

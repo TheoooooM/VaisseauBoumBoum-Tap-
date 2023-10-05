@@ -1,8 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
+using Enemies;
 using UnityEngine;
 
-public class Turrets : MonoBehaviour
+public class Turrets : MonoBehaviour, IHitable
 {
     [Header("Components & targets")]
     [SerializeField] protected GameObject target;
@@ -10,6 +11,7 @@ public class Turrets : MonoBehaviour
     [SerializeField] protected GameObject head;
     [SerializeField] protected LayerMask layerMask;
     [SerializeField] protected float offsetAim = 0;
+    [SerializeField] private Animator animator;
     
     
     [Header("Combat variables")]
@@ -27,6 +29,7 @@ public class Turrets : MonoBehaviour
     
     [Header("CD between each shot of one burst")]
     [SerializeField] protected float shotCD = 0.2f;
+
     
     
     protected float shotCDRemaining = 0;
@@ -41,7 +44,7 @@ public class Turrets : MonoBehaviour
         turretCDRemaining = turretCD;
         isShooting = false;
         shotFired = 0;
-
+        target = PlayerController.instance.gameObject;
         shotCDRemaining = shotCD;
     }
 
@@ -74,8 +77,8 @@ public class Turrets : MonoBehaviour
                 // {
                 //     bulletDirection = -spawners[i].transform.up;
                 // }
-                bulletDirection = -spawners[i].transform.up;
-                newBullet = PoolOfObject.instance.SpawnFromPool(PoolOfObject.Type.BulletTurret, spawners[i].transform.position + spawners[i].transform.up * -3, transform.rotation);
+                bulletDirection = spawners[i].transform.forward;
+                newBullet = PoolOfObject.instance.SpawnFromPool(PoolOfObject.Type.BulletTurret, spawners[i].transform.position, transform.rotation);
                 newBullet.GetComponent<Rigidbody>().velocity = bulletDirection * shotSpeed;
                 newBullet.GetComponent<TurretBulletBehaviour>().SetDamage(damage);
         }
@@ -147,5 +150,10 @@ public class Turrets : MonoBehaviour
     public void SetTarget(GameObject go)
     {
         target = go;
+    }
+
+    public void Hit(int amount)
+    {
+        animator.Play("OnHit");
     }
 }
