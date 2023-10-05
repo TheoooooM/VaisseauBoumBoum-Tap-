@@ -8,7 +8,6 @@ public class BulletBehaviour : MonoBehaviour
 {
 
     [SerializeField] private ParticleSystem explosion;
-    TrailRenderer[] trails;
     [SerializeField] private float lifespan;
     private float spawnTime;
     protected int damage = 10;
@@ -16,10 +15,6 @@ public class BulletBehaviour : MonoBehaviour
 
     private EnemyBehavior eb;
 
-    private void Start()
-    {
-        trails = GetComponentsInChildren<TrailRenderer>();
-    }
 
     protected virtual void OnTriggerEnter(Collider other)
     {
@@ -46,10 +41,9 @@ public class BulletBehaviour : MonoBehaviour
     private void OnEnable()
     {
         spawnTime = Time.time;
-        foreach (var trail in trails)
+        foreach (var trail in GetComponentsInChildren<TrailRenderer>())
         {
             trail.Clear();
-            //transform.GetComponentInChildren<TrailRenderer>().Clear();
         }
     }
 
