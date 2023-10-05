@@ -58,7 +58,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float heightDistance = 0.2f;
     private float maxAngle;
     [SerializeField] private Transform camera;
-
+    [SerializeField] private CameraShakeScriptable shootingShake;
     [SerializeField] private Transform debugger;
     private void Awake()
     {
@@ -257,9 +257,11 @@ public class PlayerController : MonoBehaviour
         //hitPointDebug.transform.position = hit.point;
         if (isShooting && Time.time >= lastShootTime + 1 / shootingRate)
         {
+            CameraShake.instance.AddShakeEvent(shootingShake);
             lastShootTime = Time.time;
             var newBullet = PoolOfObject.instance.SpawnFromPool(PoolOfObject.Type.Bullet, shootingPoint.position, transform.rotation);
             newBullet.GetComponent<Rigidbody>().velocity = bulletDirection * bulletSpeed;
+            
         }
 
     }

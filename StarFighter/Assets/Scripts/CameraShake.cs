@@ -1,9 +1,11 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 using static UnityEngine.Random;
 
 public class CameraShake : MonoBehaviour
 {
+    public static CameraShake instance;
     public class ShakeEvent
     {
         private float duration;
@@ -65,6 +67,11 @@ public class CameraShake : MonoBehaviour
             Debug.Log("je suis en vie");
             return timeRemaning > 0.0f;
         }
+    }
+
+    private void Awake()
+    {
+        instance = this;
     }
 
     public List<ShakeEvent> shakeEvents = new List<ShakeEvent>();
