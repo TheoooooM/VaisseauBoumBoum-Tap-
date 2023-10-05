@@ -13,7 +13,7 @@ public class RumbleManager : MonoBehaviour
         if(currentGamepad == null) return;
         if (isRumbling) return;
         isRumbling = true;
-        currentGamepad.SetMotorSpeeds(rumble.lowRumble, rumble.highRumble);
+        if(rumble)currentGamepad.SetMotorSpeeds(rumble.lowRumble, rumble.highRumble);
         await Task.Delay((int)(rumble.duration * 1000));
         
         StopRumble();
