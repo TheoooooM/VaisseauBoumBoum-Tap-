@@ -8,9 +8,10 @@ public class MissileTurret : Turrets
     //public GameObject bulletPrefab;
     
     // Start is called before the first frame update
-    void Start()
+    public override void Start()
     {
         target = PlayerController.instance.gameObject;
+        animator = GetComponent<Animator>();
     }
 
     // Update is called once per frame

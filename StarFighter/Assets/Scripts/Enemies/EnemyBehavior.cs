@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using TMPro;
 using UnityEngine;
@@ -6,17 +7,16 @@ using UnityEngine.Serialization;
 public class EnemyBehavior : MonoBehaviour
 {
     [Header("Max")] 
-    [SerializeField] int maxLife = 100;
-    [SerializeField] int maxShield = 30;
+    [SerializeField] protected int maxLife = 100;
+    [SerializeField] protected int maxShield = 30;
     [FormerlySerializedAs("OnLifeShieldCooldown")]
     [Header("Shield Regenation")] 
     [SerializeField] private float OnLifeCooldown = 4f;
     [SerializeField] private float OnShieldCooldown = 1f;
     [SerializeField] private float regenCooldown = .2f;
-    /*[Header("Debug")]
-    [SerializeField]TextMeshProUGUI lifeText;
-    [SerializeField]TextMeshProUGUI shieldText;*/
-
+    [Space] 
+    [SerializeField] private EnemyLifeBar enemyLifeBar;
+    [Space]
     [Header("Current Health/Shield")] //TODO remove SerializeField
     [SerializeField] protected int life;
     [SerializeField] protected int shield;
@@ -48,9 +48,16 @@ public class EnemyBehavior : MonoBehaviour
         else
         {
             life -= damage;
-            if(life <= 0) Destroy();
+            if (life <= 0)
+            {
+                PoolOfObject.instance.SpawnFromPool(PoolOfObject.Type.EnemyExplosion, transform.position,
+                    Quaternion.identity);
+                Destroy();
+            }
+            
         }
         ResetShieldRegen();
+        UpdateStats();
     }
 
     void ResetShieldRegen()
@@ -73,7 +80,13 @@ public class EnemyBehavior : MonoBehaviour
     {
         return false;
     }
-        
+
+    protected virtual void UpdateStats()
+    {
+        if (enemyLifeBar) enemyLifeBar.UpdateStats(life, shield, maxLife);
+    }
+
+
 
     IEnumerator ShieldCoolDown()
     {
@@ -81,6 +94,7 @@ public class EnemyBehavior : MonoBehaviour
         else yield return new WaitForSeconds(OnShieldCooldown);
         isShield = true;
         shield++;
+        UpdateStats();
         ShieldRegenCoroutine = StartCoroutine(ShieldRegen());
     }
 
@@ -88,6 +102,7 @@ public class EnemyBehavior : MonoBehaviour
     {
         yield return new WaitForSeconds(regenCooldown);
         shield++;
+        UpdateStats();
         if (shield < maxShield) ShieldRegenCoroutine = StartCoroutine(ShieldRegen()); 
     }
 }

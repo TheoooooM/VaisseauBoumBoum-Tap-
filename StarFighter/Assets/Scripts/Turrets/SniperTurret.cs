@@ -13,14 +13,10 @@ public class SniperTurret : Turrets
 
     
     // Start is called before the first frame update
-    void Start()
+    public override void Start()
     {
-        turretCDRemaining = turretCD;
+        base.Start();
         aimTimeRemaining = aimTime;
-        isShooting = false;
-        shotFired = 0;
-        target = PlayerController.instance.gameObject;
-        shotCDRemaining = shotCD;
     }
 
 

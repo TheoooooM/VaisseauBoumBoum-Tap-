@@ -30,7 +30,7 @@ public class BulletBehaviour : MonoBehaviour
         }
         if(hitable != null)hitable.Hit(damage);
         
-        
+        //Debug.Break();
         PoolOfObject.instance.SpawnFromPool(PoolOfObject.Type.Explosion, transform.position, quaternion.identity);
         gameObject.SetActive(false);
     }
