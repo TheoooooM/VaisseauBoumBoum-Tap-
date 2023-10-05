@@ -10,6 +10,7 @@ public class RumbleManager : MonoBehaviour
     
     public async void RumbleConstant(RumbleScriptable rumble)
     {
+        if(currentGamepad == null) return;
         if (isRumbling) return;
         isRumbling = true;
         currentGamepad.SetMotorSpeeds(rumble.lowRumble, rumble.highRumble);
@@ -20,6 +21,7 @@ public class RumbleManager : MonoBehaviour
 
     public void StopRumble()
     {
+        if(currentGamepad == null) return;
         Gamepad.current.SetMotorSpeeds(0, 0);
         isRumbling = false;
     }

@@ -9,7 +9,7 @@ public class EnemyLifeBar : MonoBehaviour
 
     private void Update()
     {
-        transform.LookAt(PlayerController.instance.transform.position);
+        ///transform.LookAt(PlayerController.instance.transform.position);
     }
 
     public void UpdateStats(int currentLife, int currentShield, int maxLife)
