@@ -269,10 +269,9 @@ public class PlayerController : MonoBehaviour
             bulletDirection = camera.transform.forward; 
             
         }
-        //hitPointDebug.transform.position = hit.point;
         if (isShooting && Time.time >= lastShootTime + 1 / shootingRate)
         {
-            CameraShake.instance.AddShakeEvent(shootingShake);
+            GameManager.instance.cameraShakeManager.AddShakeEvent(shootingShake);
             GameManager.instance.rumbleManager.RumbleConstant(shootingRumble);
             lastShootTime = Time.time;
             var newBullet = PoolOfObject.instance.SpawnFromPool(PoolOfObject.Type.Bullet, shootingPoint.position, transform.rotation);

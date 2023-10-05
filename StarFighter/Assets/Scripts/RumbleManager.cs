@@ -19,6 +19,12 @@ public class RumbleManager : MonoBehaviour
         StopRumble();
     }
 
+    public void OverrideRumble(RumbleScriptable rumble)
+    {
+        StopRumble();
+        RumbleConstant(rumble);
+    }
+
     public void StopRumble()
     {
         if(currentGamepad == null) return;

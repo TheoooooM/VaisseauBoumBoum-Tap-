@@ -14617,7 +14617,7 @@ MonoBehaviour:
   heightDistance: 0.06
   camera: {fileID: 0}
   shootingShake: {fileID: 11400000, guid: b432c2caae2fc9d418b9917a55f56657, type: 2}
-  shootingRumble: {fileID: 0}
+  shootingRumble: {fileID: 11400000, guid: 39574b514ee0c5842bfef284617fb4be, type: 2}
   debugger: {fileID: 0}
   spinCleanRadius: 100
 --- !u!65 &7998986421536151665
@@ -14710,6 +14710,42 @@ MonoBehaviour:
   enemyLifeBar: {fileID: 0}
   life: 0
   shield: 0
+  shieldBreak: {fileID: 11400000, guid: b62e249e60967614db34bd73341a16cb, type: 2}
+  shieldBreakCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: -0
+      outSlope: -0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.5
+    - serializedVersion: 3
+      time: 0.2833308
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.3852459
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0.011098781
+      outSlope: 0.011098781
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.41803274
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  hitCameraShake: {fileID: 11400000, guid: d98ed10d55c48614283dd91ff9afb445, type: 2}
+  hitRumble: {fileID: 11400000, guid: 12fe9542026560748b4d9d10685b4b55, type: 2}
 --- !u!1 &8175410651439800017
 GameObject:
   m_ObjectHideFlags: 0

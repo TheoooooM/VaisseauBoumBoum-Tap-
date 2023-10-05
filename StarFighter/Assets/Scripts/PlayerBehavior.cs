@@ -7,6 +7,8 @@ public class PlayerBehavior : EnemyBehavior
     private float shieldTime;
     [SerializeField] private VolumeProfile shieldBreak;
     [SerializeField] private AnimationCurve shieldBreakCurve;
+    [SerializeField] private CameraShakeScriptable hitCameraShake;
+    [SerializeField] private RumbleScriptable hitRumble;
     protected override void Start()
     {
         base.Start();
@@ -16,6 +18,8 @@ public class PlayerBehavior : EnemyBehavior
     public override void Hit(int damage = 1, bool overflow = false)
     {
         base.Hit(damage, overflow);
+        GameManager.instance.cameraShakeManager.AddShakeEvent(hitCameraShake);
+        GameManager.instance.rumbleManager.OverrideRumble(hitRumble);
         UIManager.Instance.UpdateStats(life,shield, maxLife);
     }
 
@@ -24,7 +28,6 @@ public class PlayerBehavior : EnemyBehavior
         if (shield <= 0 && shieldTime < 70)
         {
             ShieldBreakFeedback();
-            
         }
         if (shield > 0) shieldTime = 0;
     }

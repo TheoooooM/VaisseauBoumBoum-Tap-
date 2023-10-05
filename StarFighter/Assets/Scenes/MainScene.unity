@@ -988,6 +988,7 @@ GameObject:
   m_Component:
   - component: {fileID: 342254360}
   - component: {fileID: 342254359}
+  - component: {fileID: 342254361}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -1027,6 +1028,23 @@ Transform:
   - {fileID: 46373781}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &342254361
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 342254357}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 172515602e62fb746b5d573b38a5fe58, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_IsGlobal: 1
+  priority: 0
+  blendDistance: 0
+  weight: 1
+  sharedProfile: {fileID: 11400000, guid: f7098518033d35e46a15ad3937956bb6, type: 2}
 --- !u!1 &386393848
 GameObject:
   m_ObjectHideFlags: 0
@@ -3976,6 +3994,7 @@ MonoBehaviour:
   lifeBar: {fileID: 1828291604}
   shieldBar: {fileID: 2078100385}
   pauseMenu: {fileID: 537515283}
+  gameOverMenu: {fileID: 0}
 --- !u!4 &1267011686
 Transform:
   m_ObjectHideFlags: 0
@@ -5565,6 +5584,7 @@ MonoBehaviour:
   OnLifeCooldown: 4
   OnShieldCooldown: 1
   regenCooldown: 0.2
+  regenFactor: 2
   enemyLifeBar: {fileID: 0}
   life: 0
   shield: 0
@@ -6448,112 +6468,10 @@ PrefabInstance:
       propertyPath: crossHair
       value: 
       objectReference: {fileID: 441912402}
-    - target: {fileID: 4117128625084939432, guid: 30d31cdbf7762514e935908a35b3317e,
-        type: 3}
-      propertyPath: shootingRumble
-      value: 
-      objectReference: {fileID: 11400000, guid: 39574b514ee0c5842bfef284617fb4be,
-        type: 2}
     - target: {fileID: 5452050754024328513, guid: 30d31cdbf7762514e935908a35b3317e,
         type: 3}
       propertyPath: maxShield
       value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 5452050754024328513, guid: 30d31cdbf7762514e935908a35b3317e,
-        type: 3}
-      propertyPath: shieldBreak
-      value: 
-      objectReference: {fileID: 11400000, guid: b62e249e60967614db34bd73341a16cb,
-        type: 2}
-    - target: {fileID: 5452050754024328513, guid: 30d31cdbf7762514e935908a35b3317e,
-        type: 3}
-      propertyPath: shieldBreakCurve.m_Curve.Array.size
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 5452050754024328513, guid: 30d31cdbf7762514e935908a35b3317e,
-        type: 3}
-      propertyPath: shieldBreakCurve.m_Curve.Array.data[1].time
-      value: 0.2833308
-      objectReference: {fileID: 0}
-    - target: {fileID: 5452050754024328513, guid: 30d31cdbf7762514e935908a35b3317e,
-        type: 3}
-      propertyPath: shieldBreakCurve.m_Curve.Array.data[2].time
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5452050754024328513, guid: 30d31cdbf7762514e935908a35b3317e,
-        type: 3}
-      propertyPath: shieldBreakCurve.m_Curve.Array.data[0].value
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5452050754024328513, guid: 30d31cdbf7762514e935908a35b3317e,
-        type: 3}
-      propertyPath: shieldBreakCurve.m_Curve.Array.data[1].value
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5452050754024328513, guid: 30d31cdbf7762514e935908a35b3317e,
-        type: 3}
-      propertyPath: shieldBreakCurve.m_Curve.Array.data[0].inSlope
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5452050754024328513, guid: 30d31cdbf7762514e935908a35b3317e,
-        type: 3}
-      propertyPath: shieldBreakCurve.m_Curve.Array.data[1].inSlope
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5452050754024328513, guid: 30d31cdbf7762514e935908a35b3317e,
-        type: 3}
-      propertyPath: shieldBreakCurve.m_Curve.Array.data[2].inSlope
-      value: 0.011098781
-      objectReference: {fileID: 0}
-    - target: {fileID: 5452050754024328513, guid: 30d31cdbf7762514e935908a35b3317e,
-        type: 3}
-      propertyPath: shieldBreakCurve.m_Curve.Array.data[0].outSlope
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5452050754024328513, guid: 30d31cdbf7762514e935908a35b3317e,
-        type: 3}
-      propertyPath: shieldBreakCurve.m_Curve.Array.data[1].inWeight
-      value: 0.33333334
-      objectReference: {fileID: 0}
-    - target: {fileID: 5452050754024328513, guid: 30d31cdbf7762514e935908a35b3317e,
-        type: 3}
-      propertyPath: shieldBreakCurve.m_Curve.Array.data[1].outSlope
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5452050754024328513, guid: 30d31cdbf7762514e935908a35b3317e,
-        type: 3}
-      propertyPath: shieldBreakCurve.m_Curve.Array.data[2].inWeight
-      value: 0.41803274
-      objectReference: {fileID: 0}
-    - target: {fileID: 5452050754024328513, guid: 30d31cdbf7762514e935908a35b3317e,
-        type: 3}
-      propertyPath: shieldBreakCurve.m_Curve.Array.data[2].outSlope
-      value: 0.011098781
-      objectReference: {fileID: 0}
-    - target: {fileID: 5452050754024328513, guid: 30d31cdbf7762514e935908a35b3317e,
-        type: 3}
-      propertyPath: shieldBreakCurve.m_Curve.Array.data[0].outWeight
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 5452050754024328513, guid: 30d31cdbf7762514e935908a35b3317e,
-        type: 3}
-      propertyPath: shieldBreakCurve.m_Curve.Array.data[1].outWeight
-      value: 0.3852459
-      objectReference: {fileID: 0}
-    - target: {fileID: 5452050754024328513, guid: 30d31cdbf7762514e935908a35b3317e,
-        type: 3}
-      propertyPath: shieldBreakCurve.m_Curve.Array.data[0].tangentMode
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5452050754024328513, guid: 30d31cdbf7762514e935908a35b3317e,
-        type: 3}
-      propertyPath: shieldBreakCurve.m_Curve.Array.data[1].tangentMode
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5452050754024328513, guid: 30d31cdbf7762514e935908a35b3317e,
-        type: 3}
-      propertyPath: shieldBreakCurve.m_Curve.Array.data[2].tangentMode
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6822618386346328554, guid: 30d31cdbf7762514e935908a35b3317e,
         type: 3}
