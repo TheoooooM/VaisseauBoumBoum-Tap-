@@ -2,7 +2,7 @@ using System;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
-using UnityEngine.UIElements;
+using UnityEngine.UI;
 
 enum Controller
 {
@@ -49,12 +49,16 @@ public class PlayerController : MonoBehaviour
 
     [SerializeField] private float shootingRate;
     [SerializeField] private float bulletSpeed;
-    [SerializeField] private Rigidbody bullet;
     [SerializeField] private Transform shootingPoint;
-    [SerializeField] private GameObject hitPointDebug;
     [SerializeField] private LayerMask layerMask;
+    [SerializeField] private Image crossHair;
+    private Transform targetObject;
     private float lastShootTime;
-    private Camera camera;
+    [SerializeField] private float heightDistance = 0.2f;
+    private float maxAngle;
+    [SerializeField] private Transform camera;
+
+    [SerializeField] private Transform debugger;
     private void Awake()
     {
         _inputs = new StarshipController();
@@ -149,7 +153,11 @@ public class PlayerController : MonoBehaviour
     private void Start()
     {
         _rb = GetComponent<Rigidbody>();
-        camera = Camera.main;
+        //camera = Camera.main;
+        var cameraTransform = camera.transform;
+        maxAngle = Vector3.Angle(cameraTransform.forward,
+            cameraTransform.forward + (cameraTransform.up * heightDistance));
+
     }
 
     private void Update()
@@ -167,13 +175,69 @@ public class PlayerController : MonoBehaviour
         RaycastHit hit;
         var position = camera.transform.position;
         var bulletDirection = Vector3.zero;
-        if (Physics.Raycast(position, camera.transform.forward, out hit, 10000f, layerMask))
+        if (Physics.Raycast(position, camera.transform.forward, out hit, 350f, layerMask))
         {
+            crossHair.color = Color.red;
             bulletDirection = (hit.point - shootingPoint.position).normalized;
+            targetObject = hit.collider.transform;
+        }
+        else if (targetObject) 
+        {
+            var objectAngle = Vector3.Angle(camera.transform.forward, targetObject.position- transform.position);
+            Debug.DrawRay(transform.position, camera.transform.forward, Color.black, 5);
+            Debug.DrawRay(transform.position, (targetObject.position - transform.position).normalized, Color.red,5);
+            if (objectAngle < maxAngle)
+            {
+                crossHair.color = Color.red;
+                bulletDirection = (hit.point - shootingPoint.position).normalized;
+            }
+            else
+            {
+                var objectVector = targetObject.position - camera.transform.position;
+                Debug.DrawRay(camera.position, objectVector, Color.green, 5f);
+                var objectMagnitude = objectVector.magnitude;
+
+                var adjacentLength = Mathf.Cos(objectAngle*Mathf.Deg2Rad) * objectMagnitude;
+                Debug.DrawRay(camera.position, camera.forward* adjacentLength, Color.yellow, 5f);
+                var direction = (targetObject.position - (camera.position + camera.forward * adjacentLength)).normalized;
+                Debug.DrawRay(camera.position + camera.forward * adjacentLength, direction, Color.magenta, 5f);
+                var maxHeightValue = Mathf.Tan(maxAngle* Mathf.Deg2Rad) * adjacentLength;
+                Debug.DrawRay(camera.position + camera.forward * adjacentLength, direction*maxHeightValue, Color.white, 5f);
+                var point = (camera.position + camera.transform.forward * adjacentLength) + direction * maxHeightValue;
+                debugger.position = point;
+                var rayDir = point - camera.transform.position;
+                if (Physics.Raycast(camera.transform.position, rayDir, out hit, 350f, layerMask))
+                {
+                    Debug.DrawRay(camera.position, rayDir, Color.blue, 5f);
+                    if (hit.transform.gameObject == targetObject.gameObject)
+                    {
+                        crossHair.color = Color.red;
+                        bulletDirection = (hit.point - shootingPoint.position).normalized;
+                    }
+                    else
+                    {
+                        crossHair.color = Color.white;
+                        targetObject = null;
+                        bulletDirection = camera.transform.forward; 
+                    }
+                }
+                else
+                {
+                    Debug.DrawRay(camera.position, rayDir, Color.red, 5f);
+
+                    targetObject = null;
+                    crossHair.color = Color.white;
+                    bulletDirection = camera.transform.forward; 
+                }
+
+            }
         }
         else
         {
-            bulletDirection = camera.transform.forward;
+            targetObject = null;
+            crossHair.color = Color.white;
+            bulletDirection = camera.transform.forward; 
+            
         }
         //hitPointDebug.transform.position = hit.point;
         if (isShooting && Time.time >= lastShootTime + 1 / shootingRate)
