@@ -59,6 +59,7 @@ public class PlayerController : MonoBehaviour
     private float maxAngle;
     [SerializeField] private Transform camera;
     [SerializeField] private CameraShakeScriptable shootingShake;
+    [SerializeField] private RumbleScriptable shootingRumble;
     [SerializeField] private Transform debugger;
     private void Awake()
     {
@@ -102,7 +103,11 @@ public class PlayerController : MonoBehaviour
                     VFXThrottle.SetActive(false);
                 };
                 _inputs.DualStick.Shoot.performed += shoot => isShooting = true;
-                _inputs.DualStick.Shoot.canceled += shoot => isShooting = false;
+                _inputs.DualStick.Shoot.canceled += shoot =>
+                {
+                    GameManager.instance.rumbleManager.StopRumble();
+                    isShooting = false;
+                };
                 _inputs.DualStick.Spin.started += _ => trySpin = !spinning;
                 _inputs.DualStick.Spin.canceled += _ => trySpin = false;
                 break;
@@ -125,7 +130,11 @@ public class PlayerController : MonoBehaviour
                     VFXThrottle.SetActive(false);
                 };
                 _inputs.ChorusMapping.Shoot.performed += shoot => isShooting = true;
-                _inputs.ChorusMapping.Shoot.canceled += shoot => isShooting = false;
+                _inputs.ChorusMapping.Shoot.canceled += shoot =>
+                {
+                    GameManager.instance.rumbleManager.StopRumble();
+                    isShooting = false;
+                };
                 
                 _inputs.ChorusMapping.Spin.started += _ => trySpin = !spinning;
                 _inputs.ChorusMapping.Spin.canceled += _ => trySpin = false;
@@ -258,6 +267,7 @@ public class PlayerController : MonoBehaviour
         if (isShooting && Time.time >= lastShootTime + 1 / shootingRate)
         {
             CameraShake.instance.AddShakeEvent(shootingShake);
+            GameManager.instance.rumbleManager.RumbleConstant(shootingRumble);
             lastShootTime = Time.time;
             var newBullet = PoolOfObject.instance.SpawnFromPool(PoolOfObject.Type.Bullet, shootingPoint.position, transform.rotation);
             newBullet.GetComponent<Rigidbody>().velocity = bulletDirection * bulletSpeed;

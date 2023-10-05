@@ -939,6 +939,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a74d928a13b4ba543ba454fbb15edc1f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  rumbleManager: {fileID: 507151940}
+  cameraShakeManager: {fileID: 459485399}
 --- !u!4 &342254360
 Transform:
   m_ObjectHideFlags: 0
@@ -951,7 +953,8 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 507151941}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &386393848
@@ -1465,6 +1468,51 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 501751796}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &507151939
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 507151941}
+  - component: {fileID: 507151940}
+  m_Layer: 0
+  m_Name: RumbleManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &507151940
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 507151939}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b9791044c3ae35845875857af2cb77b6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isRumbling: 0
+--- !u!4 &507151941
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 507151939}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 342254360}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &510833607
 GameObject:
   m_ObjectHideFlags: 0
@@ -6401,6 +6449,12 @@ PrefabInstance:
       propertyPath: crossHair
       value: 
       objectReference: {fileID: 441912402}
+    - target: {fileID: 4117128625084939432, guid: 30d31cdbf7762514e935908a35b3317e,
+        type: 3}
+      propertyPath: shootingRumble
+      value: 
+      objectReference: {fileID: 11400000, guid: 39574b514ee0c5842bfef284617fb4be,
+        type: 2}
     - target: {fileID: 6822618386346328554, guid: 30d31cdbf7762514e935908a35b3317e,
         type: 3}
       propertyPath: m_Name
