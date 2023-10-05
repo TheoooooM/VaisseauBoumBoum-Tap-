@@ -14,6 +14,7 @@ public class EnemyBehavior : MonoBehaviour
     [SerializeField] private float OnLifeCooldown = 4f;
     [SerializeField] private float OnShieldCooldown = 1f;
     [SerializeField] private float regenCooldown = .2f;
+    [SerializeField] private int regenFactor = 2;
     [Space] 
     [SerializeField] private EnemyLifeBar enemyLifeBar;
     [Space]
@@ -30,6 +31,7 @@ public class EnemyBehavior : MonoBehaviour
         life = maxLife;
         shield = maxShield;
         isShield = shield > 0;
+        UpdateStats();
     }
 
     public virtual void Hit(int damage = 1, bool overflow = false)
@@ -93,7 +95,7 @@ public class EnemyBehavior : MonoBehaviour
         if (!isShield) yield return new WaitForSeconds(OnLifeCooldown);
         else yield return new WaitForSeconds(OnShieldCooldown);
         isShield = true;
-        shield++;
+        shield+=regenFactor;
         UpdateStats();
         ShieldRegenCoroutine = StartCoroutine(ShieldRegen());
     }
@@ -101,7 +103,7 @@ public class EnemyBehavior : MonoBehaviour
     IEnumerator ShieldRegen()
     {
         yield return new WaitForSeconds(regenCooldown);
-        shield++;
+        shield+= regenFactor;
         UpdateStats();
         if (shield < maxShield) ShieldRegenCoroutine = StartCoroutine(ShieldRegen()); 
     }

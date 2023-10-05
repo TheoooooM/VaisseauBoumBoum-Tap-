@@ -13,6 +13,7 @@ public class UIManager : MonoBehaviour
     [SerializeField] private Image shieldBar;
     [Space] 
     [SerializeField] private GameObject pauseMenu;
+    [SerializeField] private GameObject gameOverMenu;
 
     private bool isPause;
 
@@ -25,6 +26,7 @@ public class UIManager : MonoBehaviour
     private void Start()
     {
         pauseMenu.SetActive(false);
+        gameOverMenu.SetActive(false);
     }
 
     public void UpdateStats(int currentLife, int currentShield, int maxLife)
@@ -36,6 +38,12 @@ public class UIManager : MonoBehaviour
     public void UpdateShield(int currentShield, int maxLife) => shieldBar.fillAmount = Mathf.Clamp((float)currentShield / maxLife,0,1);
 
 
+    public void GameOver()
+    {
+        Pause();
+        gameOverMenu.SetActive(true);
+    }
+    
     #region Pause
     public void TogglePause()
     {
@@ -61,6 +69,12 @@ public class UIManager : MonoBehaviour
     public void Resume()
     {
         Unpause();
+    }
+
+    public void Restart()
+    {
+        Unpause();
+        SceneManager.LoadScene("Level 1");
     }
 
     public void BackToMenu()
