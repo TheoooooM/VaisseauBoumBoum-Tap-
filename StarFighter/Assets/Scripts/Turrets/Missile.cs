@@ -71,7 +71,13 @@ public class Missile : MonoBehaviour
         }
     }
 
-    void OnTriggerEnter() {
+    private void OnCollisionEnter()
+    {
+        Explode();
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
         Explode();
     }
 
