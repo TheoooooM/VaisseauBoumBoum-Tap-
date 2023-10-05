@@ -131,6 +131,8 @@ public class PlayerController : MonoBehaviour
                 break;
             default: throw new ArgumentOutOfRangeException();
         }
+
+        _inputs.General.TogglePause.performed += _ => UIManager.Instance.TogglePause();
         /*_inputs.DualStick.Pitch.performed += value => _pitchValue = value.ReadValue<float>(); 
         _inputs.DualStick.Roll.performed += value => _rollValue = value.ReadValue<float>(); 
         _inputs.DualStick.Yaw.performed += value => _yawValue = value.ReadValue<float>(); 
@@ -194,18 +196,21 @@ public class PlayerController : MonoBehaviour
             else
             {
                 var objectVector = targetObject.position - camera.transform.position;
-                Debug.DrawRay(camera.position, objectVector, Color.green, 5f);
                 var objectMagnitude = objectVector.magnitude;
 
                 var adjacentLength = Mathf.Cos(objectAngle*Mathf.Deg2Rad) * objectMagnitude;
-                Debug.DrawRay(camera.position, camera.forward* adjacentLength, Color.yellow, 5f);
                 var direction = (targetObject.position - (camera.position + camera.forward * adjacentLength)).normalized;
-                Debug.DrawRay(camera.position + camera.forward * adjacentLength, direction, Color.magenta, 5f);
                 var maxHeightValue = Mathf.Tan(maxAngle* Mathf.Deg2Rad) * adjacentLength;
-                Debug.DrawRay(camera.position + camera.forward * adjacentLength, direction*maxHeightValue, Color.white, 5f);
                 var point = (camera.position + camera.transform.forward * adjacentLength) + direction * maxHeightValue;
-                debugger.position = point;
+                if(debugger)debugger.position = point;
                 var rayDir = point - camera.transform.position;
+                
+                
+                Debug.DrawRay(camera.position, objectVector, Color.green, 5f);
+                Debug.DrawRay(camera.position, camera.forward* adjacentLength, Color.yellow, 5f);
+                Debug.DrawRay(camera.position + camera.forward * adjacentLength, direction, Color.magenta, 5f);
+                Debug.DrawRay(camera.position + camera.forward * adjacentLength, direction*maxHeightValue, Color.white, 5f);
+                
                 if (Physics.Raycast(camera.transform.position, rayDir, out hit, 350f, layerMask))
                 {
                     Debug.DrawRay(camera.position, rayDir, Color.blue, 5f);

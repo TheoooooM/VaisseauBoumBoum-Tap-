@@ -1077,6 +1077,45 @@ public partial class @StarshipController: IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": false
                 }
             ]
+        },
+        {
+            ""name"": ""General"",
+            ""id"": ""9ef21d7d-804b-40c8-8feb-abbd77e5e811"",
+            ""actions"": [
+                {
+                    ""name"": ""TogglePause"",
+                    ""type"": ""Button"",
+                    ""id"": ""eab174d7-aa59-4278-bde5-b21d6f2ed92d"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""50cf69b9-f0b1-4971-9f95-97c5184e5ecb"",
+                    ""path"": ""<Gamepad>/start"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""TogglePause"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""d46fef44-dffa-4701-b152-d50a323e0dd0"",
+                    ""path"": ""<Keyboard>/escape"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""TogglePause"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
         }
     ],
     ""controlSchemes"": []
@@ -1111,6 +1150,9 @@ public partial class @StarshipController: IInputActionCollection2, IDisposable
         m_ChorusMapping_Yaw = m_ChorusMapping.FindAction("Yaw", throwIfNotFound: true);
         m_ChorusMapping_Roll = m_ChorusMapping.FindAction("Roll", throwIfNotFound: true);
         m_ChorusMapping_Spin = m_ChorusMapping.FindAction("Spin", throwIfNotFound: true);
+        // General
+        m_General = asset.FindActionMap("General", throwIfNotFound: true);
+        m_General_TogglePause = m_General.FindAction("TogglePause", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -1496,6 +1538,52 @@ public partial class @StarshipController: IInputActionCollection2, IDisposable
         }
     }
     public ChorusMappingActions @ChorusMapping => new ChorusMappingActions(this);
+
+    // General
+    private readonly InputActionMap m_General;
+    private List<IGeneralActions> m_GeneralActionsCallbackInterfaces = new List<IGeneralActions>();
+    private readonly InputAction m_General_TogglePause;
+    public struct GeneralActions
+    {
+        private @StarshipController m_Wrapper;
+        public GeneralActions(@StarshipController wrapper) { m_Wrapper = wrapper; }
+        public InputAction @TogglePause => m_Wrapper.m_General_TogglePause;
+        public InputActionMap Get() { return m_Wrapper.m_General; }
+        public void Enable() { Get().Enable(); }
+        public void Disable() { Get().Disable(); }
+        public bool enabled => Get().enabled;
+        public static implicit operator InputActionMap(GeneralActions set) { return set.Get(); }
+        public void AddCallbacks(IGeneralActions instance)
+        {
+            if (instance == null || m_Wrapper.m_GeneralActionsCallbackInterfaces.Contains(instance)) return;
+            m_Wrapper.m_GeneralActionsCallbackInterfaces.Add(instance);
+            @TogglePause.started += instance.OnTogglePause;
+            @TogglePause.performed += instance.OnTogglePause;
+            @TogglePause.canceled += instance.OnTogglePause;
+        }
+
+        private void UnregisterCallbacks(IGeneralActions instance)
+        {
+            @TogglePause.started -= instance.OnTogglePause;
+            @TogglePause.performed -= instance.OnTogglePause;
+            @TogglePause.canceled -= instance.OnTogglePause;
+        }
+
+        public void RemoveCallbacks(IGeneralActions instance)
+        {
+            if (m_Wrapper.m_GeneralActionsCallbackInterfaces.Remove(instance))
+                UnregisterCallbacks(instance);
+        }
+
+        public void SetCallbacks(IGeneralActions instance)
+        {
+            foreach (var item in m_Wrapper.m_GeneralActionsCallbackInterfaces)
+                UnregisterCallbacks(item);
+            m_Wrapper.m_GeneralActionsCallbackInterfaces.Clear();
+            AddCallbacks(instance);
+        }
+    }
+    public GeneralActions @General => new GeneralActions(this);
     public interface ICasualActions
     {
         void OnPitch(InputAction.CallbackContext context);
@@ -1529,5 +1617,9 @@ public partial class @StarshipController: IInputActionCollection2, IDisposable
         void OnYaw(InputAction.CallbackContext context);
         void OnRoll(InputAction.CallbackContext context);
         void OnSpin(InputAction.CallbackContext context);
+    }
+    public interface IGeneralActions
+    {
+        void OnTogglePause(InputAction.CallbackContext context);
     }
 }
