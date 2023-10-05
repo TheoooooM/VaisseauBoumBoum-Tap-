@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using Enemies;
 using Unity.Mathematics;
 using UnityEngine;
@@ -7,12 +8,19 @@ public class BulletBehaviour : MonoBehaviour
 {
 
     [SerializeField] private ParticleSystem explosion;
+    TrailRenderer[] trails;
     [SerializeField] private float lifespan;
     private float spawnTime;
     protected int damage = 10;
 
 
     private EnemyBehavior eb;
+
+    private void Start()
+    {
+        trails = GetComponentsInChildren<TrailRenderer>();
+    }
+
     protected virtual void OnTriggerEnter(Collider other)
     {
         eb = other.GetComponent<EnemyBehavior>();
@@ -38,11 +46,7 @@ public class BulletBehaviour : MonoBehaviour
     private void OnEnable()
     {
         spawnTime = Time.time;
-        
-        for (int i = 0; i < transform.childCount; i++)
-        {
-            transform.GetChild(i).GetComponent<TrailRenderer>().Clear();
-        }
+        transform.GetComponentInChildren<TrailRenderer>().Clear();
     }
 
     private void Update()

@@ -35201,8 +35201,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 674bd02d7dcd6fa4a8c7e54ff5b93b07, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxLife: 10000
-  maxShield: 3000
+  maxLife: 100
+  maxShield: 30
   OnLifeCooldown: 3
   OnShieldCooldown: 2
   regenCooldown: 0.2
