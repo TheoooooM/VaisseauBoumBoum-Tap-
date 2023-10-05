@@ -31,6 +31,7 @@ public class EnemyBehavior : MonoBehaviour
         life = maxLife;
         shield = maxShield;
         isShield = shield > 0;
+        UpdateStats();
     }
 
     public virtual void Hit(int damage = 1, bool overflow = false)

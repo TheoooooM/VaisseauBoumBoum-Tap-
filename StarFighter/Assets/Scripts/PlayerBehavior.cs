@@ -21,7 +21,6 @@ public class PlayerBehavior : EnemyBehavior
 
     protected override void Destroy()
     {
-        //TODO : Game over
-        Destroy(gameObject);
+        UIManager.Instance.GameOver();
     }
 }
