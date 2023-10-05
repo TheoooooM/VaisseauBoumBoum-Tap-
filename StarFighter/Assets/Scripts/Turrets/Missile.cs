@@ -95,4 +95,9 @@ public class Missile : MonoBehaviour
         target = t;
         started = true;
     }
+
+    public void LoseFocus()
+    {
+        timeFollowRemaining = 0;
+    }
 }

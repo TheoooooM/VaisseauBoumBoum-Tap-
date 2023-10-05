@@ -27,6 +27,8 @@ public class SniperTurret : Turrets
     bool hitPlayer;
     Ray ray;
     RaycastHit rch;
+
+    private Color col;
     // Update is called once per frame
     void Update()
     {
@@ -59,7 +61,12 @@ public class SniperTurret : Turrets
             //Debug.DrawRay(head.transform.position, head.transform.forward * -rangeRay, Color.red);
             //Debug.DrawRay(spawners[0].transform.position, spawners[0].transform.forward * -rangeRay, Color.green);
             
-            if (Physics.Raycast(ray, out rch, rangeRay, ~layerMask)) {
+            if (Physics.Raycast(ray, out rch, rangeRay, ~layerMask))
+            {
+                col = aimRay.GetComponent<MeshRenderer>().material.color;
+                aimRay.GetComponent<MeshRenderer>().material.color =
+                    new Color(col.r, col.g, col.b, 1f - (aimTimeRemaining / aimTime));
+                
                 Vector3 targetHit = rch.point;
                 GameObject go = rch.collider.gameObject;
 

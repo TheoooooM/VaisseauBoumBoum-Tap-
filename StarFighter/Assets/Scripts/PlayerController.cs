@@ -60,6 +60,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private Transform camera;
     [SerializeField] private CameraShakeScriptable shootingShake;
     [SerializeField] private Transform debugger;
+    [SerializeField] private float spinCleanRadius = 100;
     private void Awake()
     {
         _inputs = new StarshipController();
@@ -308,6 +309,15 @@ public class PlayerController : MonoBehaviour
         var startTime = Time.time;
         while (Time.time< startTime + spinDuration)
         {
+            Collider[] colliders = Physics.OverlapSphere(transform.position, spinCleanRadius);
+            Missile m;
+
+            foreach(Collider c in colliders) {
+                m = c.GetComponent<Missile>();
+                if (m != null) {
+                    m.LoseFocus();
+                }
+            }
             var force = transform.right * ((spinRight ? 1 : -1) * spinForce);
             _rb.AddForce(force);
             yield return new WaitForEndOfFrame();
