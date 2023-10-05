@@ -178,24 +178,32 @@ public class PlayerController : MonoBehaviour
         RaycastHit hit;
         var position = camera.transform.position;
         var bulletDirection = Vector3.zero;
+        
         if (Physics.Raycast(position, camera.transform.forward, out hit, 350f, layerMask) && hit.collider.gameObject.GetComponent<IHitable>()!=null)
         {
-            crossHair.color = Color.red;
+            //the object is hit by the center Raycast 
+            crossHair.enabled = true;
             bulletDirection = (hit.point - shootingPoint.position).normalized;
             targetObject = hit.collider.transform;
+            Debug.Log("The raycast hit the target");
+            crossHair.rectTransform.anchoredPosition = new Vector3(0, 0);
         }
         else if (targetObject) 
         {
+            //if the object is not hit by the raycast but there is a target
             var objectAngle = Vector3.Angle(camera.transform.forward, targetObject.position- transform.position);
             Debug.DrawRay(transform.position, camera.transform.forward, Color.black, 5);
             Debug.DrawRay(transform.position, (targetObject.position - transform.position).normalized, Color.red,5);
             if (objectAngle < maxAngle)
             {
-                crossHair.color = Color.red;
+                //if the angle between the crosshair and the target's center is small
+                crossHair.enabled = true;
+                crossHair.transform.position = Camera.main.WorldToScreenPoint(targetObject.position - transform.position);
                 bulletDirection = (hit.point - shootingPoint.position).normalized;
             }
             else
             {
+                //if the center is too far
                 var objectVector = targetObject.position - camera.transform.position;
                 var objectMagnitude = objectVector.magnitude;
 
@@ -203,7 +211,8 @@ public class PlayerController : MonoBehaviour
                 var direction = (targetObject.position - (camera.position + camera.forward * adjacentLength)).normalized;
                 var maxHeightValue = Mathf.Tan(maxAngle* Mathf.Deg2Rad) * adjacentLength;
                 var point = (camera.position + camera.transform.forward * adjacentLength) + direction * maxHeightValue;
-                if(debugger)debugger.position = point;
+                //debugger.position = point;
+                crossHair.transform.position = Camera.main.WorldToScreenPoint(point);
                 var rayDir = point - camera.transform.position;
                 
                 
@@ -217,12 +226,12 @@ public class PlayerController : MonoBehaviour
                     Debug.DrawRay(camera.position, rayDir, Color.blue, 5f);
                     if (hit.transform.gameObject == targetObject.gameObject)
                     {
-                        crossHair.color = Color.red;
+                        crossHair.enabled = true;
                         bulletDirection = (hit.point - shootingPoint.position).normalized;
                     }
                     else
                     {
-                        crossHair.color = Color.white;
+                        crossHair.enabled = false;
                         targetObject = null;
                         bulletDirection = camera.transform.forward; 
                     }
@@ -232,7 +241,7 @@ public class PlayerController : MonoBehaviour
                     Debug.DrawRay(camera.position, rayDir, Color.red, 5f);
 
                     targetObject = null;
-                    crossHair.color = Color.white;
+                    crossHair.enabled = false;
                     bulletDirection = camera.transform.forward; 
                 }
 
@@ -241,7 +250,7 @@ public class PlayerController : MonoBehaviour
         else
         {
             targetObject = null;
-            crossHair.color = Color.white;
+            crossHair.enabled = false;
             bulletDirection = camera.transform.forward; 
             
         }

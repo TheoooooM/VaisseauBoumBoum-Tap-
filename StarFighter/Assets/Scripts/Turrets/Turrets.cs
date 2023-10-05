@@ -11,7 +11,7 @@ public class Turrets : MonoBehaviour, IHitable
     [SerializeField] protected GameObject head;
     [SerializeField] protected LayerMask layerMask;
     [SerializeField] protected float offsetAim = 0;
-    [SerializeField] private Animator animator;
+    public Animator animator;
     
     
     [Header("Combat variables")]
@@ -39,13 +39,14 @@ public class Turrets : MonoBehaviour, IHitable
     
     
     // Start is called before the first frame update
-    void Start()
+    public virtual void Start()
     {
         turretCDRemaining = turretCD;
         isShooting = false;
         shotFired = 0;
         target = PlayerController.instance.gameObject;
         shotCDRemaining = shotCD;
+        animator = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -155,5 +156,6 @@ public class Turrets : MonoBehaviour, IHitable
     public void Hit(int amount)
     {
         animator.Play("OnHit");
+        Debug.Log("I got hit");
     }
 }
